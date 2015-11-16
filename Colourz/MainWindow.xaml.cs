@@ -30,24 +30,26 @@ namespace Colourz
 
         #region Variables
 
-        private Boolean shouldMinimize;
-        private Boolean shouldExit;
-        private Tab tab = new Tab();
-        private Boolean shouldSelect;
-        public static Boolean doingAnimation = false;
-        public static Boolean pickerShown = false;
+        private bool shouldMinimize;
+        private bool shouldExit;
+        private bool shouldSelect;
+        public static bool doingAnimation = false;
+        public static bool pickerShown = false;
+        public static SavedColourzSaver colourzSave;
+        public static SavedThemesSaver savedTheme;
 
+        private Tab tab = new Tab();
         public ColourzSlider redSlider = new ColourzSlider(Color.FromRgb(220, 125, 125));
         public ColourzSlider greenSlider = new ColourzSlider(Color.FromRgb(131, 224, 119));
         public ColourzSlider blueSlider = new ColourzSlider(Color.FromRgb(115, 143, 225));
        
         private double mouseX, mouseY;
-        private Boolean dragSelector;
+        private bool dragSelector;
 
         private byte cgRed, cgGreen, cgBlue;
         private byte index = 0;
 
-        private Boolean changeTextBox;
+        private bool changeTextBox;
         private const double WHEEL_X = 237, WHEEL_Y = 235;
 
         #endregion
@@ -163,6 +165,11 @@ namespace Colourz
             timerCT.Tick += timerCTEvent;
             timerCT.Interval = new TimeSpan(0, 0, 0, 0, 30);
 
+            colourzSave = new SavedColourzSaver(stkSavedColours);
+            colourzSave.load();
+
+            savedTheme = new SavedThemesSaver(this, CTThemes);
+            savedTheme.load();
         }
         #endregion
 
@@ -194,12 +201,32 @@ namespace Colourz
 
         private void recTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            try
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            }
+            catch
+            {
+                
+            }
         }
 
         private void lblTitle_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            DragMove();
+            try
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void cmdExit_MouseDown(object sender, MouseButtonEventArgs e)
@@ -462,6 +489,7 @@ namespace Colourz
                 }
                 imgSelector.Margin = new Thickness(mouseX, mouseY, imgSelector.Margin.Right, imgSelector.Margin.Bottom);
                 txtCWHEX.Text = "#"+ recColour.Fill.ToString().Substring(3);
+
                 Color col = (Color)ColorConverter.ConvertFromString(recColour.Fill.ToString());
                 txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B;
             }
@@ -647,7 +675,7 @@ namespace Colourz
             }
             catch
             {
-                Console.WriteLine("Fuck dat shit man !");
+                
             }
         }
 
@@ -838,7 +866,11 @@ namespace Colourz
             theme.updateTheme();
 
 
+
+
             CTThemes.Children.Insert(0, theme);
+
+            savedTheme.save();
 
             loadTheme("Theme Name", "FFFFFF", "B6B6B6", "7C7C7C", "494949", "131313");
         }
@@ -1041,7 +1073,7 @@ namespace Colourz
             {
                 stkSavedColours.Children.Remove(t);
             }
-            
+            colourzSave.save();
         }
 
         private void btnCWSave_Click(object sender, RoutedEventArgs e)
@@ -1053,6 +1085,8 @@ namespace Colourz
             stkSavedColours.Children.Add(new SavedColour(
                     stkSavedColours, "" + color.R + ", " + color.G +
                     ", " + color.B + "", "#" + hex + ""));
+
+            colourzSave.save();
 
         }
 
@@ -1074,6 +1108,7 @@ namespace Colourz
                 stkSavedColours.Children.Add(new SavedColour(
                     stkSavedColours, "" + redSlider.getValue() + ", " + greenSlider.getValue() +
                     ", " + blueSlider.getValue() + "", "#" + hex + ""));
+                colourzSave.save();
             }
             catch
             {

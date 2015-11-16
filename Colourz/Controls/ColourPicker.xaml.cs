@@ -40,9 +40,10 @@ namespace Colourz.window
             IntPtr hdc = GetDC(IntPtr.Zero);
             uint pixel = GetPixel(hdc, x, y);
             ReleaseDC(IntPtr.Zero, hdc);
-            System.Drawing.Color color = System.Drawing.Color.FromArgb((int)(pixel & 0x000000FF),
-                         (int)(pixel & 0x0000FF00) >> 8,
-                         (int)(pixel & 0x00FF0000) >> 16);
+            System.Drawing.Color color = System.Drawing.Color.FromArgb(
+                         (int)(pixel & 0x0000FF),
+                         (int)(pixel & 0x00FF00) >> 8,
+                         (int)(pixel & 0xFF0000) >> 16);
             return color;
         }
 
@@ -120,8 +121,7 @@ namespace Colourz.window
                     Convert.ToByte(green),
                     Convert.ToByte(blue));
 
-                String hex = rgb.A.ToString("X2")
-                    + rgb.R.ToString("X2") 
+                String hex =  rgb.R.ToString("X2") 
                     + rgb.G.ToString("X2") 
                     + rgb.B.ToString("X2");
 

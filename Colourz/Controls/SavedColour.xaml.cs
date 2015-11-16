@@ -21,7 +21,9 @@ namespace Colourz.Controls
     public partial class SavedColour : UserControl
     {
 
-        private String hex;
+
+
+        public String hex;
         private String rgb;
         private StackPanel owner;
         private bool selected;
@@ -89,25 +91,36 @@ namespace Colourz.Controls
 
         private void lblText_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if(selected)
+            try
             {
-                selectedColours.Remove(this);
-                selected = false;
-            }
-            else
-            {
-                selected = true;
-                selectedColours.Add(this);
-                if (Theme.blackTheme)
+                if (e.LeftButton == MouseButtonState.Pressed)
                 {
+                    if (selected)
+                    {
+                        selectedColours.Remove(this);
+                        selected = false;
+                    }
+                    else
+                    {
+                        selected = true;
+                        selectedColours.Add(this);
+                        if (Theme.blackTheme)
+                        {
 
-                    lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
-                }
-                else
-                {
-                    lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
+                            lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
+                        }
+                        else
+                        {
+                            lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
+                        }
+                    }
                 }
             }
+            catch
+            {
+
+            }
+
         }
 
         public static List<SavedColour> selectedColours = new List<SavedColour>();

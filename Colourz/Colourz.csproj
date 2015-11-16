@@ -56,18 +56,21 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Animation.cs" />
-    <Compile Include="ColourzSlider.xaml.cs">
+    <Compile Include="ColourConvertor.cs" />
+    <Compile Include="Controls\ColourzSlider.xaml.cs">
       <DependentUpon>ColourzSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ColourTheme.xaml.cs">
       <DependentUpon>ColourTheme.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\ColourzSaver.cs" />
     <Compile Include="Controls\SavedColour.xaml.cs">
       <DependentUpon>SavedColour.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Controls\SavedThemesSaver.cs" />
     <Compile Include="TabSelected.cs" />
     <Compile Include="Theme.cs" />
-    <Compile Include="window\ColourPicker.xaml.cs">
+    <Compile Include="Controls\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ColourTheme.xaml">
@@ -90,11 +93,11 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="ColourzSlider.xaml">
+    <Page Include="Controls\ColourzSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="window\ColourPicker.xaml">
+    <Page Include="Controls\ColourPicker.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

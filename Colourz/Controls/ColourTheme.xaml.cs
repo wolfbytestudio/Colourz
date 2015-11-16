@@ -21,10 +21,10 @@ namespace Colourz.Controls
     public partial class ColourTheme : UserControl
     {
 
-        private String name;
-        private Object page;
-        private Color[] colours = new Color[4];
-        private StackPanel owner;
+        public String name;
+        public Object page;
+        public Color[] colours = new Color[4];
+        public StackPanel owner;
         
         public ColourTheme(Object page, StackPanel owner, String name, params Color[] colours)
         {
@@ -174,6 +174,7 @@ namespace Colourz.Controls
         private void txtExit_MouseUp(object sender, MouseButtonEventArgs e)
         {
             owner.Children.Remove(this);
+            MainWindow.savedTheme.save();
         }
 
         private void txtExit_MouseEnter(object sender, MouseEventArgs e)
