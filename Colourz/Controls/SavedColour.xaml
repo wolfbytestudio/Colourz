@@ -5,7 +5,7 @@
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
              mc:Ignorable="d" Height="35" Width="350">
     <Grid x:Name="grdBackground" Background="#00000000">
-        <TextBlock x:Name="lblText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="RGB(0, 0, 0) Hex(#000000)" VerticalAlignment="Top" Height="35" Width="350" FontSize="20" MouseEnter="lblText_MouseEnter" MouseLeave="lblText_MouseLeave" TextAlignment="Center" MouseUp="lblText_MouseUp">
+        <TextBlock x:Name="lblText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="RGB(0, 0, 0) Hex(#000000)" VerticalAlignment="Top" Height="35" Width="350" FontSize="20" MouseEnter="lblText_MouseEnter" MouseLeave="lblText_MouseLeave" TextAlignment="Center" MouseUp="lblText_MouseUp" MouseDown="lblText_MouseDown">
             <TextBlock.ContextMenu>
                 <ContextMenu>
                     <MenuItem x:Name="menAll" Header="Copy all to clipboard" Click="menAll_Click"></MenuItem>

@@ -89,12 +89,25 @@ namespace Colourz.Controls
             owner.Children.Remove(this);
         }
 
+        bool rightClicked = false;
+        bool alreadySelected = false;
+
         private void lblText_MouseUp(object sender, MouseButtonEventArgs e)
         {
             try
             {
-                if (e.LeftButton == MouseButtonState.Pressed)
+                if (rightClicked)
                 {
+                    Console.WriteLine("Right mouse pressed");
+                    selectedColours.Remove(this);
+                    selected = false;
+                }
+                else
+                {
+                    if(alreadySelected)
+                    {
+                        return;
+                    }
                     if (selected)
                     {
                         selectedColours.Remove(this);
@@ -120,9 +133,34 @@ namespace Colourz.Controls
             {
 
             }
-
+            
         }
 
         public static List<SavedColour> selectedColours = new List<SavedColour>();
+
+        private void lblText_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            if (e.RightButton == MouseButtonState.Pressed)
+            {
+                if(selected == true)
+                {
+                    alreadySelected = true;
+                }
+                else
+                {
+                    selectedColours.Remove(this);
+                    selected = false;
+                    rightClicked = true;
+                    alreadySelected = false;
+                }
+
+            }
+            else
+            {
+                rightClicked = false;
+                alreadySelected = false;
+            }
+            
+        }
     }
 }
