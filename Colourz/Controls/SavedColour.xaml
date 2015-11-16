@@ -1,0 +1,20 @@
+﻿<UserControl x:Class="Colourz.Controls.SavedColour"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="35" Width="350">
+    <Grid x:Name="grdBackground" Background="#00000000">
+        <TextBlock x:Name="lblText" HorizontalAlignment="Left" TextWrapping="Wrap" Text="RGB(0, 0, 0) Hex(#000000)" VerticalAlignment="Top" Height="35" Width="350" FontSize="20" MouseEnter="lblText_MouseEnter" MouseLeave="lblText_MouseLeave" TextAlignment="Center" MouseUp="lblText_MouseUp">
+            <TextBlock.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="menAll" Header="Copy all to clipboard" Click="menAll_Click"></MenuItem>
+                    <MenuItem x:Name="menRgb" Header="Copy RGB to clipboard" Click="menRgb_Click"></MenuItem>
+                    <MenuItem x:Name="menHex" Header="Copy HEX to clipboard" Click="menHex_Click"></MenuItem>
+                    <MenuItem x:Name="menRemove" Header="Remove from list" Click="menRemove_Click"></MenuItem>
+                </ContextMenu>
+            </TextBlock.ContextMenu>
+        </TextBlock>
+
+    </Grid>
+</UserControl>

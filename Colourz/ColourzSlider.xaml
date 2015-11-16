@@ -1,0 +1,13 @@
+﻿<UserControl x:Class="Colourz.resource.ColourzSlider"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" Height="50" Width="553">
+    <Grid x:Name="grid">
+        <Rectangle x:Name="recBackboard" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="550" Fill="#00000000" MouseDown="recBackboard_MouseDown"/>
+        <Rectangle x:Name="recMain" Fill="#FF2D2E30" HorizontalAlignment="Left" Height="5" Margin="0,20,0,0" VerticalAlignment="Top" Width="550" MouseDown="recMain_MouseDown"/>
+        <Rectangle x:Name="recValue" Fill="#FFDC7D7D" HorizontalAlignment="Left" Height="5" Margin="0,20,0,0" VerticalAlignment="Top" Width="147" MouseDown="recValue_MouseDown"/>
+        <Rectangle x:Name="recSliderKnob" Fill="#FFF0F2F5" HorizontalAlignment="Left" Height="25" Margin="140,10,0,0" VerticalAlignment="Top" Width="9" MouseDown="recSliderKnob_MouseDown" MouseUp="recSliderKnob_MouseUp"/>
+    </Grid>
+</UserControl>

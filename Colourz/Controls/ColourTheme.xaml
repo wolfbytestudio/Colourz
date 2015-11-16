@@ -1,0 +1,54 @@
+﻿<UserControl x:Class="Colourz.Controls.ColourTheme"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:Colourz.Controls"
+             mc:Ignorable="d" Width="174.848" Height="188.997">
+    <Grid>
+        <Rectangle x:Name="recFirst" Fill="#FFF4F4F5" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="35" MouseEnter="recFirst_MouseEnter" MouseLeave="recFirst_MouseLeave" Margin="0,5,0,0" MouseDown="recFirst_MouseDown">
+            <Rectangle.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="men1Hex" Header="Copy Hex Code" Click="men1Hex_Click"></MenuItem>
+                    <MenuItem x:Name="men1RGB" Header="Copy RGB Code" Click="men1RGB_Click"></MenuItem>
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
+        <Rectangle x:Name="recSecond" Fill="#FFDADADA" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="35" Margin="35,5,0,0" MouseEnter="recSecond_MouseEnter" MouseLeave="recSecond_MouseLeave">
+            <Rectangle.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="men2Hex" Header="Copy Hex Code" Click="men2Hex_Click"></MenuItem>
+                    <MenuItem x:Name="men2RGB" Header="Copy RGB Code" Click="men2RGB_Click"></MenuItem>
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
+        <Rectangle x:Name="recThird" Fill="#FFA8A8A8" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="35" Margin="70,5,0,0" MouseEnter="recThird_MouseEnter" MouseLeave="recThird_MouseLeave">
+            <Rectangle.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="men3Hex" Header="Copy Hex Code" Click="men3Hex_Click"></MenuItem>
+                    <MenuItem x:Name="men3RGB" Header="Copy RGB Code" Click="men3RGB_Click"></MenuItem>
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
+        <Rectangle x:Name="recFourth" Fill="#FF7E7E7E" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="35" Margin="105,5,0,0" MouseEnter="recFourth_MouseEnter" MouseLeave="recFourth_MouseLeave">
+            <Rectangle.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="men4Hex" Header="Copy Hex Code" Click="men4Hex_Click"></MenuItem>
+                    <MenuItem x:Name="men4RGB" Header="Copy RGB Code" Click="men4RGB_Click"></MenuItem>
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
+        <Rectangle x:Name="recFifth" Fill="#FF555555" HorizontalAlignment="Left" Height="150" VerticalAlignment="Top" Width="35" Margin="140,5,0,0" MouseEnter="recFifth_MouseEnter" MouseLeave="recFifth_MouseLeave">
+            <Rectangle.ContextMenu>
+                <ContextMenu>
+                    <MenuItem x:Name="men5Hex" Header="Copy Hex Code" Click="men5Hex_Click"></MenuItem>
+                    <MenuItem x:Name="men5RGB" Header="Copy RGB Code" Click="men5RGB_Click"></MenuItem>
+                </ContextMenu>
+            </Rectangle.ContextMenu>
+        </Rectangle>
+        <TextBlock x:Name="txtThemeName" HorizontalAlignment="Left" Margin="0,158,0,0" TextWrapping="Wrap" Text="Theme name" VerticalAlignment="Top" Height="31" Width="155" Foreground="White" FontSize="18.667"/>
+        <TextBlock x:Name="txtExit" HorizontalAlignment="Left" Margin="87,5,0,0" TextWrapping="Wrap" Text="Remove" VerticalAlignment="Top" Height="32" Width="88" Foreground="#FFFF9898" FontSize="20" TextAlignment="Center" MouseUp="txtExit_MouseUp" MouseEnter="txtExit_MouseEnter" MouseLeave="txtExit_MouseLeave" RenderTransformOrigin="0.707,-3.642" Background="#59000000"/>
+        <TextBlock x:Name="txtEdit" HorizontalAlignment="Left" Margin="0,5,0,0" TextWrapping="Wrap" Text="Load" VerticalAlignment="Top" Height="32" Width="87" Foreground="#FF9CD6FF" FontSize="20" TextAlignment="Center" RenderTransformOrigin="0.707,-3.642" Background="#59000000" MouseEnter="txtEdit_MouseEnter" MouseLeave="txtEdit_MouseLeave" MouseUp="txtEdit_MouseUp"/>
+
+    </Grid>
+</UserControl>

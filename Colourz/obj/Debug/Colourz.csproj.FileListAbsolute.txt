@@ -1,0 +1,91 @@
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\bin\Debug\Colourz.exe.config
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\bin\Debug\Colourz.exe
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\bin\Debug\Colourz.pdb
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\MainWindow.baml
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\MainWindow.g.cs
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\App.g.cs
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.g.resources
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.exe
+D:\users\zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.pdb
+D:\Users\Zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\ColourzSlider.baml
+D:\Users\Zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\ColourzSlider.g.cs
+D:\Users\Zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
+D:\Users\Zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
+D:\Users\Zack\documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
+D:\Users\Zack\Documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
+D:\Users\Zack\Documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
+D:\Users\Zack\Documents\visual studio 2013\Projects\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\bin\Debug\Colourz.exe.config
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.exe
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.pdb
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\bin\Debug\Colourz.exe
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\bin\Debug\Colourz.pdb
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\ColourzSlider.baml
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\MainWindow.g.cs
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\ColourzSlider.g.cs
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\App.g.cs
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\MainWindow.baml
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.g.resources
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\window\ColourPicker.baml
+C:\Users\30008095\Documents\Visual Studio 2012\Projects\Colourz\Colourz\obj\Debug\window\ColourPicker.g.cs
+E:\Colourz\Colourz\bin\Debug\Colourz.exe.config
+E:\Colourz\Colourz\obj\Debug\Colourz.exe
+E:\Colourz\Colourz\obj\Debug\Colourz.pdb
+E:\Colourz\Colourz\bin\Debug\Colourz.exe
+E:\Colourz\Colourz\bin\Debug\Colourz.pdb
+E:\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
+E:\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
+E:\Colourz\Colourz\obj\Debug\ColourzSlider.baml
+E:\Colourz\Colourz\obj\Debug\window\ColourPicker.baml
+E:\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
+E:\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
+E:\Colourz\Colourz\obj\Debug\MainWindow.g.cs
+E:\Colourz\Colourz\obj\Debug\ColourzSlider.g.cs
+E:\Colourz\Colourz\obj\Debug\window\ColourPicker.g.cs
+E:\Colourz\Colourz\obj\Debug\App.g.cs
+E:\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
+E:\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
+E:\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
+E:\Colourz\Colourz\obj\Debug\MainWindow.baml
+E:\Colourz\Colourz\obj\Debug\Colourz.g.resources
+E:\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
+E:\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
+F:\Colourz\Colourz\bin\Debug\Colourz.exe.config
+F:\Colourz\Colourz\obj\Debug\Colourz.exe
+F:\Colourz\Colourz\obj\Debug\Colourz.pdb
+C:\Users\Zack\Desktop\Colourz\Colourz\bin\Debug\Colourz.exe.config
+C:\Users\Zack\Desktop\Colourz\Colourz\bin\Debug\Colourz.exe
+C:\Users\Zack\Desktop\Colourz\Colourz\bin\Debug\Colourz.pdb
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\ColourzSlider.baml
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\window\ColourPicker.baml
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\MainWindow.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\ColourzSlider.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\window\ColourPicker.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\App.g.cs
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\MainWindow.baml
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.g.resources
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.exe
+C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.pdb
+C:\Users\Zack\Desktop\Colourz Backup\Colourz\bin\Debug\Colourz.exe.config
+C:\Users\Zack\Desktop\Colourz Backup\Colourz\obj\Debug\Colourz.exe
+C:\Users\Zack\Desktop\Colourz Backup\Colourz\obj\Debug\Colourz.pdb
