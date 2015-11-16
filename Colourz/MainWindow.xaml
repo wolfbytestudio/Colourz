@@ -138,6 +138,8 @@
 
         </TabControl>
         <Rectangle x:Name="recTabHider" Fill="#FF0A0B0D" HorizontalAlignment="Left" Height="25" Margin="201,40,0,0" VerticalAlignment="Top" Width="719"/>
+        <Image x:Name="imgWolfbyte" HorizontalAlignment="Left" Height="39" Margin="2,0,0,0" VerticalAlignment="Top" Width="28" Source="resource/wolfbvyte icon.png" OpacityMask="#7F000000" MouseEnter="wolfbyteEnter" MouseLeave="wolfbyteLeave" MouseDown="wolfyteDown"/>
+        <TextBlock x:Name="txtWolfbyte" HorizontalAlignment="Left" Margin="31,10,0,0" TextWrapping="Wrap" Text="WOLFBYTE" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="16" Foreground="#7F1594C3" MouseEnter="wolfbyteEnter" MouseLeave="wolfbyteLeave" MouseDown="wolfyteDown"/>
 
     </Grid>
 </Window>

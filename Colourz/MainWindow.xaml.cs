@@ -1090,6 +1090,33 @@ namespace Colourz
 
         }
 
+        private void wolfbyteEnter(object sender, MouseEventArgs e)
+        {
+            txtWolfbyte.Foreground = new SolidColorBrush(Color.FromArgb(255, 21, 148, 195));
+            imgWolfbyte.OpacityMask = new SolidColorBrush(Color.FromArgb(255, 0, 0, 0));
+        }
+
+        private void wolfbyteLeave(object sender, MouseEventArgs e)
+        {
+            txtWolfbyte.Foreground = new SolidColorBrush(Color.FromArgb(127, 21, 148, 195));
+            imgWolfbyte.OpacityMask = new SolidColorBrush(Color.FromArgb(127, 0, 0, 0));
+        }
+
+        private void wolfyteDown(object sender, MouseButtonEventArgs e)
+        {
+            try
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            }
+            catch
+            {
+
+            }
+        }
+
         private void cmdSCClear_Click(object sender, RoutedEventArgs e)
         {
             stkSavedColours.Children.Clear();
