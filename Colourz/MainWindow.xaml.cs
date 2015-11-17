@@ -1156,11 +1156,24 @@ namespace Colourz
         {
             if(!pickerShown)
             {
+                Rectangle rec = recSavedColours;
+                tab.sender = rec;
+                resetImages();
+                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
+                iconSavedColours.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/saved_colour_selected.png", UriKind.Relative));
+                tab.selected = 4;
+                tab.moveComponents(recSelected);
+                tab.moveComponents(recSelectedColour);
+                lblSavedColours.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+                tabSelected.SelectedIndex = 4;
+
                 window.ColourPicker picker = new window.ColourPicker();
                 picker.owner = this;
                 picker.Owner = this;
                 picker.Show();
                 pickerShown = true;
+               
+
             }
 
         }
@@ -1196,6 +1209,55 @@ namespace Colourz
                 }
             }
             
+        }
+
+        private void scrSavedColours_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.A)
+            {
+                foreach (SavedColour t in stkSavedColours.Children)
+                {
+                    t.select();
+                }
+            }
+        }
+
+
+
+        private void cmdSelectAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (SavedColour t in stkSavedColours.Children)
+            {
+                t.select();
+            }
+        }
+
+        private void cmdDeselectAll_Click(object sender, RoutedEventArgs e)
+        {
+            foreach (SavedColour t in stkSavedColours.Children)
+            {
+                t.unselect();
+            }
+        }
+
+        private void txtSCScrollUp_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            scrSavedColours.LineUp();
+        }
+
+        private void txtSCScrollDown_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            scrSavedColours.LineDown();
+        }
+
+        private void txtCTScrollDown_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            CTThemes.LineDown();
+        }
+
+        private void txtCTScrollUp_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            CTThemes.LineUp();
         }
     }
 }

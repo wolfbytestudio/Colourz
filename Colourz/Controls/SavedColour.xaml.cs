@@ -106,28 +106,14 @@ namespace Colourz.Controls
                 }
                 else
                 {
-                    if(alreadySelected)
+
+                    if (!selected)
                     {
-                        return;
-                    }
-                    if (selected)
-                    {
-                        selectedColours.Remove(this);
-                        selected = false;
+                        select();
                     }
                     else
                     {
-                        selected = true;
-                        selectedColours.Add(this);
-                        if (Theme.blackTheme)
-                        {
-
-                            lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
-                        }
-                        else
-                        {
-                            lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
-                        }
+                        unselect();
                     }
                 }
             }
@@ -139,6 +125,35 @@ namespace Colourz.Controls
         }
 
         public static List<SavedColour> selectedColours = new List<SavedColour>();
+
+        public void select()
+        {
+            selected = true;
+            selectedColours.Add(this);
+            if (Theme.blackTheme)
+            {
+
+                lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
+            }
+            else
+            {
+                lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
+            }
+        }
+
+        public void unselect()
+        {
+            selected = false;
+            selectedColours.Remove(this);
+            if (selected)
+            {
+                return;
+            }
+            else
+            {
+                lblText.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+            }
+        }
 
         private void lblText_MouseDown(object sender, MouseButtonEventArgs e)
         {
