@@ -56,7 +56,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="org\Animation.cs" />
-    <Compile Include="org\ColourConvertor.cs" />
     <Compile Include="Controls\ColourzSlider.xaml.cs">
       <DependentUpon>ColourzSlider.xaml</DependentUpon>
     </Compile>

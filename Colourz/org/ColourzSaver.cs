@@ -81,15 +81,24 @@ namespace Colourz.Controls
                 for (int i = 0; i < segment.Length - 1; i++)
                 {
 
-                    Color color = (Color)ColorConverter.ConvertFromString(segment[i]);
+                    try
+                    {
+                        Color color = (Color)ColorConverter.ConvertFromString(segment[i]);
 
-                    String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
+                        String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
 
-                    MainWindow o = (MainWindow)owner;
+                        MainWindow o = (MainWindow)owner;
 
-                    stack.Children.Add(new SavedColour(o,
-                            stack, "" + color.R + ", " + color.G +
-                            ", " + color.B + "", "#" + hex + ""));
+                        stack.Children.Add(new SavedColour(o,
+                                stack, "" + color.R + ", " + color.G +
+                                ", " + color.B + "", "#" + hex + ""));
+                    }
+                    catch
+                    {
+
+                    }
+
+                    
 
                 }
             }

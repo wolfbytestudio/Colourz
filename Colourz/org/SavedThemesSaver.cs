@@ -100,20 +100,28 @@ namespace Colourz.Controls
 
                 for (int i = 0; i < segment.Length - 1; i++)
                 {
-                    string[] innerSeg = segment[i].Split(':');
-                    string name = innerSeg[0];
-                    Console.WriteLine();
-                    Color col1 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[1]);
-                    Color col2 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[2]);
-                    Color col3 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[3]);
-                    Color col4 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[4]);
-                    Color col5 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[5]);
+                    try
+                    {
+                        string[] innerSeg = segment[i].Split(':');
+                        string name = innerSeg[0];
+                        Console.WriteLine();
+                        Color col1 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[1]);
+                        Color col2 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[2]);
+                        Color col3 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[3]);
+                        Color col4 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[4]);
+                        Color col5 = (Color)ColorConverter.ConvertFromString("#" + innerSeg[5]);
+                        ColourTheme theme = new ColourTheme(page, owner, name, col1, col2, col3, col4, col5);
+                        theme.updateTheme();
+                        MainWindow a = (MainWindow)page;
+                        a.CTThemes.Children.Insert(0, theme);
+                    }
+                    catch
+                    {
 
-                    ColourTheme theme = new ColourTheme(page, owner, name, col1, col2, col3, col4, col5);
-                    theme.updateTheme();
-                    MainWindow a = (MainWindow)page;
+                    }
+                   
 
-                    a.CTThemes.Children.Insert(0, theme);
+                   
                 }
             }
             catch
