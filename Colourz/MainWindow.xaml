@@ -65,11 +65,87 @@
                     <TextBox x:Name="txtCGRed" HorizontalAlignment="Left" Height="30" Margin="584,343,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGRed_TextChanged" MaxLines="3" MaxLength="3"/>
                     <TextBox x:Name="txtCGGreen" HorizontalAlignment="Left" Height="30" Margin="584,391,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGGreen_TextChanged" MaxLines="3" MaxLength="3"/>
                     <TextBox x:Name="txtCGBlue" HorizontalAlignment="Left" Height="30" Margin="584,441,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGBlue_TextChanged" MaxLines="3" MaxLength="3"/>
-                    <Rectangle x:Name="recCGColour" Fill="Black" HorizontalAlignment="Left" Height="285" Margin="6,46,0,0" VerticalAlignment="Top" Width="703"/>
+                    <Rectangle x:Name="recCGColour" Fill="Black" HorizontalAlignment="Left" Height="285" Margin="259,49,0,0" VerticalAlignment="Top" Width="191">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgNormal" Header="Save Colour" Click="cgNormal_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgNormalHex" Header="Copy Hex To Clipboard" Click="cgNormalHex_Click"/>
+                                <MenuItem x:Name="cgNormalRGB" Header="Copy RGB To Clipboard" Click="cgNormalRGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
                     <Button x:Name="cmdCGSaveColour" Content="Save Colour (F5)" HorizontalAlignment="Left" Margin="6,2,0,0" VerticalAlignment="Top" Width="170" Height="39" FontSize="17.333" Click="cmdCGSaveColour_Click"/>
                     <TextBox x:Name="txtCGHex" HorizontalAlignment="Left" Height="38" Margin="181,2,0,0" TextWrapping="Wrap" Text="#000000" VerticalAlignment="Top" Width="201" FontSize="24" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" MaxLines="3" MaxLength="12" TextChanged="txtCGHex_TextChanged" FontFamily="Segoe UI Light"/>
                     <TextBox x:Name="txtCGRGB" HorizontalAlignment="Left" Height="39" Margin="387,2,0,0" TextWrapping="Wrap" Text="0, 0, 0" VerticalAlignment="Top" Width="201" FontSize="24" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" MaxLines="3" MaxLength="25" TextChanged="txtCGRGB_TextChanged" FontFamily="Segoe UI Light"/>
                     <Button x:Name="cmdCGReset" Content="Reset" HorizontalAlignment="Left" Margin="593,2,0,0" VerticalAlignment="Top" Width="116" Height="39" FontSize="17.333" Click="cmdCGReset_Click"/>
+
+                    <Rectangle x:Name="recCGBright" Fill="#FF282828" HorizontalAlignment="Left" Height="261" Margin="450,61,0,0" VerticalAlignment="Top" Width="114">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgLightMenu" Header="Save Colour" Click="cgLightMenu_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgBrightHex" Header="Copy Hex To Clipboard" Click="cgBrightHex_Click"/>
+                                <MenuItem x:Name="cgBrightRGB" Header="Copy RGB To Clipboard" Click="cgBrightRGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
+                    <Rectangle x:Name="recCGBrighter" Fill="#FF505050" HorizontalAlignment="Left" Height="238" Margin="564,73,0,0" VerticalAlignment="Top" Width="84">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgBrighter" Header="Save Colour" Click="cgBrighter_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgBrighterHex" Header="Copy Hex To Clipboard" Click="cgBrighterHex_Click"/>
+                                <MenuItem x:Name="cgBrighterRGB" Header="Copy RGB To Clipboard" Click="cgBrighterRGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
+                    <Rectangle x:Name="recCGDark" Fill="Black" HorizontalAlignment="Left" Height="261" Margin="145,61,0,0" VerticalAlignment="Top" Width="114">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgDarkSave" Header="Save Colour" Click="cgDarkSave_Click"></MenuItem>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgDarkHex" Header="Copy Hex To Clipboard" Click="cgDarkHex_Click"/>
+                                <MenuItem x:Name="cgDarkRGB" Header="Copy RGB To Clipboard" Click="cgDarkRGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
+                    <Rectangle x:Name="recCGDarker" Fill="Black" HorizontalAlignment="Left" Height="238" Margin="61,73,0,0" VerticalAlignment="Top" Width="84">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgDarkerSave" Header="Save Colour" Click="cgDarkerSave_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgDarkerHex" Header="Copy Hex To Clipboard" Click="cgDarkerHex_Click"/>
+                                <MenuItem x:Name="cgDarkerRGB" Header="Copy RGB To Clipboard" Click="cgDarkerGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
+                    <Rectangle x:Name="recCGDarkest" Fill="Black" HorizontalAlignment="Left" Height="209" Margin="0,87,0,0" VerticalAlignment="Top" Width="61">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgDarkestSave" Header="Save Colour" Click="cgDarkestSave_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgDarkestHex" Header="Copy Hex To Clipboard" Click="cgDarkestHex_Click"/>
+                                <MenuItem x:Name="cgDarkestRGB" Header="Copy RGB To Clipboard" Click="cgDarkestRGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
+                    <Rectangle x:Name="recCGBrightest" Fill="#FF787878" HorizontalAlignment="Left" Height="209" Margin="648,87,0,0" VerticalAlignment="Top" Width="61">
+                        <Rectangle.ContextMenu>
+                            <ContextMenu>
+                                <MenuItem x:Name="cgLightest" Header="Save Colour" Click="cgLightest_Click"/>
+                                <Separator></Separator>
+                                <MenuItem x:Name="cgBrightestHex" Header="Copy Hex To Clipboard" Click="cgBrightestHex_Click"/>
+                                <MenuItem x:Name="cgBrightestRGB" Header="Copy RGB To Clipboard" Click="cgBrightestGB_Click"/>
+                            </ContextMenu>
+                        </Rectangle.ContextMenu>
+                    </Rectangle>
+
 
                 </Grid>
 

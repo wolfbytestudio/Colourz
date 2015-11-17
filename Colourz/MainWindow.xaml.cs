@@ -35,14 +35,15 @@ namespace Colourz
         private bool shouldSelect;
         public static bool doingAnimation = false;
         public static bool pickerShown = false;
-        public static SavedColourzSaver colourzSave;
-        public static SavedThemesSaver savedTheme;
+
 
         private Tab tab = new Tab();
         public ColourzSlider redSlider = new ColourzSlider(Color.FromRgb(220, 125, 125));
         public ColourzSlider greenSlider = new ColourzSlider(Color.FromRgb(131, 224, 119));
         public ColourzSlider blueSlider = new ColourzSlider(Color.FromRgb(115, 143, 225));
-       
+        public static SavedColourzSaver colourzSave;
+        public static SavedThemesSaver savedTheme;
+
         private double mouseX, mouseY;
         private bool dragSelector;
 
@@ -642,6 +643,35 @@ namespace Colourz
             txtCGHex.Text = "#" + hex;
             txtCGRGB.Text = rgb.R + ", " + rgb.G + ", " + rgb.B;
 
+            recCGBright.Fill = new SolidColorBrush(getDifferentShade(-40));
+            recCGBrighter.Fill = new SolidColorBrush(getDifferentShade(-80));
+            recCGBrightest.Fill = new SolidColorBrush(getDifferentShade(-120));
+
+
+            recCGDark.Fill = new SolidColorBrush(getDifferentShade(40));
+            recCGDarker.Fill = new SolidColorBrush(getDifferentShade(80));
+            recCGDarkest.Fill = new SolidColorBrush(getDifferentShade(120));
+        }
+
+        public Color getDifferentShade(int value)
+        {
+            Color c = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
+
+            int newR = c.R - value;
+            if (newR < 0) newR = 0;
+            else if (newR > 255) newR = 255;
+
+            int newG = c.G - value;
+            if (newG < 0) newG = 0;
+            else if (newG > 255) newG = 255;
+
+            int newB = c.B - value;
+            if (newB < 0) newB = 0;
+            else if (newB > 255) newB = 255;
+
+            c = Color.FromRgb((byte)newR, (byte)newG, (byte)newB);
+
+            return c;
         }
 
         private void txtCGRGB_TextChanged(object sender, TextChangedEventArgs e)
@@ -1240,6 +1270,139 @@ namespace Colourz
             }
         }
 
+        private void cgDarkSave_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGDark);
+        }
+
+        public void saveColourForRectangle(Rectangle s)
+        {
+            Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
+
+            String hex = col.R.ToString("X2") + col.G.ToString("X2") + col.B.ToString("X2");
+
+            stkSavedColours.Children.Add(new SavedColour(this,
+                stkSavedColours, "" + col.R + ", " + col.G +
+                ", " + col.B + "", "#" + hex + ""));
+            colourzSave.save();
+        }
+
+        public string getHexForRectangle(Rectangle s)
+        {
+            Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
+            String hex = col.R.ToString("X2") + col.G.ToString("X2") + col.B.ToString("X2");
+
+            return "#" + hex;
+        }
+
+        public string getRGBForRectangle(Rectangle s)
+        {
+            Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
+            string rgb = col.R + ", " + col.G +
+                    ", " + col.B;
+            return rgb;
+        }
+
+        private void cgLightMenu_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGBright);
+        }
+
+        private void cgBrighter_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGBrighter);
+        }
+
+        private void cgDarkerSave_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGDarker);
+        }
+
+        private void cgDarkestSave_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGDarkest);
+        }
+
+        private void cgLightest_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGBrightest);
+        }
+
+        private void cgNormal_Click(object sender, RoutedEventArgs e)
+        {
+            saveColourForRectangle(recCGColour);
+        }
+
+        private void cgDarkestHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGDarkest));
+        }
+
+        private void cgDarkestRGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGDarkest));
+        }
+
+        private void cgBrightestHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGBrightest));
+        }
+
+        private void cgBrightestGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGBrightest));
+        }
+
+        private void cgDarkerHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGDarker));
+        }
+
+        private void cgDarkerGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGDarker));
+        }
+
+        private void cgDarkHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGDark));
+        }
+
+        private void cgDarkRGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGDark));
+        }
+
+        private void cgBrighterHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGBrighter));
+        }
+
+        private void cgBrighterRGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGBrighter));
+        }
+
+        private void cgBrightHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGBright));
+        }
+
+        private void cgBrightRGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGBright));
+        }
+
+        private void cgNormalHex_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recCGColour));
+        }
+
+        private void cgNormalRGB_Click(object sender, RoutedEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recCGColour));
+        }
+
         private void txtSCScrollUp_MouseUp(object sender, MouseButtonEventArgs e)
         {
             scrSavedColours.LineUp();
@@ -1261,4 +1424,3 @@ namespace Colourz
         }
     }
 }
-//David is gay
