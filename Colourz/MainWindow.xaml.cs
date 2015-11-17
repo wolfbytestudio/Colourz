@@ -165,7 +165,7 @@ namespace Colourz
             timerCT.Tick += timerCTEvent;
             timerCT.Interval = new TimeSpan(0, 0, 0, 0, 30);
 
-            colourzSave = new SavedColourzSaver(stkSavedColours);
+            colourzSave = new SavedColourzSaver(this, stkSavedColours);
             colourzSave.load();
 
             savedTheme = new SavedThemesSaver(this, CTThemes);
@@ -1078,16 +1078,20 @@ namespace Colourz
 
         private void btnCWSave_Click(object sender, RoutedEventArgs e)
         {
+            saveColourWheelColour();
+        }
+
+        private void saveColourWheelColour()
+        {
             Color color = ((SolidColorBrush)recColour.Fill).Color;
 
             String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
 
-            stkSavedColours.Children.Add(new SavedColour(
+            stkSavedColours.Children.Add(new SavedColour(this,
                     stkSavedColours, "" + color.R + ", " + color.G +
                     ", " + color.B + "", "#" + hex + ""));
 
             colourzSave.save();
-
         }
 
         private void wolfbyteEnter(object sender, MouseEventArgs e)
@@ -1124,6 +1128,11 @@ namespace Colourz
 
         private void cmdCGSaveColour_Click(object sender, RoutedEventArgs e)
         {
+            saveColourGenerator();
+        }
+
+        private void saveColourGenerator()
+        {
             try
             {
                 Color rgb = Color.FromRgb(Convert.ToByte(redSlider.getValue().ToString()),
@@ -1132,7 +1141,7 @@ namespace Colourz
 
                 String hex = rgb.R.ToString("X2") + rgb.G.ToString("X2") + rgb.B.ToString("X2");
 
-                stkSavedColours.Children.Add(new SavedColour(
+                stkSavedColours.Children.Add(new SavedColour(this,
                     stkSavedColours, "" + redSlider.getValue() + ", " + greenSlider.getValue() +
                     ", " + blueSlider.getValue() + "", "#" + hex + ""));
                 colourzSave.save();
@@ -1141,7 +1150,6 @@ namespace Colourz
             {
                 MessageBox.Show(this, "Error saving colour. Code: 0x000001");
             }
-            
         }
 
         private void cmdColourPickerStart_Click(object sender, RoutedEventArgs e)
@@ -1166,6 +1174,28 @@ namespace Colourz
             txtCT3.Text = "#" + third;
             txtCT4.Text = "#" + fourth;
             txtCT5.Text = "#" + fifth;
+        }
+
+        private void gridColourGenerator_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+
+        private void frmMain_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.F5)
+            {
+                switch(tab.selected)
+                {
+                    case 0:
+                        saveColourWheelColour();
+                        break;
+                    case 1:
+                        saveColourGenerator();
+                        break;
+                }
+            }
+            
         }
     }
 }

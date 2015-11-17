@@ -23,16 +23,18 @@ namespace Colourz.Controls
 
 
 
-        public String hex;
-        private String rgb;
-        private StackPanel owner;
+        public string hex;
+        private string rgb;
+        private StackPanel stack;
+        private object owner;
         private bool selected;
 
-        public SavedColour(StackPanel owner,String rgb, String hex)
+        public SavedColour(object owner, StackPanel stack, string rgb, string hex)
         {
+            this.owner = owner;
             this.hex = hex;
             this.rgb = rgb;
-            this.owner = owner;
+            this.stack = stack;
             selected = false;
             InitializeComponent();
 
@@ -86,7 +88,7 @@ namespace Colourz.Controls
 
         private void menRemove_Click(object sender, RoutedEventArgs e)
         {
-            owner.Children.Remove(this);
+            stack.Children.Remove(this);
         }
 
         bool rightClicked = false;
@@ -161,6 +163,36 @@ namespace Colourz.Controls
                 alreadySelected = false;
             }
             
+        }
+
+        private void qlFirst_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow o = (MainWindow)owner;
+            o.txtCT1.Text = hex;
+        }
+
+        private void qlSecond_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow o = (MainWindow)owner;
+            o.txtCT2.Text = hex;
+        }
+
+        private void qlThird_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow o = (MainWindow)owner;
+            o.txtCT3.Text = hex;
+        }
+
+        private void qlFourth_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow o = (MainWindow)owner;
+            o.txtCT4.Text = hex;
+        }
+
+        private void qlFifth_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow o = (MainWindow)owner;
+            o.txtCT5.Text = hex;
         }
     }
 }

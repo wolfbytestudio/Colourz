@@ -12,6 +12,13 @@
                     <MenuItem x:Name="menRgb" Header="Copy RGB to clipboard" Click="menRgb_Click"></MenuItem>
                     <MenuItem x:Name="menHex" Header="Copy HEX to clipboard" Click="menHex_Click"></MenuItem>
                     <MenuItem x:Name="menRemove" Header="Remove from list" Click="menRemove_Click"></MenuItem>
+                    <MenuItem Header="Quick load">
+                        <MenuItem x:Name="qlFirst" Header="First Theme Colour" Click="qlFirst_Click"></MenuItem>
+                        <MenuItem x:Name="qlSecond" Header="Second Theme Colour" Click="qlSecond_Click"></MenuItem>
+                        <MenuItem x:Name="qlThird" Header="Third Theme Colour" Click="qlThird_Click"></MenuItem>
+                        <MenuItem x:Name="qlFourth" Header="Fourth Theme Colour" Click="qlFourth_Click"></MenuItem>
+                        <MenuItem x:Name="qlFifth" Header="Fifth Theme Colour" Click="qlFifth_Click"></MenuItem>
+                    </MenuItem>
                 </ContextMenu>
             </TextBlock.ContextMenu>
         </TextBlock>

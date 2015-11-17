@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:Colourz"
         xmlns:resource="clr-namespace:Colourz.resource" x:Name="frmMain" x:Class="Colourz.MainWindow"
-        Title="MainWindow" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None">
+        Title="MainWindow" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None" KeyDown="frmMain_KeyDown">
     <Grid x:Name="gridMain" Background="#FF0A0B0D" MouseUp="gridMain_MouseUp" MouseMove="gridMain_MouseMove">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
@@ -55,18 +55,18 @@
                     <Label x:Name="lblCWHEX" Content="HEX" HorizontalAlignment="Left" Margin="485,178,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16"/>
                     <TextBox x:Name="txtCWHEX" HorizontalAlignment="Left" Height="30" Margin="530,178,0,0" TextWrapping="Wrap" Text="0300FF" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
                     <Slider x:Name="sldCWBrightness" HorizontalAlignment="Left" Margin="485,111,0,0" VerticalAlignment="Top" Width="224" Maximum="255" Value="255" ValueChanged="sldCWBrightness_ValueChanged"/>
-                    <Button x:Name="btnCWSave" Content="Save colour" HorizontalAlignment="Left" Margin="530,216,0,0" VerticalAlignment="Top" Width="179" Height="35" FontSize="16" Click="btnCWSave_Click"/>
+                    <Button x:Name="btnCWSave" Content="Save colour (F5)" HorizontalAlignment="Left" Margin="530,216,0,0" VerticalAlignment="Top" Width="179" Height="35" FontSize="16" Click="btnCWSave_Click"/>
 
 
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabColourGenerator" Margin="-2,-2,-4,-1" Header="Colour Generator">
-                <Grid x:Name="gridColourGenerator" Margin="4,2,-4,-2" MouseMove="gridColourGenerator_MouseMove" MouseUp="gridColourGenerator_MouseUp" >
+                <Grid x:Name="gridColourGenerator" Margin="4,2,-4,-2" MouseMove="gridColourGenerator_MouseMove" MouseUp="gridColourGenerator_MouseUp" KeyDown="gridColourGenerator_KeyDown" >
                     <TextBox x:Name="txtCGRed" HorizontalAlignment="Left" Height="30" Margin="584,343,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGRed_TextChanged" MaxLines="3" MaxLength="3"/>
                     <TextBox x:Name="txtCGGreen" HorizontalAlignment="Left" Height="30" Margin="584,391,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGGreen_TextChanged" MaxLines="3" MaxLength="3"/>
                     <TextBox x:Name="txtCGBlue" HorizontalAlignment="Left" Height="30" Margin="584,441,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtCGBlue_TextChanged" MaxLines="3" MaxLength="3"/>
                     <Rectangle x:Name="recCGColour" Fill="Black" HorizontalAlignment="Left" Height="285" Margin="6,46,0,0" VerticalAlignment="Top" Width="703"/>
-                    <Button x:Name="cmdCGSaveColour" Content="Save Colour" HorizontalAlignment="Left" Margin="6,2,0,0" VerticalAlignment="Top" Width="170" Height="39" FontSize="17.333" Click="cmdCGSaveColour_Click"/>
+                    <Button x:Name="cmdCGSaveColour" Content="Save Colour (F5)" HorizontalAlignment="Left" Margin="6,2,0,0" VerticalAlignment="Top" Width="170" Height="39" FontSize="17.333" Click="cmdCGSaveColour_Click"/>
                     <TextBox x:Name="txtCGHex" HorizontalAlignment="Left" Height="38" Margin="181,2,0,0" TextWrapping="Wrap" Text="#000000" VerticalAlignment="Top" Width="201" FontSize="24" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" MaxLines="3" MaxLength="12" TextChanged="txtCGHex_TextChanged" FontFamily="Segoe UI Light"/>
                     <TextBox x:Name="txtCGRGB" HorizontalAlignment="Left" Height="39" Margin="387,2,0,0" TextWrapping="Wrap" Text="0, 0, 0" VerticalAlignment="Top" Width="201" FontSize="24" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" MaxLines="3" MaxLength="25" TextChanged="txtCGRGB_TextChanged" FontFamily="Segoe UI Light"/>
                     <Button x:Name="cmdCGReset" Content="Reset" HorizontalAlignment="Left" Margin="593,2,0,0" VerticalAlignment="Top" Width="116" Height="39" FontSize="17.333" Click="cmdCGReset_Click"/>

@@ -11,11 +11,13 @@ namespace Colourz.Controls
     public class SavedColourzSaver
     {
 
-        private StackPanel owner;
+        private StackPanel stack;
+        private object owner;
 
-        public SavedColourzSaver(StackPanel owner)
+        public SavedColourzSaver(object owner, StackPanel stack)
         {
             this.owner = owner;
+            this.stack = stack;
         }
 
 
@@ -28,7 +30,10 @@ namespace Colourz.Controls
         /// </summary>
         public void save()
         {
-
+            if (!System.IO.Directory.Exists(cachePath))
+            {
+                System.IO.Directory.CreateDirectory(cachePath);
+            }
 
             if (!System.IO.Directory.Exists(cachePath))
             {
@@ -40,11 +45,11 @@ namespace Colourz.Controls
             System.IO.StreamWriter file = new System.IO.StreamWriter(cachePath + "Saved Colours.txt", true);
             
             string saveText = "";
-            for(int i = 0; i < owner.Children.Count; i++)
+            for(int i = 0; i < stack.Children.Count; i++)
             {
-                SavedColour s = (SavedColour)owner.Children[i];
+                SavedColour s = (SavedColour)stack.Children[i];
 
-                if(i != owner.Children.Count)
+                if(i != stack.Children.Count)
                     saveText += s.hex + ";";
             }
             file.WriteLine(saveText);
@@ -80,8 +85,10 @@ namespace Colourz.Controls
 
                     String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
 
-                    owner.Children.Add(new SavedColour(
-                            owner, "" + color.R + ", " + color.G +
+                    MainWindow o = (MainWindow)owner;
+
+                    stack.Children.Add(new SavedColour(o,
+                            stack, "" + color.R + ", " + color.G +
                             ", " + color.B + "", "#" + hex + ""));
 
                 }

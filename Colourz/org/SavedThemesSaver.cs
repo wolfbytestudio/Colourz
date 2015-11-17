@@ -29,7 +29,10 @@ namespace Colourz.Controls
         /// </summary>
         public void save()
         {
-
+            if (!System.IO.Directory.Exists(cachePath))
+            {
+                System.IO.Directory.CreateDirectory(cachePath);
+            }
 
             if (!System.IO.Directory.Exists(pathFile))
             {
@@ -66,9 +69,13 @@ namespace Colourz.Controls
 
         public string getHex(Color c)
         {
-            Color rgb1 = c;
-            string hex1 = rgb1.R.ToString("X2") + rgb1.G.ToString("X2") + rgb1.B.ToString("X2");
-            return hex1;
+            Color colour = c;
+
+            string hex = colour.R.ToString("X2") 
+                + colour.G.ToString("X2") 
+                + colour.B.ToString("X2");
+
+            return hex;
         }
 
         /// <summary>

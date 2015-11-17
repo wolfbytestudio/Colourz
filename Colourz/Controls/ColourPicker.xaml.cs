@@ -125,7 +125,7 @@ namespace Colourz.window
                     + rgb.G.ToString("X2") 
                     + rgb.B.ToString("X2");
 
-                owner.stkSavedColours.Children.Add(new SavedColour(
+                owner.stkSavedColours.Children.Add(new SavedColour(owner,
                     owner.stkSavedColours,
                     "" + red.ToString() + ", " + green.ToString() +
                     ", " + blue.ToString() + "", "#" + hex + ""));
