@@ -130,51 +130,51 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\minimize_hover.png" />
-    <Resource Include="resource\minimize_mouseDown.png" />
-    <Resource Include="resource\minimize_normal.png" />
+    <Resource Include="Resource\minimize_hover.png" />
+    <Resource Include="Resource\minimize_mouseDown.png" />
+    <Resource Include="Resource\minimize_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\exit_hover.png" />
-    <Resource Include="resource\exit_mouseDown.png" />
-    <Resource Include="resource\exit_normal.png" />
+    <Resource Include="Resource\exit_hover.png" />
+    <Resource Include="Resource\exit_mouseDown.png" />
+    <Resource Include="Resource\exit_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_wheel_selected.png" />
+    <Resource Include="Resource\colour_wheel_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_wheel_normal.png" />
+    <Resource Include="Resource\colour_wheel_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_generator_normal.png" />
+    <Resource Include="Resource\colour_generator_normal.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_picker_normal.png" />
-    <Resource Include="resource\colour_picker_selected.png" />
+    <Resource Include="Resource\colour_picker_normal.png" />
+    <Resource Include="Resource\colour_picker_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_theme_normal.png" />
-    <Resource Include="resource\colour_theme_selected.png" />
+    <Resource Include="Resource\colour_theme_normal.png" />
+    <Resource Include="Resource\colour_theme_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\saved_colour_normal.png" />
-    <Resource Include="resource\saved_colour_selected.png" />
+    <Resource Include="Resource\saved_colour_normal.png" />
+    <Resource Include="Resource\saved_colour_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_wheel.png" />
+    <Resource Include="Resource\colour_wheel.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\selector.png" />
+    <Resource Include="Resource\selector.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\settings_icon_normal.png" />
-    <Resource Include="resource\settings_icon_selected.png" />
+    <Resource Include="Resource\settings_icon_normal.png" />
+    <Resource Include="Resource\settings_icon_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\colour_generator_selected.png" />
+    <Resource Include="Resource\colour_generator_selected.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="resource\wolfbvyte icon.png" />
+    <Resource Include="Resource\wolfbvyte icon.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

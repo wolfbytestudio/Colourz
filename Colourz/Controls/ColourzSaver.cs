@@ -57,6 +57,11 @@ namespace Colourz.Controls
         /// </summary>
         public void load()
         {
+            if (!System.IO.Directory.Exists(cachePath))
+            {
+                System.IO.Directory.CreateDirectory(cachePath);
+            }
+
             if (!System.IO.File.Exists(pathFile))
             {
                 System.IO.File.Create(pathFile);
