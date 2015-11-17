@@ -61,7 +61,18 @@ namespace Colourz.window
 
         private void recColour_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            this.DragMove();
+
+            try
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            }
+            catch
+            {
+
+            }
         }
 
         private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
