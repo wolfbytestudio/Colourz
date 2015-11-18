@@ -480,16 +480,21 @@ namespace Colourz
         {
             mouseX = e.GetPosition(gridColourWheel).X;
             mouseY = e.GetPosition(gridColourWheel).Y;
+            moveSelector(mouseX, mouseY);
+        }
+
+        private void moveSelector(double x, double y)
+        {
             if (dragSelector)
             {
                 if (Math.Sqrt(
-                    Math.Pow(WHEEL_X - (mouseX - 5), 2) 
-                    + Math.Pow(WHEEL_Y - (mouseY - 5), 2)) >= 230)
+                    Math.Pow(WHEEL_X - (x - 5), 2)
+                    + Math.Pow(WHEEL_Y - (y - 5), 2)) >= 230)
                 {
                     return;
                 }
-                imgSelector.Margin = new Thickness(mouseX, mouseY, imgSelector.Margin.Right, imgSelector.Margin.Bottom);
-                txtCWHEX.Text = "#"+ recColour.Fill.ToString().Substring(3);
+                imgSelector.Margin = new Thickness(x, y, imgSelector.Margin.Right, imgSelector.Margin.Bottom);
+                txtCWHEX.Text = "#" + recColour.Fill.ToString().Substring(3);
 
                 Color col = (Color)ColorConverter.ConvertFromString(recColour.Fill.ToString());
                 txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B;
@@ -1401,6 +1406,14 @@ namespace Colourz
         private void cgNormalRGB_Click(object sender, RoutedEventArgs e)
         {
             Clipboard.SetText(getRGBForRectangle(recCGColour));
+        }
+
+        private void imgWheel_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dragSelector = true;
+            mouseX = e.GetPosition(gridColourWheel).X;
+            mouseY = e.GetPosition(gridColourWheel).Y;
+            moveSelector(mouseX, mouseY);
         }
 
         private void txtSCScrollUp_MouseUp(object sender, MouseButtonEventArgs e)

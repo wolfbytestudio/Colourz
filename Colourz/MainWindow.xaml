@@ -46,7 +46,7 @@
         <TabControl x:Name="tabSelected" HorizontalAlignment="Left" Height="520" Margin="202,40,-1,0" VerticalAlignment="Top" Width="729" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="2">
             <TabItem x:Name="tabColourWheel" Header="Colour Wheel">
                 <Grid x:Name="gridColourWheel" Margin="4,2,-4,-2" MouseUp="gridColourWheel_MouseUp">
-                    <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="468" Margin="10,10,0,0" VerticalAlignment="Top" Width="470" Source="resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp"/>
+                    <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="468" Margin="10,10,0,0" VerticalAlignment="Top" Width="470" Source="resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
                     <Image x:Name="imgSelector" HorizontalAlignment="Left" Height="20" Margin="238,231,0,0" VerticalAlignment="Top" Width="20" Source="resource/selector.png" MouseDown="imgSelector_MouseDown" MouseUp="imgSelector_MouseUp" MouseMove="imgSelector_MouseMove"/>
                     <Rectangle x:Name="recBackground" Fill="Black" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
                     <Rectangle x:Name="recColour" Fill="#FF0300FF" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
