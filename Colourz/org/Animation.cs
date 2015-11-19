@@ -19,7 +19,12 @@ namespace Colourz
         /// <summary>
         /// Checks if the animations are disabled or not
         /// </summary>
-        public static Boolean disableAnimation = false;
+        public static bool disableAnimation = false;
+
+        /// <summary>
+        /// Checks if the animations are currently active
+        /// </summary>
+        public static bool doingAnimation = false;
 
         #region private variables
         /// <summary>
@@ -72,7 +77,7 @@ namespace Colourz
                 double bottom = rectangle.Margin.Bottom;
                 double right = rectangle.Margin.Right;
                 rectangle.Margin = new Thickness(x, target, bottom, right);
-                MainWindow.doingAnimation = false;
+                doingAnimation = false;
             } 
             else
             {
@@ -92,7 +97,7 @@ namespace Colourz
         {
             if(target == old)
             {
-                MainWindow.doingAnimation = false;
+                doingAnimation = false;
                 dispatcherTimer.Stop();
                 return;
             }
@@ -107,7 +112,7 @@ namespace Colourz
                 {
 
                     rectangle.Margin = new Thickness(x, target, bottom, right);
-                    MainWindow.doingAnimation = false;
+                    doingAnimation = false;
                     dispatcherTimer.Stop();
                     return;
                 }
@@ -123,7 +128,7 @@ namespace Colourz
                 if (current >= target)
                 {
                     rectangle.Margin = new Thickness(x, target, bottom, right);
-                    MainWindow.doingAnimation = false;
+                    doingAnimation = false;
                     dispatcherTimer.Stop();
                     return;
                 }

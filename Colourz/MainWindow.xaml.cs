@@ -33,7 +33,6 @@ namespace Colourz
         private bool shouldMinimize;
         private bool shouldExit;
         private bool shouldSelect;
-        public static bool doingAnimation = false;
         public static bool pickerShown = false;
 
 
@@ -46,8 +45,7 @@ namespace Colourz
 
         private double mouseX, mouseY;
         private bool dragSelector;
-
-        private byte cgRed, cgGreen, cgBlue;
+        
         private byte index = 0;
 
         private bool changeTextBox;
@@ -349,117 +347,63 @@ namespace Colourz
 
         private void recColourGenerator_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
-            if(shouldSelect)
-            {
-                Rectangle rec = (Rectangle)sender;
-                resetImages();
-                iconColourGenerator.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/colour_generator_selected.png", UriKind.Relative));
-                tab.sender = rec;
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                tab.selected = 1;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblColourGenerator.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 1;
-            }
+            clickTab(1, "colour_generator_selected.png", iconColourGenerator, (Rectangle)sender, lblColourGenerator);
         }
-
-       
 
         private void recColourWheel_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
-            if (shouldSelect)
-            {
-                Rectangle rec = (Rectangle)sender;
-                tab.sender = rec;
-                resetImages();
-                iconColourWheel.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/colour_wheel_selected.png", UriKind.Relative));
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                tab.selected = 0;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblColourWheel.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 0;
-            }
+            clickTab(0, "colour_wheel_selected.png", iconColourWheel, (Rectangle)sender, lblColourWheel);
         }
 
         private void recColourPicker_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
-            if (shouldSelect)
-            {
-                Rectangle rec = (Rectangle)sender;
-                tab.sender = rec;
-                resetImages();
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                iconColourPicker.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/colour_picker_selected.png", UriKind.Relative));
-                tab.selected = 2;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblColourPicker.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 2;
-            }
+            clickTab(2, "colour_picker_selected.png", iconColourPicker, (Rectangle)sender, lblColourPicker);
         }
 
         private void recColourTheme_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
-            if (shouldSelect)
-            {
-                Rectangle rec = (Rectangle)sender;
-                tab.sender = rec;
-                resetImages();
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                iconColourTheme.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/colour_theme_selected.png", UriKind.Relative));
-                tab.selected = 3;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblColourTheme.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 3;
-            }
+            clickTab(3, "colour_theme_selected.png", iconColourTheme,(Rectangle)sender, lblColourTheme);
         }
 
         private void recSavedColours_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
-            if (shouldSelect)
-            {
-                Rectangle rec = (Rectangle)sender;
-                tab.sender = rec;
-                resetImages();
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                iconSavedColours.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/saved_colour_selected.png", UriKind.Relative));
-                tab.selected = 4;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblSavedColours.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 4;
-            }
+            clickTab(4, "saved_colour_selected.png", iconSavedColours, (Rectangle)sender, lblSavedColours);
         }
 
         private void recSettings_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            if (doingAnimation) { return; }
+            clickTab(5, "settings_icon_selected.png", iconSettings, (Rectangle)sender, lblSettings);
+        }
+
+        /// <summary>
+        /// Handles the clicking of a new tab
+        /// </summary>
+        /// <param name="selected">the selected tab index</param>
+        /// <param name="imageSource">the image source</param>
+        /// <param name="image">The image itself</param>
+        /// <param name="sender">The sender position</param>
+        /// <param name="text">The textblock to change</param>
+        public void clickTab(int selected, string imageSource, Image image, Rectangle sender, TextBlock text)
+        {
+            if (Animation.doingAnimation) { return; }
             if (shouldSelect)
             {
-                Rectangle rec = (Rectangle)sender;
-                tab.sender = rec;
+                Rectangle rec = sender;
                 resetImages();
+                image.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/" + imageSource, UriKind.Relative));
+                tab.sender = rec;
                 tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                iconSettings.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/settings_icon_selected.png", UriKind.Relative));
-                tab.selected = 5;
+                tab.selected = selected;
                 tab.moveComponents(recSelected);
                 tab.moveComponents(recSelectedColour);
-                lblSettings.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 5;
+                text.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+                tabSelected.SelectedIndex = selected;
             }
         }
         #endregion
 
         /// <summary>
-        /// Resets all the images
+        /// Resets all the image icons
         /// </summary>
         private void resetImages()
         {
@@ -602,9 +546,6 @@ namespace Colourz
             {
                 blueSlider.promptSliderMovement(Mouse.GetPosition(gridColourGenerator).X);
             }
-            cgRed = (byte)redSlider.getValue();
-            cgGreen = (byte)greenSlider.getValue();
-            cgBlue = (byte)blueSlider.getValue();
 
             updateCGColour();
         }
@@ -637,15 +578,23 @@ namespace Colourz
             updateColourTextBoxes();
         }
 
+        /// <summary>
+        /// Updates the colour generator
+        /// </summary>
         private void updateCGColour()
         {
-            Color generateColour = Color.FromRgb(cgRed, cgGreen, cgBlue);
+
+            Color generateColour = Color.FromRgb(
+                (byte) redSlider.getValue(),
+                (byte)greenSlider.getValue(),
+                (byte)blueSlider.getValue());
+
             recCGColour.Fill = new SolidColorBrush(generateColour);
 
             Color rgb = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
 
-            String hex = rgb.R.ToString("X2") + rgb.G.ToString("X2") + rgb.B.ToString("X2");
-            txtCGHex.Text = "#" + hex;
+            string hex = rgb.R.ToString("X2") + rgb.G.ToString("X2") + rgb.B.ToString("X2");
+            txtCGHex.Text = getHexForRectangle(recCGColour);
             txtCGRGB.Text = rgb.R + ", " + rgb.G + ", " + rgb.B;
 
             recCGBright.Fill = new SolidColorBrush(getDifferentShade(-40));
@@ -658,6 +607,11 @@ namespace Colourz
             recCGDarkest.Fill = new SolidColorBrush(getDifferentShade(120));
         }
 
+        /// <summary>
+        /// Gets a different shade of colour depending on value
+        /// </summary>
+        /// <param name="value">The next shade of colour to increment/decrement by</param>
+        /// <returns>the new shaded colour</returns>
         public Color getDifferentShade(int value)
         {
             Color c = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
@@ -757,7 +711,6 @@ namespace Colourz
                 {
                     value = 255;
                 }
-                cgRed = (byte) value;
                 redSlider.setValue(value);
                 updateCGColour();
             }
@@ -784,7 +737,6 @@ namespace Colourz
                 {
                     value = 255;
                 }
-                cgGreen = (byte) value;
                 greenSlider.setValue(value);
                 updateCGColour();
             }
@@ -811,7 +763,6 @@ namespace Colourz
                 {
                     value = 255;
                 }
-                cgBlue = (byte) value;
                 blueSlider.setValue(value);
                 updateCGColour();
             }
@@ -870,9 +821,6 @@ namespace Colourz
                 {
                     blueSlider.promptSliderMovement(Mouse.GetPosition(gridColourGenerator).X);
                 }
-                cgRed = (byte)redSlider.getValue();
-                cgGreen = (byte)greenSlider.getValue();
-                cgBlue = (byte)blueSlider.getValue();
 
                 updateCGColour();
             }
@@ -899,14 +847,8 @@ namespace Colourz
                 (Color)recCT4.Fill.GetValue(SolidColorBrush.ColorProperty),
                 (Color)recCT5.Fill.GetValue(SolidColorBrush.ColorProperty));
             theme.updateTheme();
-
-
-
-
             CTThemes.Children.Insert(0, theme);
-
             savedTheme.save();
-
             loadTheme("Theme Name", "FFFFFF", "B6B6B6", "7C7C7C", "494949", "131313");
         }
 
@@ -972,10 +914,6 @@ namespace Colourz
             redSlider.setValue(0);
             greenSlider.setValue(0);
             blueSlider.setValue(0);
-
-            cgRed = 0;
-            cgGreen = 0;
-            cgBlue = 0;
 
             txtCGRed.Text = "0";
             txtCGGreen.Text = "0";
@@ -1149,11 +1087,7 @@ namespace Colourz
                 {
                     this.DragMove();
                 }
-            }
-            catch
-            {
-
-            }
+            } catch { }
         }
 
         private void cmdSCClear_Click(object sender, RoutedEventArgs e)
@@ -1166,6 +1100,33 @@ namespace Colourz
             saveColourGenerator();
         }
 
+        /// <summary>
+        /// Gets the hex code for a colour
+        /// </summary>
+        /// <param name="colour">the colour</param>
+        /// <returns>the hex for that colour</returns>
+        private string getHexForColour(Color colour)
+        {
+            string hex = colour.R.ToString("X2")
+                + colour.G.ToString("X2") 
+                + colour.B.ToString("X2");
+            return "#" + hex;
+        }
+
+        /// <summary>
+        /// Gets the hex code for a rectangle
+        /// </summary>
+        /// <param name="rec">the rectangle</param>
+        /// <returns>the hex code</returns>
+        private string getHexForRectangle(Rectangle rec)
+        {
+            Color col = (Color)rec.Fill.GetValue(SolidColorBrush.ColorProperty);
+            return getHexForColour(col);
+        }
+
+        /// <summary>
+        /// Saves the colour for the generator
+        /// </summary>
         private void saveColourGenerator()
         {
             try
@@ -1174,11 +1135,10 @@ namespace Colourz
                     Convert.ToByte(greenSlider.getValue().ToString()),
                     Convert.ToByte(blueSlider.getValue().ToString()));
 
-                String hex = rgb.R.ToString("X2") + rgb.G.ToString("X2") + rgb.B.ToString("X2");
 
                 stkSavedColours.Children.Add(new SavedColour(this,
                     stkSavedColours, "" + redSlider.getValue() + ", " + greenSlider.getValue() +
-                    ", " + blueSlider.getValue() + "", "#" + hex + ""));
+                    ", " + blueSlider.getValue() + "", getHexForColour(rgb) + ""));
                 colourzSave.save();
             }
             catch
@@ -1191,29 +1151,26 @@ namespace Colourz
         {
             if(!pickerShown)
             {
-                Rectangle rec = recSavedColours;
-                tab.sender = rec;
-                resetImages();
-                tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
-                iconSavedColours.Source = new BitmapImage(new Uri(@"/Colourz;component/resource/saved_colour_selected.png", UriKind.Relative));
-                tab.selected = 4;
-                tab.moveComponents(recSelected);
-                tab.moveComponents(recSelectedColour);
-                lblSavedColours.Foreground = Theme.getColourForTheme(new TextBlock(), true);
-                tabSelected.SelectedIndex = 4;
+                clickTab(4, "saved_colour_selected.png", iconSavedColours, recSavedColours, lblSavedColours);
 
                 window.ColourPicker picker = new window.ColourPicker();
                 picker.owner = this;
                 picker.Owner = this;
                 picker.Show();
                 pickerShown = true;
-               
-
             }
 
         }
 
-
+        /// <summary>
+        /// Loads the a new theme
+        /// </summary>
+        /// <param name="title"></param>
+        /// <param name="first"></param>
+        /// <param name="second"></param>
+        /// <param name="third"></param>
+        /// <param name="fourth"></param>
+        /// <param name="fifth"></param>
         public void loadTheme(string title, string first, string second, string third, string fourth, string fifth)
         {
             txtThemeName.Text = title;
@@ -1284,20 +1241,10 @@ namespace Colourz
         {
             Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
 
-            String hex = col.R.ToString("X2") + col.G.ToString("X2") + col.B.ToString("X2");
-
             stkSavedColours.Children.Add(new SavedColour(this,
                 stkSavedColours, "" + col.R + ", " + col.G +
-                ", " + col.B + "", "#" + hex + ""));
+                ", " + col.B + "", getHexForRectangle(s) + ""));
             colourzSave.save();
-        }
-
-        public string getHexForRectangle(Rectangle s)
-        {
-            Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
-            String hex = col.R.ToString("X2") + col.G.ToString("X2") + col.B.ToString("X2");
-
-            return "#" + hex;
         }
 
         public string getRGBForRectangle(Rectangle s)

@@ -67,7 +67,7 @@
       <DependentUpon>SavedColour.xaml</DependentUpon>
     </Compile>
     <Compile Include="org\SavedThemesSaver.cs" />
-    <Compile Include="org\TabSelected.cs" />
+    <Compile Include="org\Tab.cs" />
     <Compile Include="org\Theme.cs" />
     <Compile Include="Controls\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>

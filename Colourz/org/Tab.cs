@@ -41,7 +41,7 @@ namespace Colourz
         /// <param name="rec">The rectangle being moved</param>
         public void moveComponents(Rectangle rec)
         {
-            MainWindow.doingAnimation = true;
+            Animation.doingAnimation = true;
             Animation animation = new Animation(rec, rec.Margin.Top, getNextMoveValue());
             animation.startAnimation();
         }

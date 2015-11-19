@@ -57,11 +57,22 @@ namespace Colourz.window
 
         private void recBackboard_MouseDown(object sender, MouseButtonEventArgs e)
         {
+
         }
 
         private void recColour_MouseDown(object sender, MouseButtonEventArgs e)
         {
+            try
+            {
+                if (e.LeftButton == MouseButtonState.Pressed)
+                {
+                    this.DragMove();
+                }
+            } catch { }
+        }
 
+        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
             try
             {
                 if (e.LeftButton == MouseButtonState.Pressed)
@@ -69,21 +80,14 @@ namespace Colourz.window
                     this.DragMove();
                 }
             }
-            catch
-            {
-
-            }
-        }
-
-        private void TextBlock_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            this.DragMove();
+            catch { }
+            
         }
 
         private void startColourPicking()
         {
             dispatcherTimer.Tick += dispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 25);
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
             dispatcherTimer.Start();
         }
 
@@ -116,7 +120,6 @@ namespace Colourz.window
         private void lblBlock_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
         {
             this.keyEvent = e;
-
         }
 
         private void Window_KeyDown(object sender, System.Windows.Input.KeyEventArgs e)
@@ -147,6 +150,11 @@ namespace Colourz.window
         {
             MainWindow.pickerShown = false;
             dispatcherTimer.Stop();
+        }
+
+        private void lblBlock_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            dispatcherTimer.Start();
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
