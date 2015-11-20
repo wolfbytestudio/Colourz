@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:Colourz"
         xmlns:resource="clr-namespace:Colourz.resource" x:Name="frmMain" x:Class="Colourz.MainWindow"
-        Title="MainWindow" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None" KeyDown="frmMain_KeyDown">
+        Title="MainWindow" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None" KeyDown="frmMain_KeyDown" Icon="Resource/colourz-iconx256.ico">
     <Grid x:Name="gridMain" Background="#FF0A0B0D" MouseUp="gridMain_MouseUp" MouseMove="gridMain_MouseMove">
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>

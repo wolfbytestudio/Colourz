@@ -132,4 +132,3 @@ C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.Properties.Reso
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.exe
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.pdb
-C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
