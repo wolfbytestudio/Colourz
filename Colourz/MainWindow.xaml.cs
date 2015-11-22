@@ -633,6 +633,27 @@ namespace Colourz
             return c;
         }
 
+        public Color getDifferentShadeForRec(int value, Rectangle rec)
+        {
+            Color c = (Color)rec.Fill.GetValue(SolidColorBrush.ColorProperty);
+
+            int newR = c.R - value;
+            if (newR < 0) newR = 0;
+            else if (newR > 255) newR = 255;
+
+            int newG = c.G - value;
+            if (newG < 0) newG = 0;
+            else if (newG > 255) newG = 255;
+
+            int newB = c.B - value;
+            if (newB < 0) newB = 0;
+            else if (newB > 255) newB = 255;
+
+            c = Color.FromRgb((byte)newR, (byte)newG, (byte)newB);
+
+            return c;
+        }
+
         private void txtCGRGB_TextChanged(object sender, TextChangedEventArgs e)
         {
             try
@@ -1371,6 +1392,181 @@ namespace Colourz
         private void txtSCScrollDown_MouseUp(object sender, MouseButtonEventArgs e)
         {
             scrSavedColours.LineDown();
+        }
+
+        private void qlDarkestFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGDarkest);
+        }
+
+        private void qlDarkestSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGDarkest);
+        }
+
+        private void qlDarkestThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGDarkest);
+        }
+
+        private void qlDarkestFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGDarkest);
+        }
+
+        private void qlDarkestFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGDarkest);
+        }
+
+        private void qlDarkerFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGDarker);
+        }
+
+        private void qlDarkerSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGDarker);
+        }
+
+        private void qlDarkerThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGDarker);
+        }
+
+        private void qlDarkerFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGDarker);
+        }
+
+        private void qlDarkerFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGDarker);
+        }
+
+        private void qlDarkFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGDark);
+        }
+
+        private void qlDarkSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGDark);
+        }
+
+        private void qlDarkThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGDark);
+        }
+
+        private void qlDarkFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGDark);
+        }
+
+        private void qlDarkFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGDark);
+        }
+
+        private void qlNormalFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGColour);
+        }
+
+        private void qlNormalSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGColour);
+        }
+
+        private void qlNormalThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGColour);
+        }
+
+        private void qlNormalFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGColour);
+        }
+
+        private void qlNormalFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGColour);
+        }
+
+        private void qlBrightFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGBright);
+        }
+
+        private void qlBrightSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGBright);
+        }
+
+        private void qlBrightThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGBright);
+        }
+
+        private void qlBrightFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGBright);
+        }
+
+        private void qlBrightFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGBright);
+        }
+
+        private void qlBrighterFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGBrighter);
+        }
+
+        private void qlBrighterSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGBrighter);
+        }
+
+        private void qlBrighterThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGBrighter);
+        }
+
+        private void qlBrighterFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGBrighter);
+        }
+
+        private void qlBrighterFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGBrighter);
+        }
+
+        private void qlBrightestFirst_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT1.Text = getHexForRectangle(recCGBrightest);
+        }
+
+        private void qlBrightestSecond_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT2.Text = getHexForRectangle(recCGBrightest);
+        }
+
+        private void qlBrightestThird_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT3.Text = getHexForRectangle(recCGBrightest);
+        }
+
+        private void qlBrightestFourth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT4.Text = getHexForRectangle(recCGBrightest);
+        }
+
+        private void qlBrightestFifth_Click(object sender, RoutedEventArgs e)
+        {
+            txtCT5.Text = getHexForRectangle(recCGBrightest);
         }
 
         private void txtCTScrollDown_MouseUp(object sender, MouseButtonEventArgs e)

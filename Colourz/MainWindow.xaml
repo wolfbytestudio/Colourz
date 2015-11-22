@@ -72,6 +72,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgNormalHex" Header="Copy Hex To Clipboard" Click="cgNormalHex_Click"/>
                                 <MenuItem x:Name="cgNormalRGB" Header="Copy RGB To Clipboard" Click="cgNormalRGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlNormalFirst" Header="First Theme Colour" Click="qlNormalFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlNormalSecond" Header="Second Theme Colour" Click="qlNormalSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlNormalThird" Header="Third Theme Colour" Click="qlNormalThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlNormalFourth" Header="Fourth Theme Colour" Click="qlNormalFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlNormalFifth" Header="Fifth Theme Colour" Click="qlNormalFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -87,6 +95,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgBrightHex" Header="Copy Hex To Clipboard" Click="cgBrightHex_Click"/>
                                 <MenuItem x:Name="cgBrightRGB" Header="Copy RGB To Clipboard" Click="cgBrightRGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlBrightFirst" Header="First Theme Colour" Click="qlBrightFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightSecond" Header="Second Theme Colour" Click="qlBrightSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightThird" Header="Third Theme Colour" Click="qlBrightThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightFourth" Header="Fourth Theme Colour" Click="qlBrightFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightFifth" Header="Fifth Theme Colour" Click="qlBrightFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -98,6 +114,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgBrighterHex" Header="Copy Hex To Clipboard" Click="cgBrighterHex_Click"/>
                                 <MenuItem x:Name="cgBrighterRGB" Header="Copy RGB To Clipboard" Click="cgBrighterRGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlBrighterFirst" Header="First Theme Colour" Click="qlBrighterFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrighterSecond" Header="Second Theme Colour" Click="qlBrighterSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrighterThird" Header="Third Theme Colour" Click="qlBrighterThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrighterFourth" Header="Fourth Theme Colour" Click="qlBrighterFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrighterFifth" Header="Fifth Theme Colour" Click="qlBrighterFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -109,6 +133,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgDarkHex" Header="Copy Hex To Clipboard" Click="cgDarkHex_Click"/>
                                 <MenuItem x:Name="cgDarkRGB" Header="Copy RGB To Clipboard" Click="cgDarkRGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlDarkFirst" Header="First Theme Colour" Click="qlDarkFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkSecond" Header="Second Theme Colour" Click="qlDarkSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkThird" Header="Third Theme Colour" Click="qlDarkThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkFourth" Header="Fourth Theme Colour" Click="qlDarkFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkFifth" Header="Fifth Theme Colour" Click="qlDarkFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -120,6 +152,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgDarkerHex" Header="Copy Hex To Clipboard" Click="cgDarkerHex_Click"/>
                                 <MenuItem x:Name="cgDarkerRGB" Header="Copy RGB To Clipboard" Click="cgDarkerGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlDarkerFirst" Header="First Theme Colour" Click="qlDarkerFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkerSecond" Header="Second Theme Colour" Click="qlDarkerSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkerThird" Header="Third Theme Colour" Click="qlDarkerThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkerFourth" Header="Fourth Theme Colour" Click="qlDarkerFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkerFifth" Header="Fifth Theme Colour" Click="qlDarkerFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -131,6 +171,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgDarkestHex" Header="Copy Hex To Clipboard" Click="cgDarkestHex_Click"/>
                                 <MenuItem x:Name="cgDarkestRGB" Header="Copy RGB To Clipboard" Click="cgDarkestRGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlDarkestFirst" Header="First Theme Colour" Click="qlDarkestFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkestSecond" Header="Second Theme Colour" Click="qlDarkestSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkestThird" Header="Third Theme Colour" Click="qlDarkestThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkestFourth" Header="Fourth Theme Colour" Click="qlDarkestFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlDarkestFifth" Header="Fifth Theme Colour" Click="qlDarkestFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
@@ -142,6 +190,14 @@
                                 <Separator></Separator>
                                 <MenuItem x:Name="cgBrightestHex" Header="Copy Hex To Clipboard" Click="cgBrightestHex_Click"/>
                                 <MenuItem x:Name="cgBrightestRGB" Header="Copy RGB To Clipboard" Click="cgBrightestGB_Click"/>
+                                <Separator></Separator>
+                                <MenuItem Header="Quick Load">
+                                    <MenuItem x:Name="qlBrightestFirst" Header="First Theme Colour" Click="qlBrightestFirst_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightestSecond" Header="Second Theme Colour" Click="qlBrightestSecond_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightestThird" Header="Third Theme Colour" Click="qlBrightestThird_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightestFourth" Header="Fourth Theme Colour" Click="qlBrightestFourth_Click"></MenuItem>
+                                    <MenuItem x:Name="qlBrightestFifth" Header="Fifth Theme Colour" Click="qlBrightestFifth_Click"></MenuItem>
+                                </MenuItem>
                             </ContextMenu>
                         </Rectangle.ContextMenu>
                     </Rectangle>
