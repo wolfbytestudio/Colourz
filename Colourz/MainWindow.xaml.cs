@@ -597,14 +597,14 @@ namespace Colourz
             txtCGHex.Text = getHexForRectangle(recCGColour);
             txtCGRGB.Text = rgb.R + ", " + rgb.G + ", " + rgb.B;
 
-            recCGBright.Fill = new SolidColorBrush(getDifferentShade(-40));
-            recCGBrighter.Fill = new SolidColorBrush(getDifferentShade(-80));
-            recCGBrightest.Fill = new SolidColorBrush(getDifferentShade(-120));
+            recCGBright.Fill = new SolidColorBrush(getDifferentShade(-40, null));
+            recCGBrighter.Fill = new SolidColorBrush(getDifferentShade(-80, null));
+            recCGBrightest.Fill = new SolidColorBrush(getDifferentShade(-120, null));
 
 
-            recCGDark.Fill = new SolidColorBrush(getDifferentShade(40));
-            recCGDarker.Fill = new SolidColorBrush(getDifferentShade(80));
-            recCGDarkest.Fill = new SolidColorBrush(getDifferentShade(120));
+            recCGDark.Fill = new SolidColorBrush(getDifferentShade(40, null));
+            recCGDarker.Fill = new SolidColorBrush(getDifferentShade(80, null));
+            recCGDarkest.Fill = new SolidColorBrush(getDifferentShade(120, null));
         }
 
         /// <summary>
@@ -612,9 +612,18 @@ namespace Colourz
         /// </summary>
         /// <param name="value">The next shade of colour to increment/decrement by</param>
         /// <returns>the new shaded colour</returns>
-        public Color getDifferentShade(int value)
+        public Color getDifferentShade(int value, Rectangle rec)
         {
-            Color c = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
+            Color c;
+            if(rec != null)
+            {
+                c = (Color)rec.Fill.GetValue(SolidColorBrush.ColorProperty);
+            }
+            else
+            {
+                c = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
+            }
+           
 
             int newR = c.R - value;
             if (newR < 0) newR = 0;
@@ -629,28 +638,6 @@ namespace Colourz
             else if (newB > 255) newB = 255;
 
             c = Color.FromRgb((byte)newR, (byte)newG, (byte)newB);
-
-            return c;
-        }
-
-        public Color getDifferentShadeForRec(int value, Rectangle rec)
-        {
-            Color c = (Color)rec.Fill.GetValue(SolidColorBrush.ColorProperty);
-
-            int newR = c.R - value;
-            if (newR < 0) newR = 0;
-            else if (newR > 255) newR = 255;
-
-            int newG = c.G - value;
-            if (newG < 0) newG = 0;
-            else if (newG > 255) newG = 255;
-
-            int newB = c.B - value;
-            if (newB < 0) newB = 0;
-            else if (newB > 255) newB = 255;
-
-            c = Color.FromRgb((byte)newR, (byte)newG, (byte)newB);
-
             return c;
         }
 
