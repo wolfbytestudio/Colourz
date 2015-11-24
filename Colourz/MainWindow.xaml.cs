@@ -1064,7 +1064,7 @@ namespace Colourz
 
         private void saveColourWheelColour()
         {
-            Color color = ((SolidColorBrush)recColour.Fill).Color;
+            Color color = calculateOpacity();
 
             String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
 
@@ -1564,6 +1564,20 @@ namespace Colourz
         private void txtCTScrollUp_MouseUp(object sender, MouseButtonEventArgs e)
         {
             CTThemes.LineUp();
+        }
+
+        public Color calculateOpacity()
+        {
+            Color one = ((SolidColorBrush)recColour.Fill).Color;
+            Color two = Colors.Black;
+
+            double opacity = sldCWBrightness.Value;
+
+            byte finalRed = (byte)Math.Round(one.R * (1 - opacity) + two.R * opacity);
+            byte finalGreen = (byte)Math.Round(one.G * (1 - opacity) + two.G * opacity);
+            byte finalBlue = (byte)Math.Round(one.B * (1 - opacity) + two.B * opacity);
+
+            return Color.FromRgb(finalRed,finalGreen,finalBlue);
         }
     }
 }
