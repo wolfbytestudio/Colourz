@@ -24,6 +24,11 @@ namespace Colourz.window
     public partial class ColourPicker : Window
     {
 
+        /// <summary>
+        /// Checks if the colour picker has been shown
+        /// </summary>
+        public static bool pickerShown = false;
+
         public MainWindow owner { get; set; }
 
         [DllImport("user32.dll")]
@@ -148,9 +153,9 @@ namespace Colourz.window
 
         private void Window_Closed(object sender, EventArgs e)
         {
-            MainWindow.pickerShown = false;
+            ColourPicker.pickerShown = false;
             dispatcherTimer.Stop();
-        }
+        }//90000
 
         private void lblBlock_MouseUp(object sender, MouseButtonEventArgs e)
         {

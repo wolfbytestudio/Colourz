@@ -59,8 +59,8 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="org\Animation.cs" />
-    <Compile Include="Controls\ColourzSlider.xaml.cs">
-      <DependentUpon>ColourzSlider.xaml</DependentUpon>
+    <Compile Include="Controls\ColourSlider.xaml.cs">
+      <DependentUpon>ColourSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ColourTheme.xaml.cs">
       <DependentUpon>ColourTheme.xaml</DependentUpon>
@@ -95,7 +95,7 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Page Include="Controls\ColourzSlider.xaml">
+    <Page Include="Controls\ColourSlider.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

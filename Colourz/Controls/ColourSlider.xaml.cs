@@ -18,7 +18,7 @@ namespace Colourz.resource
     /// <summary>
     /// Interaction logic for ColourzSlider.xaml
     /// </summary>
-    public partial class ColourzSlider : UserControl
+    public partial class ColourSlider : UserControl
     {
 
         private double sliderWidth;
@@ -28,7 +28,7 @@ namespace Colourz.resource
         public Grid mouseGrid { get; set; }
         public Boolean isDragging;
 
-        public ColourzSlider(Color colour)
+        public ColourSlider(Color colour)
         {
             InitializeComponent();
             sliderWidth = recMain.Width;

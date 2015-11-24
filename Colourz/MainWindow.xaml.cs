@@ -1,5 +1,6 @@
 ﻿using Colourz.Controls;
 using Colourz.resource;
+using Colourz.window;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -30,29 +31,105 @@ namespace Colourz
 
         #region Variables
 
+        /// <summary>
+        /// Checks to see if the window should be minimised
+        /// </summary>
         private bool shouldMinimize;
+
+        /// <summary>
+        /// Checks to see if the window should be exited
+        /// </summary>
         private bool shouldExit;
+
+        /// <summary>
+        /// Checks if the tab you're clicking on should be selected
+        /// </summary>
         private bool shouldSelect;
-        public static bool pickerShown = false;
 
-
+        /// <summary>
+        /// Object for tab - used for animations etc
+        /// </summary>
         private Tab tab = new Tab();
-        public ColourzSlider redSlider = new ColourzSlider(Color.FromRgb(220, 125, 125));
-        public ColourzSlider greenSlider = new ColourzSlider(Color.FromRgb(131, 224, 119));
-        public ColourzSlider blueSlider = new ColourzSlider(Color.FromRgb(115, 143, 225));
+
+        /// <summary>
+        /// The red ColourSlider
+        /// </summary>
+        public ColourSlider redSlider = new ColourSlider(Color.FromRgb(220, 125, 125));
+
+        /// <summary>
+        /// The green ColourSlider
+        /// </summary>
+        public ColourSlider greenSlider = new ColourSlider(Color.FromRgb(131, 224, 119));
+
+        /// <summary>
+        /// The blue Colour slider
+        /// </summary>
+        public ColourSlider blueSlider = new ColourSlider(Color.FromRgb(115, 143, 225));
+
+        /// <summary>
+        /// Saved colourz saver
+        /// </summary>
         public static SavedColourzSaver colourzSave;
+
+        /// <summary>
+        /// Saved 
+        /// </summary>
         public static SavedThemesSaver savedTheme;
 
-        private double mouseX, mouseY;
+        /// <summary>
+        /// The mouse X position
+        /// </summary>
+        private double mouseX;
+
+        /// <summary>
+        /// The mouse Y position
+        /// </summary>
+        private double mouseY;
+
+        /// <summary>
+        /// Checks if the selector can be dragged or not
+        /// </summary>
         private bool dragSelector;
         
+        /// <summary>
+        /// The current tab we have selected
+        /// </summary>
         private byte index = 0;
 
+        /// <summary>
+        /// Checks if we should change the text box
+        /// </summary>
         private bool changeTextBox;
+        
+        /// <summary>
+        /// The starting position for the colour selector
+        /// </summary>
         private const double WHEEL_X = 237, WHEEL_Y = 235;
 
+        /// <summary>
+        /// If you should scroll down on the colour wheel
+        /// </summary>
+        bool scrollDownSC = true;
+
+        /// <summary>
+        /// Timer for saved scrolling on saved colours
+        /// </summary>
+        private DispatcherTimer timerSC = new DispatcherTimer();
+
+        /// <summary>
+        /// Check if you should scroll down on the colour themes
+        /// </summary>
+        bool scrollDownCT = true;
+
+        /// <summary>
+        /// Timer for saved scrolling on colour themes
+        /// </summary>
+        private DispatcherTimer timerCT = new DispatcherTimer();
         #endregion
 
+        /// <summary>
+        /// Updates the theme (Temporary)
+        /// </summary>
         public void updateTheme()
         {
             Dispatcher.BeginInvoke(
@@ -132,6 +209,9 @@ namespace Colourz
         }
 
         #region Constructor
+        /// <summary>
+        /// Default Constructor for MainWindow
+        /// </summary>
         public MainWindow()
         {
             InitializeComponent();
@@ -206,11 +286,7 @@ namespace Colourz
                 {
                     this.DragMove();
                 }
-            }
-            catch
-            {
-                
-            }
+            } catch { }
         }
 
         private void lblTitle_MouseDown(object sender, MouseButtonEventArgs e)
@@ -221,11 +297,7 @@ namespace Colourz
                 {
                     this.DragMove();
                 }
-            }
-            catch
-            {
-
-            }
+            } catch { }
         }
 
         private void cmdExit_MouseDown(object sender, MouseButtonEventArgs e)
@@ -427,6 +499,11 @@ namespace Colourz
             moveSelector(mouseX, mouseY);
         }
 
+        /// <summary>
+        /// Moves the selector to a certain position
+        /// </summary>
+        /// <param name="x">the new X coordinates the selector should take</param>
+        /// <param name="y">the new Y coordinates the selector should take</param>
         private void moveSelector(double x, double y)
         {
             if (dragSelector)
@@ -473,20 +550,13 @@ namespace Colourz
                     
                     BitmapSource bitmapSource = imgWheel.Source as BitmapSource;
                     int stride = (bitmapSource.PixelWidth * bitmapSource.Format.BitsPerPixel + 7) / 8;
-
                     bitmapSource.CopyPixels(new Int32Rect((int)x, (int)y, 1, 1), pixels, stride, 0);
-
                     CroppedBitmap cbs = new CroppedBitmap(bitmapSource, new Int32Rect((int)x, (int)y, 1, 1));
 
-
-
                     recColour.Fill = new SolidColorBrush(Color.FromArgb(255, pixels[2], pixels[1], pixels[0]));
-
                     Color newCol = calculateOpacity();
 
                     txtCWHEX.Text = getHexForColour(newCol);
-
-
                     txtCWRGB.Text = newCol.R + ", " + newCol.G + ", " + newCol.B;
                 }
                 catch { }
@@ -521,6 +591,9 @@ namespace Colourz
             }
         }
 
+        /// <summary>
+        /// Updates the colour text boxes
+        /// </summary>
         public void updateColourTextBoxes()
         {
             txtCGRed.Text = redSlider.getValue().ToString();
@@ -545,7 +618,6 @@ namespace Colourz
         }
 
         
-
         private void sliderMouseDownRed(object sender, MouseButtonEventArgs e)
         {
             changeTextBox = true;
@@ -564,6 +636,7 @@ namespace Colourz
         {
             changeTextBox = true;
             index = 2;
+            updateColourTextBoxes();
         }
 
         private void sliderMouseUp(object sender, MouseButtonEventArgs e)
@@ -684,19 +757,13 @@ namespace Colourz
 
                 Color rgb = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
 
-                String hex = rgb.R.ToString("X2") + rgb.G.ToString("X2") + rgb.B.ToString("X2");
-                txtCGHex.Text = "#" + hex;
-                txtCGRGB.Text = rgb.R + ", " + rgb.G + ", " + rgb.B;
-
+                txtCGHex.Text = "#" + getHexForColour(rgb);
+                txtCGRGB.Text = getRgbForColour(rgb);
 
                 txtCGRed.Text = rgb.R.ToString();
                 txtCGGreen.Text = rgb.G.ToString();
                 txtCGBlue.Text = rgb.B.ToString();
-            }
-            catch
-            {
-
-            }
+            } catch { }
         }
 
         private void txtCGRed_TextChanged(object sender, TextChangedEventArgs e)
@@ -951,14 +1018,18 @@ namespace Colourz
             stopSC();
         }
 
-        bool scrollDownSC = true;
-        private DispatcherTimer timerSC = new DispatcherTimer();
 
+        /// <summary>
+        /// Saved colours scroll timer start
+        /// </summary>
         public void startSC()
         {
             timerSC.Start();
         }
 
+        /// <summary>
+        /// Saved colours scroll timer stop
+        /// </summary>
         public void stopSC()
         {
             timerSC.Stop();
@@ -1002,14 +1073,19 @@ namespace Colourz
             stopCT();
         }
 
-        bool scrollDownCT = true;
-        private DispatcherTimer timerCT = new DispatcherTimer();
 
+
+        /// <summary>
+        /// Colour theme scroll timer start
+        /// </summary>
         public void startCT()
         {
             timerCT.Start();
         }
 
+        /// <summary>
+        /// Colour theme scroll timer stop
+        /// </summary>
         public void stopCT()
         {
             timerCT.Stop();
@@ -1056,15 +1132,15 @@ namespace Colourz
             saveColourWheelColour();
         }
 
+        /// <summary>
+        /// Saves the colour wheel colour
+        /// </summary>
         private void saveColourWheelColour()
         {
             Color color = calculateOpacity();
 
-            String hex = color.R.ToString("X2") + color.G.ToString("X2") + color.B.ToString("X2");
-
             stkSavedColours.Children.Add(new SavedColour(this,
-                    stkSavedColours, "" + color.R + ", " + color.G +
-                    ", " + color.B + "", "#" + hex + ""));
+                    stkSavedColours, getRgbForColour(color), "#" + getHexForColour(color) + ""));
 
             colourzSave.save();
         }
@@ -1139,8 +1215,7 @@ namespace Colourz
 
 
                 stkSavedColours.Children.Add(new SavedColour(this,
-                    stkSavedColours, "" + redSlider.getValue() + ", " + greenSlider.getValue() +
-                    ", " + blueSlider.getValue() + "", getHexForColour(rgb) + ""));
+                    stkSavedColours, "" + getRgbForColour(rgb) + "", getHexForColour(rgb) + ""));
                 colourzSave.save();
             }
             catch
@@ -1151,7 +1226,7 @@ namespace Colourz
 
         private void cmdColourPickerStart_Click(object sender, RoutedEventArgs e)
         {
-            if(!pickerShown)
+            if(!ColourPicker.pickerShown)
             {
                 clickTab(4, "saved_colour_selected.png", iconSavedColours, recSavedColours, lblSavedColours);
 
@@ -1159,7 +1234,7 @@ namespace Colourz
                 picker.owner = this;
                 picker.Owner = this;
                 picker.Show();
-                pickerShown = true;
+                ColourPicker.pickerShown = true;
             }
 
         }
@@ -1167,12 +1242,12 @@ namespace Colourz
         /// <summary>
         /// Loads the a new theme
         /// </summary>
-        /// <param name="title"></param>
-        /// <param name="first"></param>
-        /// <param name="second"></param>
-        /// <param name="third"></param>
-        /// <param name="fourth"></param>
-        /// <param name="fifth"></param>
+        /// <param name="title">The title of the theme</param>
+        /// <param name="first">The first colour hex code</param>
+        /// <param name="second">The second colour hex code</param>
+        /// <param name="third">The third colour hex code</param>
+        /// <param name="fourth">The fourth colour hex code</param>
+        /// <param name="fifth">The fifth colour hex code</param>
         public void loadTheme(string title, string first, string second, string third, string fourth, string fifth)
         {
             txtThemeName.Text = title;
@@ -1216,8 +1291,6 @@ namespace Colourz
             }
         }
 
-
-
         private void cmdSelectAll_Click(object sender, RoutedEventArgs e)
         {
             foreach (SavedColour t in stkSavedColours.Children)
@@ -1239,6 +1312,10 @@ namespace Colourz
             saveColourForRectangle(recCGDark);
         }
 
+        /// <summary>
+        /// Saves a colour based on the rectangle colour
+        /// </summary>
+        /// <param name="s">the rectangle</param>
         public void saveColourForRectangle(Rectangle s)
         {
             Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
@@ -1249,9 +1326,27 @@ namespace Colourz
             colourzSave.save();
         }
 
+        /// <summary>
+        /// Gets rgb string format for the rectangle
+        /// </summary>
+        /// <param name="s">the rectangle</param>
+        /// <returns>rgb string format</returns>
         public string getRGBForRectangle(Rectangle s)
         {
             Color col = (Color)s.Fill.GetValue(SolidColorBrush.ColorProperty);
+            string rgb = col.R + ", " + col.G +
+                    ", " + col.B;
+            return rgb;
+        }
+
+        /// <summary>
+        /// Gets rgb string format for the colour
+        /// </summary>
+        /// <param name="c">the color</param>
+        /// <returns>rgb string format</returns>
+        public string getRgbForColour(Color c)
+        {
+            Color col = c;
             string rgb = col.R + ", " + col.G +
                     ", " + col.B;
             return rgb;
