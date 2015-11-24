@@ -477,13 +477,17 @@ namespace Colourz
                     bitmapSource.CopyPixels(new Int32Rect((int)x, (int)y, 1, 1), pixels, stride, 0);
 
                     CroppedBitmap cbs = new CroppedBitmap(bitmapSource, new Int32Rect((int)x, (int)y, 1, 1));
-                    pixels[3] = (byte) sldCWBrightness.Value;
-                    recColour.Fill = new SolidColorBrush(Color.FromArgb(pixels[3], pixels[2], pixels[1], pixels[0]));
 
-                    txtCWHEX.Text = "#" + recColour.Fill.ToString().Substring(3);
-                    Color col = (Color)ColorConverter.ConvertFromString(recColour.Fill.ToString());
 
-                    txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B + ", " + col.A;
+
+                    recColour.Fill = new SolidColorBrush(Color.FromArgb(255, pixels[2], pixels[1], pixels[0]));
+
+                    Color newCol = calculateOpacity();
+
+                    txtCWHEX.Text = getHexForColour(newCol);
+
+
+                    txtCWRGB.Text = newCol.R + ", " + newCol.G + ", " + newCol.B;
                 }
                 catch { }
             }
@@ -501,21 +505,11 @@ namespace Colourz
 
         private void sldCWBrightness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            byte[] pixels = new byte[4];
-            double x = imgSelector.Margin.Left;
-            double y = imgSelector.Margin.Top;
+            recColour.Opacity = sldCWBrightness.Value / 100;
+            Color col = calculateOpacity();
 
-            BitmapSource bitmapSource = imgWheel.Source as BitmapSource;
-            int stride = (bitmapSource.PixelWidth * bitmapSource.Format.BitsPerPixel + 7) / 8;
+            txtCWHEX.Text = getHexForColour(col);
 
-            bitmapSource.CopyPixels(new Int32Rect((int)x, (int)y, 1, 1), pixels, stride, 0);
-
-            CroppedBitmap cbs = new CroppedBitmap(bitmapSource, new Int32Rect((int)x, (int)y, 1, 1));
-            pixels[3] = (byte)sldCWBrightness.Value;
-            recColour.Fill = new SolidColorBrush(Color.FromArgb(pixels[3], pixels[2], pixels[1], pixels[0]));
-            txtCWHEX.Text = recColour.Fill.ToString();
-            Color col = (Color)ColorConverter.ConvertFromString(
-                Color.FromArgb(pixels[3], pixels[2], pixels[1], pixels[0]).ToString());
             txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B;
         }
 
@@ -1566,16 +1560,21 @@ namespace Colourz
             CTThemes.LineUp();
         }
 
+        /// <summary>
+        /// Calculates the new colour of the colour wheel rectangle
+        /// this takes in account of the black background
+        /// </summary>
+        /// <returns></returns>
         public Color calculateOpacity()
         {
             Color one = ((SolidColorBrush)recColour.Fill).Color;
             Color two = Colors.Black;
 
-            double opacity = sldCWBrightness.Value;
+            double opacity = sldCWBrightness.Value / 100;
 
-            byte finalRed = (byte)Math.Round(one.R * (1 - opacity) + two.R * opacity);
-            byte finalGreen = (byte)Math.Round(one.G * (1 - opacity) + two.G * opacity);
-            byte finalBlue = (byte)Math.Round(one.B * (1 - opacity) + two.B * opacity);
+            byte finalRed = (byte)Math.Round(opacity * one.R + (1 - opacity) * two.R);
+            byte finalGreen = (byte)Math.Round(opacity * one.G + (1 - opacity) * two.G);
+            byte finalBlue = (byte)Math.Round(opacity * one.B + (1 - opacity) * two.B);
 
             return Color.FromRgb(finalRed,finalGreen,finalBlue);
         }

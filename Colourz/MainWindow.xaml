@@ -49,12 +49,12 @@
                     <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="468" Margin="10,10,0,0" VerticalAlignment="Top" Width="470" Source="resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
                     <Image x:Name="imgSelector" HorizontalAlignment="Left" Height="20" Margin="238,231,0,0" VerticalAlignment="Top" Width="20" Source="resource/selector.png" MouseDown="imgSelector_MouseDown" MouseUp="imgSelector_MouseUp" MouseMove="imgSelector_MouseMove"/>
                     <Rectangle x:Name="recBackground" Fill="Black" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
-                    <Rectangle x:Name="recColour" Fill="#FF0300FF" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
+                    <Rectangle x:Name="recColour" Fill="White" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
                     <Label x:Name="lblCWRGB" Content="RGB" HorizontalAlignment="Left" Margin="485,142,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16"/>
-                    <TextBox x:Name="txtCWRGB" HorizontalAlignment="Left" Height="30" Margin="530,142,0,0" TextWrapping="Wrap" Text="3, 0, 255" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
+                    <TextBox x:Name="txtCWRGB" HorizontalAlignment="Left" Height="30" Margin="530,142,0,0" TextWrapping="Wrap" Text="255, 255, 255" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
                     <Label x:Name="lblCWHEX" Content="HEX" HorizontalAlignment="Left" Margin="485,178,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16"/>
-                    <TextBox x:Name="txtCWHEX" HorizontalAlignment="Left" Height="30" Margin="530,178,0,0" TextWrapping="Wrap" Text="0300FF" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
-                    <Slider x:Name="sldCWBrightness" HorizontalAlignment="Left" Margin="485,111,0,0" VerticalAlignment="Top" Width="224" Maximum="255" Value="255" ValueChanged="sldCWBrightness_ValueChanged"/>
+                    <TextBox x:Name="txtCWHEX" HorizontalAlignment="Left" Height="30" Margin="530,178,0,0" TextWrapping="Wrap" Text="#FFFFFF" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
+                    <Slider x:Name="sldCWBrightness" HorizontalAlignment="Left" Margin="485,111,0,0" VerticalAlignment="Top" Width="224" Maximum="100" Value="100" ValueChanged="sldCWBrightness_ValueChanged" SmallChange="5"/>
                     <Button x:Name="btnCWSave" Content="Save colour (F5)" HorizontalAlignment="Left" Margin="530,216,0,0" VerticalAlignment="Top" Width="179" Height="35" FontSize="16" Click="btnCWSave_Click"/>
 
 
