@@ -37,7 +37,7 @@ namespace Colourz.Controls
             this.stack = stack;
             selected = false;
             InitializeComponent();
-
+            Console.WriteLine("WABAAAA HEX: " + hex + "\t\tRGBB: " + rgb);
             lblText.Foreground = new SolidColorBrush((Color)ColorConverter.ConvertFromString(hex));
             lblText.Text = "RGB("+rgb+") Hex("+hex+")";
         }

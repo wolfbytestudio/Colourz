@@ -104,7 +104,7 @@ namespace Colourz
         /// <summary>
         /// The starting position for the colour selector
         /// </summary>
-        private const double WHEEL_X = 237, WHEEL_Y = 235;
+        private const double WHEEL_X = 383, WHEEL_Y = 165;
 
         /// <summary>
         /// If you should scroll down on the colour wheel
@@ -126,6 +126,9 @@ namespace Colourz
         /// </summary>
         private DispatcherTimer timerCT = new DispatcherTimer();
         #endregion
+
+
+        private Image lastSelected;
 
         /// <summary>
         /// Updates the theme (Temporary)
@@ -151,8 +154,18 @@ namespace Colourz
                         recTitleBar.Fill = Theme.RECTANGLE_BLACK_LIGHT;
                         lblTitle.Foreground = Theme.HOVER_WHITE_WRITING;
                         recSeperateTitle.Fill = Theme.SEPERATE_DARK;
-                        lblCWHEX.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCWRGB.Foreground = Theme.HOVER_WHITE_WRITING;
+
+                        lblCW1HEX.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCW1RGB.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCW2HEX.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCW2RGB.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCW3HEX.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCW3RGB.Foreground = Theme.HOVER_WHITE_WRITING;
+
+                        lblCWSave1.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCWSave2.Foreground = Theme.HOVER_WHITE_WRITING;
+                        lblCWSave3.Foreground = Theme.HOVER_WHITE_WRITING;
+
                         lblSTheme.Foreground = Theme.HOVER_WHITE_WRITING;
                         chbSAnimations.Foreground = Theme.HOVER_WHITE_WRITING;
                         lblSSidePanelSColour.Foreground = Theme.HOVER_WHITE_WRITING;
@@ -182,8 +195,18 @@ namespace Colourz
                         recTitleBar.Fill = Theme.RECTANGLE_WHITE_LIGHT;
                         lblTitle.Foreground = Theme.HOVER_BLACK_WRITING;
                         recSeperateTitle.Fill = Theme.SEPERATE_LIGHT;
-                        lblCWHEX.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCWRGB.Foreground = Theme.HOVER_BLACK_WRITING;
+
+                        lblCW1HEX.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCW1RGB.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCW2HEX.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCW2RGB.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCW3HEX.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCW3RGB.Foreground = Theme.HOVER_BLACK_WRITING;
+
+                        lblCWSave1.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCWSave2.Foreground = Theme.HOVER_BLACK_WRITING;
+                        lblCWSave3.Foreground = Theme.HOVER_BLACK_WRITING;
+
                         lblSTheme.Foreground = Theme.HOVER_BLACK_WRITING;
                         chbSAnimations.Foreground = Theme.HOVER_BLACK_WRITING;
                         lblSSidePanelSColour.Foreground = Theme.HOVER_BLACK_WRITING;
@@ -249,6 +272,7 @@ namespace Colourz
 
             savedTheme = new SavedThemesSaver(this, CTThemes);
             savedTheme.load();
+            lastSelected = imgSelector1;
         }
         #endregion
 
@@ -490,13 +514,14 @@ namespace Colourz
         private void imgSelector_MouseDown(object sender, MouseButtonEventArgs e)
         {
             dragSelector = true;
+            lastSelected = imgSelector1;
         }
 
         private void imgWheel_MouseMove(object sender, MouseEventArgs e)
         {
             mouseX = e.GetPosition(gridColourWheel).X;
             mouseY = e.GetPosition(gridColourWheel).Y;
-            moveSelector(mouseX, mouseY);
+            moveSelector(mouseX, mouseY, lastSelected);
         }
 
         /// <summary>
@@ -504,21 +529,18 @@ namespace Colourz
         /// </summary>
         /// <param name="x">the new X coordinates the selector should take</param>
         /// <param name="y">the new Y coordinates the selector should take</param>
-        private void moveSelector(double x, double y)
+        private void moveSelector(double x, double y, Image selector)
         {
             if (dragSelector)
             {
                 if (Math.Sqrt(
-                    Math.Pow(WHEEL_X - (x - 5), 2)
-                    + Math.Pow(WHEEL_Y - (y - 5), 2)) >= 230)
+                    Math.Pow(WHEEL_X - (x + 10), 2)
+                    + Math.Pow(WHEEL_Y - (y + 10), 2)) >= 160)
                 {
                     return;
                 }
-                imgSelector.Margin = new Thickness(x, y, imgSelector.Margin.Right, imgSelector.Margin.Bottom);
-                txtCWHEX.Text = "#" + recColour.Fill.ToString().Substring(3);
+                selector.Margin = new Thickness(x, y, selector.Margin.Right, selector.Margin.Bottom);
 
-                Color col = (Color)ColorConverter.ConvertFromString(recColour.Fill.ToString());
-                txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B;
             }
         }
 
@@ -527,40 +549,53 @@ namespace Colourz
             dragSelector = false;
         }
 
-        private void imgSelector_MouseMove(object sender, MouseEventArgs e)
+
+        private void imgMove(Image selector, TextBlock hex, TextBlock rgb, Rectangle col, MouseEventArgs e, Slider sld)
         {
             mouseX = e.GetPosition(gridColourWheel).X;
             mouseY = e.GetPosition(gridColourWheel).Y;
+
             if (dragSelector)
             {
 
                 if (Math.Sqrt(
-                    Math.Pow(WHEEL_X - imgSelector.Margin.Left, 2) 
-                    + Math.Pow(WHEEL_Y - imgSelector.Margin.Top, 2)) >= 228)
+                    Math.Pow(WHEEL_X - (mouseX + 2), 2)
+                    + Math.Pow(WHEEL_Y - (mouseY + 8), 2)) >= 160)
                 {
                     return;
                 }
 
-                imgSelector.Margin = new Thickness(mouseX - 10, mouseY - 9, imgSelector.Margin.Right, imgSelector.Margin.Bottom);
+                selector.Margin = new Thickness(mouseX - 10, mouseY - 9, selector.Margin.Right, selector.Margin.Bottom);
                 try
                 {
                     byte[] pixels = new byte[4];
-                    double x = imgSelector.Margin.Left;
-                    double y = imgSelector.Margin.Top;
-                    
+
+                    double x = selector.Margin.Left - 120;
+                    double y = selector.Margin.Top + 70;
+
                     BitmapSource bitmapSource = imgWheel.Source as BitmapSource;
+
                     int stride = (bitmapSource.PixelWidth * bitmapSource.Format.BitsPerPixel + 7) / 8;
+
                     bitmapSource.CopyPixels(new Int32Rect((int)x, (int)y, 1, 1), pixels, stride, 0);
+
                     CroppedBitmap cbs = new CroppedBitmap(bitmapSource, new Int32Rect((int)x, (int)y, 1, 1));
 
-                    recColour.Fill = new SolidColorBrush(Color.FromArgb(255, pixels[2], pixels[1], pixels[0]));
-                    Color newCol = calculateOpacity();
+                    col.Fill = new SolidColorBrush(Color.FromArgb(255, pixels[2], pixels[1], pixels[0]));
+                    Color newCol = calculateOpacity(col, sld);
 
-                    txtCWHEX.Text = getHexForColour(newCol);
-                    txtCWRGB.Text = newCol.R + ", " + newCol.G + ", " + newCol.B;
+                    hex.Text = "Hex: " + getHexForColour(newCol);
+                    rgb.Text = "RGB: " + newCol.R + ", " + newCol.G + ", " + newCol.B;
                 }
                 catch { }
             }
+        }
+
+        private void imgSelector_MouseMove(object sender, MouseEventArgs e)
+        {
+
+            imgMove(imgSelector1, lblCW1HEX, lblCW1RGB, recColour1, e, sldCWBrightness1);
+           
         }
 
         private void imgWheel_MouseUp(object sender, MouseButtonEventArgs e)
@@ -575,12 +610,24 @@ namespace Colourz
 
         private void sldCWBrightness_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
         {
-            recColour.Opacity = sldCWBrightness.Value / 100;
-            Color col = calculateOpacity();
+            changeBrightness(sldCWBrightness1, recColour1, lblCW1HEX, lblCW1RGB);
+        }
 
-            txtCWHEX.Text = getHexForColour(col);
+        public void changeBrightness(Slider sld, Rectangle c, TextBlock hex, TextBlock rgb)
+        {
+            try
+            {
+                c.Opacity = sld.Value / 100;
+                Color col = calculateOpacity(c, sld);
 
-            txtCWRGB.Text = col.R + ", " + col.G + ", " + col.B;
+                hex.Text = "Hex: "+getHexForColour(col);
+
+                rgb.Text = "Rgb: "+col.R + ", " + col.G + ", " + col.B;
+            }
+            catch
+            {
+
+            }
         }
 
         private void gridColourGenerator_MouseMove(object sender, MouseEventArgs e)
@@ -1127,22 +1174,21 @@ namespace Colourz
             colourzSave.save();
         }
 
-        private void btnCWSave_Click(object sender, RoutedEventArgs e)
-        {
-            saveColourWheelColour();
-        }
-
         /// <summary>
         /// Saves the colour wheel colour
         /// </summary>
-        private void saveColourWheelColour()
+        private void saveColourWheelColour(Rectangle target, Slider targetOpa)
         {
-            Color color = calculateOpacity();
+            Color color = calculateOpacity(target, targetOpa);
 
-            stkSavedColours.Children.Add(new SavedColour(this,
-                    stkSavedColours, getRgbForColour(color), "#" + getHexForColour(color) + ""));
+            string hex = getHexForColour(color);
+            string rgb = getRgbForColour(color);
 
-            colourzSave.save();
+           stkSavedColours.Children.Add(
+                new SavedColour(this,
+                stkSavedColours, rgb, hex));
+
+           colourzSave.save();
         }
 
         private void wolfbyteEnter(object sender, MouseEventArgs e)
@@ -1265,12 +1311,31 @@ namespace Colourz
 
         private void frmMain_KeyDown(object sender, KeyEventArgs e)
         {
+            if (e.Key == Key.F6)
+            {
+                switch (tab.selected)
+                {
+                    case 0:
+                        saveColourWheelColour(recColour2, sldCWBrightness2);
+                        break;
+                }
+            }
+            if (e.Key == Key.F4)
+            {
+                switch (tab.selected)
+                {
+                    case 0:
+                        saveColourWheelColour(recColour3, sldCWBrightness3);
+                        break;
+                }
+            }
+
             if (e.Key == Key.F5)
             {
                 switch(tab.selected)
                 {
                     case 0:
-                        saveColourWheelColour();
+                        saveColourWheelColour(recColour1, sldCWBrightness1);
                         break;
                     case 1:
                         saveColourGenerator();
@@ -1457,7 +1522,7 @@ namespace Colourz
             dragSelector = true;
             mouseX = e.GetPosition(gridColourWheel).X;
             mouseY = e.GetPosition(gridColourWheel).Y;
-            moveSelector(mouseX, mouseY);
+            moveSelector(mouseX, mouseY, lastSelected);
         }
 
         private void txtSCScrollUp_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1655,17 +1720,59 @@ namespace Colourz
             CTThemes.LineUp();
         }
 
+        private void imgSelector3_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dragSelector = true;
+            lastSelected = imgSelector3;
+        }
+
+        private void imgSelector3_MouseMove(object sender, MouseEventArgs e)
+        {
+            imgMove(imgSelector3, lblCW3HEX, lblCW3RGB, recColour3, e, sldCWBrightness3);
+        }
+
+        private void imgSelector3_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            dragSelector = false;
+        }
+
+        private void sldCWBrightness3_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            changeBrightness(sldCWBrightness3, recColour3, lblCW3HEX, lblCW3RGB);
+        }
+
+        private void sldCWBrightness2_ValueChanged(object sender, RoutedPropertyChangedEventArgs<double> e)
+        {
+            changeBrightness(sldCWBrightness2, recColour2, lblCW2HEX, lblCW2RGB);
+        }
+
+        private void imgSelector2_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            dragSelector = true;
+            lastSelected = imgSelector2;
+        }
+
+        private void imgSelector2_MouseMove(object sender, MouseEventArgs e)
+        {
+            imgMove(imgSelector2, lblCW2HEX, lblCW2RGB, recColour2, e, sldCWBrightness2);
+        }
+
+        private void imgSelector2_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            dragSelector = false;
+        }
+
         /// <summary>
         /// Calculates the new colour of the colour wheel rectangle
         /// this takes in account of the black background
         /// </summary>
         /// <returns></returns>
-        public Color calculateOpacity()
+        public Color calculateOpacity(Rectangle src, Slider b)
         {
-            Color one = ((SolidColorBrush)recColour.Fill).Color;
+            Color one = ((SolidColorBrush)src.Fill).Color;
             Color two = Colors.Black;
 
-            double opacity = sldCWBrightness.Value / 100;
+            double opacity = b.Value / 100;
 
             byte finalRed = (byte)Math.Round(opacity * one.R + (1 - opacity) * two.R);
             byte finalGreen = (byte)Math.Round(opacity * one.G + (1 - opacity) * two.G);

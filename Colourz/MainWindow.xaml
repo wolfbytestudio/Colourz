@@ -14,7 +14,7 @@
         <Image x:Name="cmdMinimize" HorizontalAlignment="Left" Height="16" Margin="887,6,0,0" VerticalAlignment="Top" Width="16" Source="resource/minimize_normal.png" MouseEnter="cmdMinimize_MouseEnter" MouseLeave="cmdMinimize_MouseLeave" MouseDown="cmdMinimize_MouseDown" MouseUp="cmdMinimize_MouseUp"/>
         <Image x:Name="cmdExit" HorizontalAlignment="Left" Height="16" Margin="908,6,0,0" VerticalAlignment="Top" Width="16" Source="resource/exit_normal.png" MouseDown="cmdExit_MouseDown" MouseEnter="cmdExit_MouseEnter" MouseLeave="cmdExit_MouseLeave" MouseUp="cmdExit_MouseUp"/>
         <Rectangle x:Name="recSideBar" Fill="#FF1E2024" HorizontalAlignment="Left" Height="520" Margin="0,40,0,0" VerticalAlignment="Top" Width="196"/>
-        <Rectangle x:Name="recSeperateTitle" Fill="#FF0F0F0F" HorizontalAlignment="Left" Height="1" Margin="0,39,-5,0" VerticalAlignment="Top" Width="935" Grid.ColumnSpan="2"/>
+        <Rectangle x:Name="recSeperateTitle" Fill="#FF0F0F0F" HorizontalAlignment="Left" Height="1" Margin="0,39,0,0" VerticalAlignment="Top" Width="930"/>
 
         <Rectangle x:Name="recSelected" Fill="#FF282A2E" HorizontalAlignment="Left" Height="37" Margin="6,48,0,0" VerticalAlignment="Top" Width="190"/>
         <Rectangle x:Name="recSelectedColour" Fill="#FF2163E6" HorizontalAlignment="Left" Height="37" Margin="2,48,0,0" VerticalAlignment="Top" Width="4"/>
@@ -45,18 +45,35 @@
         <Rectangle x:Name="recSideBarSplit" Fill="#FF0B0B0C" HorizontalAlignment="Left" Height="520" Margin="196,40,0,0" VerticalAlignment="Top" Width="2"/>
         <TabControl x:Name="tabSelected" HorizontalAlignment="Left" Height="520" Margin="202,40,-1,0" VerticalAlignment="Top" Width="729" Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}" Grid.ColumnSpan="2">
             <TabItem x:Name="tabColourWheel" Header="Colour Wheel">
-                <Grid x:Name="gridColourWheel" Margin="4,2,-4,-2" MouseUp="gridColourWheel_MouseUp">
-                    <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="468" Margin="10,10,0,0" VerticalAlignment="Top" Width="470" Source="resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
-                    <Image x:Name="imgSelector" HorizontalAlignment="Left" Height="20" Margin="238,231,0,0" VerticalAlignment="Top" Width="20" Source="resource/selector.png" MouseDown="imgSelector_MouseDown" MouseUp="imgSelector_MouseUp" MouseMove="imgSelector_MouseMove"/>
-                    <Rectangle x:Name="recBackground" Fill="Black" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
-                    <Rectangle x:Name="recColour" Fill="White" HorizontalAlignment="Left" Height="100" Margin="485,0,0,0" VerticalAlignment="Top" Width="224"/>
-                    <Label x:Name="lblCWRGB" Content="RGB" HorizontalAlignment="Left" Margin="485,142,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16"/>
-                    <TextBox x:Name="txtCWRGB" HorizontalAlignment="Left" Height="30" Margin="530,142,0,0" TextWrapping="Wrap" Text="255, 255, 255" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
-                    <Label x:Name="lblCWHEX" Content="HEX" HorizontalAlignment="Left" Margin="485,178,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16"/>
-                    <TextBox x:Name="txtCWHEX" HorizontalAlignment="Left" Height="30" Margin="530,178,0,0" TextWrapping="Wrap" Text="#FFFFFF" VerticalAlignment="Top" Width="179" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center"/>
-                    <Slider x:Name="sldCWBrightness" HorizontalAlignment="Left" Margin="485,111,0,0" VerticalAlignment="Top" Width="224" Maximum="100" Value="100" ValueChanged="sldCWBrightness_ValueChanged" SmallChange="5"/>
-                    <Button x:Name="btnCWSave" Content="Save colour (F5)" HorizontalAlignment="Left" Margin="530,216,0,0" VerticalAlignment="Top" Width="179" Height="35" FontSize="16" Click="btnCWSave_Click"/>
+                <Grid x:Name="gridColourWheel" Margin="-25,2,25,-2" MouseUp="gridColourWheel_MouseUp">
 
+
+                    <Rectangle x:Name="recBackground3" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="57,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Rectangle x:Name="recColour3" Fill="#FFFF74F8" HorizontalAlignment="Left" Height="200" Margin="57,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Slider x:Name="sldCWBrightness3" HorizontalAlignment="Left" Margin="57,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness3_ValueChanged"/>
+                    <TextBlock x:Name="lblCW3RGB" Text="RGB: 255, 116, 248" HorizontalAlignment="Left" Margin="57,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCW3HEX" Text="HEX: #FF74F8" HorizontalAlignment="Left" Margin="57,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave3" Text="Press F4 To save this colour" HorizontalAlignment="Left" Margin="57,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+
+                    <Rectangle x:Name="recBackground2" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Rectangle x:Name="recColour2" Fill="#FFD7FFD7" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Slider x:Name="sldCWBrightness2" HorizontalAlignment="Left" Margin="505,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness2_ValueChanged"/>
+                    <TextBlock x:Name="lblCW2RGB" Text="RGB: 215, 255, 215" HorizontalAlignment="Left" Margin="505,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCW2HEX" Text="HEX: #D7FFD7" HorizontalAlignment="Left" Margin="505,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave2" Text="Press F6 To save this colour" HorizontalAlignment="Left" Margin="505,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+
+
+                    <Slider x:Name="sldCWBrightness1" HorizontalAlignment="Left" Margin="281,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" ValueChanged="sldCWBrightness_ValueChanged" SmallChange="1" LargeChange="5"/>
+                    <Rectangle x:Name="recBackground1" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="281,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <Rectangle x:Name="recColour1" Fill="White" HorizontalAlignment="Left" Height="200" Margin="281,162,0,0" VerticalAlignment="Top" Width="204"/>
+                    <TextBlock x:Name="lblCW1RGB" Text="RGB: 255, 255, 255" HorizontalAlignment="Left" Margin="281,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCW1HEX" Text="HEX: #FFFFFF" HorizontalAlignment="Left" Margin="281,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave1" Text="Press F5 To save this colour" HorizontalAlignment="Left" Margin="281,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+
+                    <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="319" Margin="221,0,0,0" VerticalAlignment="Top" Width="321" Source="resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
+                    <Image x:Name="imgSelector1" HorizontalAlignment="Left" Height="20" Margin="377,144,0,0" VerticalAlignment="Top" Width="20" Source="resource/selector.png" MouseDown="imgSelector_MouseDown" MouseUp="imgSelector_MouseUp" MouseMove="imgSelector_MouseMove"/>
+                    <Image x:Name="imgSelector2" HorizontalAlignment="Left" Height="20" Margin="327,181,0,0" VerticalAlignment="Top" Width="20" Source="Resource/selector.png" MouseDown="imgSelector2_MouseDown" MouseUp="imgSelector2_MouseUp" MouseMove="imgSelector2_MouseMove" RenderTransformOrigin="3.2,4.1"/>
+                    <Image x:Name="imgSelector3" HorizontalAlignment="Left" Height="20" Margin="424,107,0,0" VerticalAlignment="Top" Width="20" Source="Resource/selector.png" RenderTransformOrigin="3.2,4.1" MouseDown="imgSelector3_MouseDown" MouseMove="imgSelector3_MouseMove" MouseUp="imgSelector3_MouseUp"/>
 
                 </Grid>
             </TabItem>
