@@ -4,17 +4,17 @@
 winexe
 C#
 .cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\
+C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\
 Colourz
 none
 false
 DEBUG;TRACE
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\App.xaml
+C:\Users\Zack\Documents\GitHub\Colourz\Colourz\App.xaml
 51228504391
 
-18-881098892
+18889798853
 141012385901
 Controls\ColourTheme.xaml;Controls\SavedColour.xaml;MainWindow.xaml;Controls\ColourSlider.xaml;Controls\ColourPicker.xaml;
 
-False
+True
 
