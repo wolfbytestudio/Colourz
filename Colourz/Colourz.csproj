@@ -58,27 +58,30 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Controls\Custom Theme\components\HoverableComponent.cs" />
-    <Compile Include="Controls\Custom Theme\Theme.cs" />
-    <Compile Include="Controls\Custom Theme\ThemeSystem.cs" />
-    <Compile Include="Controls\Custom Theme\ThemeSystemLoader.cs" />
-    <Compile Include="Controls\Custom Theme\ThemeSystemSaver.cs" />
-    <Compile Include="org\Animation.cs" />
+    <Compile Include="Org\theme\component\HoverableComponent.cs" />
+    <Compile Include="Org\theme\Theme.cs" />
+    <Compile Include="Org\theme\ThemeSystem.cs" />
+    <Compile Include="Org\theme\ThemeSystemLoader.cs" />
+    <Compile Include="Org\theme\ThemeSystemSaver.cs" />
+    <Compile Include="Org\Animation.cs" />
     <Compile Include="Controls\ColourSlider.xaml.cs">
       <DependentUpon>ColourSlider.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controls\ColourTheme.xaml.cs">
       <DependentUpon>ColourTheme.xaml</DependentUpon>
     </Compile>
-    <Compile Include="org\ColourzSaver.cs" />
+    <Compile Include="Org\ColourzSaver.cs" />
     <Compile Include="Controls\SavedColour.xaml.cs">
       <DependentUpon>SavedColour.xaml</DependentUpon>
     </Compile>
-    <Compile Include="org\Constants.cs" />
-    <Compile Include="org\SavedThemesSaver.cs" />
-    <Compile Include="org\Tab.cs" />
-    <Compile Include="Controls\ColourPicker.xaml.cs">
+    <Compile Include="Org\Constants.cs" />
+    <Compile Include="Org\SavedThemesSaver.cs" />
+    <Compile Include="Org\Tab.cs" />
+    <Compile Include="Windows\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Windows\ThemeEditor.xaml.cs">
+      <DependentUpon>ThemeEditor.xaml</DependentUpon>
     </Compile>
     <Page Include="Controls\ColourTheme.xaml">
       <SubType>Designer</SubType>
@@ -88,7 +91,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="MainWindow.xaml">
+    <Page Include="Windows\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
@@ -96,7 +99,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="MainWindow.xaml.cs">
+    <Compile Include="Windows\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
@@ -104,7 +107,11 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Controls\ColourPicker.xaml">
+    <Page Include="Windows\ColourPicker.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Windows\ThemeEditor.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

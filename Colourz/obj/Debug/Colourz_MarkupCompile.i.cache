@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\App.xaml
-51228504391
+6-2066011145
 
-232029954582
+24970401758
 141012385901
-Controls\ColourTheme.xaml;Controls\SavedColour.xaml;MainWindow.xaml;Controls\ColourSlider.xaml;Controls\ColourPicker.xaml;
+Controls\ColourTheme.xaml;Controls\SavedColour.xaml;Windows\MainWindow.xaml;Controls\ColourSlider.xaml;Windows\ColourPicker.xaml;Windows\ThemeEditor.xaml;
 
 False
 

@@ -2,6 +2,7 @@
 using Colourz.Controls.Custom_Theme;
 using Colourz.resource;
 using Colourz.window;
+using Colourz.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -1202,7 +1203,6 @@ namespace Colourz
         {
             Color col = (Color) ColorConverter.ConvertFromString(hex);
             return col;
-
         }
 
         /// <summary>
@@ -1728,6 +1728,12 @@ namespace Colourz
         private void imgSelector2_MouseUp(object sender, MouseButtonEventArgs e)
         {
             dragSelector = false;
+        }
+
+        private void cmdThemeEditor_Click(object sender, RoutedEventArgs e)
+        {
+            ThemeEditor themeEditor = new ThemeEditor(this);
+            themeEditor.Show();
         }
 
         /// <summary>
