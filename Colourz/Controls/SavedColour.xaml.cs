@@ -26,10 +26,10 @@ namespace Colourz.Controls
         public string hex;
         private string rgb;
         private StackPanel stack;
-        private object owner;
+        private MainWindow owner;
         private bool selected;
 
-        public SavedColour(object owner, StackPanel stack, string rgb, string hex)
+        public SavedColour(MainWindow owner, StackPanel stack, string rgb, string hex)
         {
             this.owner = owner;
             this.hex = hex;
@@ -46,16 +46,7 @@ namespace Colourz.Controls
 
         private void lblText_MouseEnter(object sender, MouseEventArgs e)
         {
-            if(Theme.blackTheme)
-            {
-
-                lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
-            }
-            else
-            {
-                lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
-            }
-            
+            lblText.Background = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.Background));
         }
 
         private void lblText_MouseLeave(object sender, MouseEventArgs e)
@@ -66,7 +57,7 @@ namespace Colourz.Controls
             }
             else
             {
-                lblText.Background = new SolidColorBrush(Color.FromArgb(0, 0, 0, 0));
+                lblText.Background = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.Scrollables));
             }
             
         }
@@ -130,15 +121,7 @@ namespace Colourz.Controls
         {
             selected = true;
             selectedColours.Add(this);
-            if (Theme.blackTheme)
-            {
-
-                lblText.Background = new SolidColorBrush(Color.FromRgb(10, 11, 13));
-            }
-            else
-            {
-                lblText.Background = new SolidColorBrush(Color.FromRgb(190, 191, 193));
-            }
+            lblText.Background = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.Background));
         }
 
         public void unselect()
@@ -182,32 +165,27 @@ namespace Colourz.Controls
 
         private void qlFirst_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow o = (MainWindow)owner;
-            o.txtCT1.Text = hex;
+            owner.txtCT1.Text = hex;
         }
 
         private void qlSecond_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow o = (MainWindow)owner;
-            o.txtCT2.Text = hex;
+            owner.txtCT2.Text = hex;
         }
 
         private void qlThird_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow o = (MainWindow)owner;
-            o.txtCT3.Text = hex;
+            owner.txtCT3.Text = hex;
         }
 
         private void qlFourth_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow o = (MainWindow)owner;
-            o.txtCT4.Text = hex;
+            owner.txtCT4.Text = hex;
         }
 
         private void qlFifth_Click(object sender, RoutedEventArgs e)
         {
-            MainWindow o = (MainWindow)owner;
-            o.txtCT5.Text = hex;
+            owner.txtCT5.Text = hex;
         }
     }
 }

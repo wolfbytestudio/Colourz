@@ -1,4 +1,5 @@
 ﻿using Colourz.Controls;
+using Colourz.Controls.Custom_Theme;
 using Colourz.resource;
 using Colourz.window;
 using System;
@@ -127,7 +128,14 @@ namespace Colourz
         private DispatcherTimer timerCT = new DispatcherTimer();
         #endregion
 
+        /// <summary>
+        /// Current theme
+        /// </summary>
+        public ThemeSystem theme;
 
+        /// <summary>
+        /// Last colour selector selected
+        /// </summary>
         private Image lastSelected;
 
         /// <summary>
@@ -143,89 +151,43 @@ namespace Colourz
                     blueSlider.updateColours();
                     tab.resetColours(lblColourGenerator, lblColourPicker, lblColourTheme, lblColourWheel, lblSavedColours, lblSettings);
 
-                    if(Theme.blackTheme)
-                    {
-                        lblSettings.Foreground = Theme.HOVER_WHITE_WRITING;
-                        recSideBar.Fill = Theme.RECTANGLE_BLACK_LIGHT;
-                        recSelected.Fill = Theme.SELECTOR_DARK;
-                        gridMain.Background = Theme.RECTANGLE_BLACK_DARK;
-                        recTabHider.Fill = Theme.RECTANGLE_BLACK_DARK;
-                        recSideBarSplit.Fill = Theme.SPLITTER_BLACK;
-                        recTitleBar.Fill = Theme.RECTANGLE_BLACK_LIGHT;
-                        lblTitle.Foreground = Theme.HOVER_WHITE_WRITING;
-                        recSeperateTitle.Fill = Theme.SEPERATE_DARK;
+                    lblSettings.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
+                    recSideBar.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.RectangleSide));
+                    recSelected.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.TabSelector));
+                    gridMain.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Background));
+                    recTabHider.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.Background));
+                    recSideBarSplit.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.Seperators));
+                    recTitleBar.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.RectangleTop));
+                    lblTitle.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.Title));
+                    recSeperateTitle.Fill = new SolidColorBrush(getColourForHex(theme.currentTheme.Seperators));
 
-                        lblCW1HEX.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCW1RGB.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCW2HEX.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCW2RGB.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCW3HEX.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCW3RGB.Foreground = Theme.HOVER_WHITE_WRITING;
+                    lblCW1HEX.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCW1RGB.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCW2HEX.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCW2RGB.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCW3HEX.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCW3RGB.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
 
-                        lblCWSave1.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCWSave2.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblCWSave3.Foreground = Theme.HOVER_WHITE_WRITING;
+                    lblCWSave1.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCWSave2.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblCWSave3.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
 
-                        lblSTheme.Foreground = Theme.HOVER_WHITE_WRITING;
-                        chbSAnimations.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblSSidePanelSColour.Foreground = Theme.HOVER_WHITE_WRITING;
-                        lblSCGuide.Foreground = Theme.NORMAL_WHITE_WRITING;
+                    lblSTheme.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    chbSAnimations.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    lblSSidePanelSColour.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
 
-                        txtCTScrollDown.Foreground = Theme.HOVER_WHITE_WRITING;
-                        txtCTScrollUp.Foreground = Theme.HOVER_WHITE_WRITING;
-                        txtSCScrollDown.Foreground = Theme.HOVER_WHITE_WRITING;
-                        txtSCScrollUp.Foreground = Theme.HOVER_WHITE_WRITING;
+                    txtCTScrollDown.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtCTScrollUp.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtSCScrollDown.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtSCScrollUp.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
 
-                        txtCTScrollDown.Background = Theme.SCROLLERS_NORMAL_DARK;
-                        txtCTScrollUp.Background = Theme.SCROLLERS_NORMAL_DARK;
-                        txtSCScrollDown.Background = Theme.SCROLLERS_NORMAL_DARK;
-                        txtSCScrollUp.Background = Theme.SCROLLERS_NORMAL_DARK;
+                    txtCTScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
+                    txtCTScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
+                    txtSCScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
+                    txtSCScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
 
-                        scrollThemes.Background = Theme.SCROLLABLES_DARK;
-                        scrSavedColours.Background = Theme.SCROLLABLES_DARK;
-                    }
-                    else
-                    {
-                        lblSettings.Foreground = Theme.HOVER_BLACK_WRITING;
-                        recSideBar.Fill = Theme.RECTANGLE_WHITE_LIGHT;
-                        recSelected.Fill = Theme.SELECTOR_LIGHT;
-                        gridMain.Background = Theme.RECTANGLE_WHITE_DARK;
-                        recTabHider.Fill = Theme.RECTANGLE_WHITE_DARK;
-                        recSideBarSplit.Fill = Theme.SPLITTER_WHITE;
-                        recTitleBar.Fill = Theme.RECTANGLE_WHITE_LIGHT;
-                        lblTitle.Foreground = Theme.HOVER_BLACK_WRITING;
-                        recSeperateTitle.Fill = Theme.SEPERATE_LIGHT;
-
-                        lblCW1HEX.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCW1RGB.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCW2HEX.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCW2RGB.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCW3HEX.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCW3RGB.Foreground = Theme.HOVER_BLACK_WRITING;
-
-                        lblCWSave1.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCWSave2.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblCWSave3.Foreground = Theme.HOVER_BLACK_WRITING;
-
-                        lblSTheme.Foreground = Theme.HOVER_BLACK_WRITING;
-                        chbSAnimations.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblSSidePanelSColour.Foreground = Theme.HOVER_BLACK_WRITING;
-                        lblSCGuide.Foreground = Theme.NORMAL_BLACK_WRITING;
-
-                        txtCTScrollDown.Foreground = Theme.HOVER_BLACK_WRITING;
-                        txtCTScrollUp.Foreground = Theme.HOVER_BLACK_WRITING;
-                        txtSCScrollDown.Foreground = Theme.HOVER_BLACK_WRITING;
-                        txtSCScrollUp.Foreground = Theme.HOVER_BLACK_WRITING;
-
-                        txtCTScrollDown.Background = Theme.SCROLLERS_NORMAL_LIGHT;
-                        txtCTScrollUp.Background = Theme.SCROLLERS_NORMAL_LIGHT;
-                        txtSCScrollDown.Background = Theme.SCROLLERS_NORMAL_LIGHT;
-                        txtSCScrollUp.Background = Theme.SCROLLERS_NORMAL_LIGHT;
-
-                        scrollThemes.Background = Theme.SCROLLABLES_LIGHT;
-                        scrSavedColours.Background = Theme.SCROLLABLES_LIGHT;
-                    }
-
+                    scrollThemes.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
+                    scrSavedColours.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
                 })
             );
 
@@ -237,23 +199,28 @@ namespace Colourz
         /// </summary>
         public MainWindow()
         {
+
+
+            theme = new ThemeSystem();
+
             InitializeComponent();
             tab.selected = 0;
+            tab.owner = this;
 
             redSlider.setValue(0);
             greenSlider.setValue(0);
             blueSlider.setValue(0);
 
             redSlider.Margin = new Thickness(-135, 230, 0, 0);
+            redSlider.owner = this;
             greenSlider.Margin = new Thickness(-135, 330, 0, 0);
+            greenSlider.owner = this;
             blueSlider.Margin = new Thickness(-135, 430, 0, 0);
-
+            blueSlider.owner = this;
             redSlider.MouseDown += new MouseButtonEventHandler(sliderMouseDownRed);
             redSlider.MouseUp += new MouseButtonEventHandler(sliderMouseUp);
-
             greenSlider.MouseDown += new MouseButtonEventHandler(sliderMouseDownGreen);
             greenSlider.MouseUp += new MouseButtonEventHandler(sliderMouseUp);
-
             blueSlider.MouseDown += new MouseButtonEventHandler(sliderMouseDownBlue);
             blueSlider.MouseUp += new MouseButtonEventHandler(sliderMouseUp);
 
@@ -355,7 +322,7 @@ namespace Colourz
         private void recColourGenerator_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblColourGenerator.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblColourGenerator.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
@@ -363,14 +330,14 @@ namespace Colourz
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
             if(tab.selected == 1) { return; }
-            lblColourGenerator.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblColourGenerator.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
         private void recColourPicker_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblColourPicker.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblColourPicker.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
@@ -378,14 +345,14 @@ namespace Colourz
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
             if (tab.selected == 2) { return; }
-            lblColourPicker.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblColourPicker.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
         private void recColourTheme_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblColourTheme.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblColourTheme.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
@@ -393,14 +360,14 @@ namespace Colourz
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
             if (tab.selected == 3) { return; }
-            lblColourTheme.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblColourTheme.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
         private void recSavedColours_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblSavedColours.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblSavedColours.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
@@ -409,35 +376,35 @@ namespace Colourz
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
             if (tab.selected == 4) { return;
             }
-            lblSavedColours.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblSavedColours.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
         private void recColourWheel_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblColourWheel.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblColourWheel.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
         private void recSettings_MouseLeave(object sender, MouseEventArgs e)
         {
             if (tab.selected == 5) { return; }
-            lblSettings.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblSettings.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = false;
         }
 
         private void recSettings_MouseEnter(object sender, MouseEventArgs e)
         {
             if (e.LeftButton == MouseButtonState.Pressed) { return; }
-            lblSettings.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+            lblSettings.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
             shouldSelect = true;
         }
 
         private void recColourWheel_MouseLeave(object sender, MouseEventArgs e)
         {
             if (tab.selected == 0) { return; }
-            lblColourWheel.Foreground = Theme.getColourForTheme(new TextBlock(), false);
+            lblColourWheel.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
@@ -492,7 +459,7 @@ namespace Colourz
                 tab.selected = selected;
                 tab.moveComponents(recSelected);
                 tab.moveComponents(recSelectedColour);
-                text.Foreground = Theme.getColourForTheme(new TextBlock(), true);
+                text.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
                 tabSelected.SelectedIndex = selected;
             }
         }
@@ -570,8 +537,8 @@ namespace Colourz
                 {
                     byte[] pixels = new byte[4];
 
-                    double x = selector.Margin.Left - 120;
-                    double y = selector.Margin.Top + 70;
+                    double x = selector.Margin.Left - 125;
+                    double y = selector.Margin.Top + 80;
 
                     BitmapSource bitmapSource = imgWheel.Source as BitmapSource;
 
@@ -804,7 +771,7 @@ namespace Colourz
 
                 Color rgb = (Color)recCGColour.Fill.GetValue(SolidColorBrush.ColorProperty);
 
-                txtCGHex.Text = "#" + getHexForColour(rgb);
+                txtCGHex.Text = getHexForColour(rgb);
                 txtCGRGB.Text = getRgbForColour(rgb);
 
                 txtCGRed.Text = rgb.R.ToString();
@@ -897,15 +864,9 @@ namespace Colourz
 
         private void cmbTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if(cmbTheme.SelectedIndex == 0)
-            {
-                Theme.blackTheme = true;
-            }
-            else
-            {
-                Theme.blackTheme = false;
-            }
-
+            ComboBoxItem selected = (ComboBoxItem)cmbTheme.Items[cmbTheme.SelectedIndex];
+            
+            theme.currentTheme = theme.getThemeByName(selected.Content.ToString());
             updateTheme();
         }
 
@@ -1041,27 +1002,27 @@ namespace Colourz
         private void txtSCScrollDown_MouseEnter(object sender, MouseEventArgs e)
         {
 
-            txtSCScrollDown.Background = Theme.getScrollers(true);
+            txtSCScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
             scrollDownSC = true;
             startSC();
         }
 
         private void txtSCScrollDown_MouseLeave(object sender, MouseEventArgs e)
         {
-            txtSCScrollDown.Background = Theme.getScrollers(false);
+            txtSCScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
             stopSC();
         }
 
         private void txtSCScrollUp_MouseEnter(object sender, MouseEventArgs e)
         {
-            txtSCScrollUp.Background = Theme.getScrollers(true);
+            txtSCScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
             scrollDownSC = false;
             startSC();
         }
 
         private void txtSCScrollUp_MouseLeave(object sender, MouseEventArgs e)
         {
-            txtSCScrollUp.Background = Theme.getScrollers(false);
+            txtSCScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
             stopSC();
         }
 
@@ -1096,27 +1057,27 @@ namespace Colourz
 
         private void txtCTScrollDown_MouseEnter(object sender, MouseEventArgs e)
         {
-            txtCTScrollDown.Background = Theme.getScrollers(true);
+            txtCTScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
             scrollDownCT = true;
             startCT();
         }
 
         private void txtCTScrollDown_MouseLeave(object sender, MouseEventArgs e)
         {
-            txtCTScrollDown.Background = Theme.getScrollers(false);
+            txtCTScrollDown.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
             stopCT();
         }
 
         private void txtCTScrollUp_MouseEnter(object sender, MouseEventArgs e)
         {
-            txtCTScrollUp.Background = Theme.getScrollers(true);
+            txtCTScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
             scrollDownCT = false;
             startCT();
         }
 
         private void txtCTScrollUp_MouseLeave(object sender, MouseEventArgs e)
         {
-            txtCTScrollUp.Background = Theme.getScrollers(false);
+            txtCTScrollUp.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
             stopCT();
         }
 
@@ -1235,6 +1196,13 @@ namespace Colourz
                 + colour.G.ToString("X2") 
                 + colour.B.ToString("X2");
             return "#" + hex;
+        }
+
+        public Color getColourForHex(string hex)
+        {
+            Color col = (Color) ColorConverter.ConvertFromString(hex);
+            return col;
+
         }
 
         /// <summary>

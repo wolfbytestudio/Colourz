@@ -33,6 +33,8 @@ namespace Colourz
         /// The rectangle being sent
         /// </summary>
         public Rectangle sender;
+
+        public MainWindow owner;
         #endregion
 
         /// <summary>
@@ -55,7 +57,7 @@ namespace Colourz
         {
             foreach(TextBlock comp in text)
             {
-                comp.Foreground = Theme.getColourForTheme(comp, false);
+                comp.Foreground = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.SideText.DefaultText));
             }
         }
 

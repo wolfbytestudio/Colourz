@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colourz.org;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,26 +20,18 @@ namespace Colourz.Controls
             this.page = page;
             this.owner = owner;
         }
-
-        private static string userData = Environment.ExpandEnvironmentVariables("%AppData%");
-        private static string cachePath = System.IO.Path.Combine(userData, ".colourz\\");
-        private static string pathFile = cachePath + "Saved Themes.txt";
+        
 
         /// <summary>
         /// Saves the colourz
         /// </summary>
         public void save()
         {
-            if (!System.IO.Directory.Exists(cachePath))
-            {
-                System.IO.Directory.CreateDirectory(cachePath);
-            }
-
-            if (!System.IO.Directory.Exists(pathFile))
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
                 try
                 {
-                    System.IO.Directory.CreateDirectory(pathFile);
+                    System.IO.Directory.CreateDirectory(Constants.CACHE_PATH);
                 }
                 catch
                 {
@@ -47,8 +40,8 @@ namespace Colourz.Controls
                 
             }
 
-            System.IO.File.WriteAllBytes(pathFile, new byte[0]);
-            System.IO.StreamWriter file = new System.IO.StreamWriter(pathFile, true);
+            System.IO.File.WriteAllBytes(Constants.CACHE_PATH, new byte[0]);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Constants.CACHE_PATH, true);
 
             string saveText = "";
             for (int i = 0; i < owner.Children.Count; i++)
@@ -78,14 +71,16 @@ namespace Colourz.Controls
             return hex;
         }
 
+        private static string pathFile = Constants.CACHE_PATH + "Saved Colours.txt";
+
         /// <summary>
         /// Loads the colourz saved
         /// </summary>
         public void load()
         {
-            if (!System.IO.Directory.Exists(cachePath))
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
-                System.IO.Directory.CreateDirectory(cachePath);
+                System.IO.Directory.CreateDirectory(Constants.CACHE_PATH);
             }
             if (!System.IO.File.Exists(pathFile))
             {
@@ -93,7 +88,7 @@ namespace Colourz.Controls
             }
             try
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(pathFile);
+                System.IO.StreamReader file = new System.IO.StreamReader(Constants.CACHE_PATH);
                 string text = file.ReadLine();
 
                 string[] segment = text.Split(';');

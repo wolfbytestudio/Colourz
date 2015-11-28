@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colourz.org;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,29 +21,27 @@ namespace Colourz.Controls
             this.stack = stack;
         }
 
-
-        private static string userData = Environment.ExpandEnvironmentVariables("%AppData%");
-        private static string cachePath = System.IO.Path.Combine(userData, ".colourz\\");
-        private static string pathFile = cachePath + "Saved Colours.txt";
+        
+        private static string pathFile = Constants.CACHE_PATH + "Saved Colours.txt";
 
         /// <summary>
         /// Saves the colourz
         /// </summary>
         public void save()
         {
-            if (!System.IO.Directory.Exists(cachePath))
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
-                System.IO.Directory.CreateDirectory(cachePath);
+                System.IO.Directory.CreateDirectory(Constants.CACHE_PATH);
             }
 
-            if (!System.IO.Directory.Exists(cachePath))
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
                 Console.WriteLine("Created directory");
-                System.IO.Directory.CreateDirectory(cachePath);
+                System.IO.Directory.CreateDirectory(Constants.CACHE_PATH);
             }
 
-            System.IO.File.WriteAllBytes(cachePath  + "Saved Colours.txt", new byte[0]);
-            System.IO.StreamWriter file = new System.IO.StreamWriter(cachePath + "Saved Colours.txt", true);
+            System.IO.File.WriteAllBytes(Constants.CACHE_PATH + "Saved Colours.txt", new byte[0]);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Constants.CACHE_PATH + "Saved Colours.txt", true);
             
             string saveText = "";
             for(int i = 0; i < stack.Children.Count; i++)
@@ -62,9 +61,9 @@ namespace Colourz.Controls
         /// </summary>
         public void load()
         {
-            if (!System.IO.Directory.Exists(cachePath))
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
-                System.IO.Directory.CreateDirectory(cachePath);
+                System.IO.Directory.CreateDirectory(Constants.CACHE_PATH);
             }
 
             if (!System.IO.File.Exists(pathFile))

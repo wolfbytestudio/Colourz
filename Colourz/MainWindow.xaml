@@ -260,16 +260,15 @@
             </TabItem>
             <TabItem Header="Saved Colour">
                 <Grid x:Name="grdSavedColourz">
-                    <ScrollViewer x:Name="scrSavedColours" HorizontalAlignment="Left" Height="379" VerticalAlignment="Top" Width="381" Margin="10,72,0,0" VerticalScrollBarVisibility="Hidden" Background="#FF050506" KeyDown="scrSavedColours_KeyDown">
+                    <ScrollViewer x:Name="scrSavedColours" HorizontalAlignment="Left" Height="399" VerticalAlignment="Top" Width="381" Margin="10,52,0,0" VerticalScrollBarVisibility="Hidden" Background="#FF050506" KeyDown="scrSavedColours_KeyDown">
                         <StackPanel x:Name="stkSavedColours" ScrollViewer.VerticalScrollBarVisibility="Hidden"/>
                     </ScrollViewer>
-                    <TextBlock x:Name="lblSCGuide" HorizontalAlignment="Left" TextWrapping="Wrap" Text="Right click a saved colour to copy it's HEX value, RGB value or the whole line." VerticalAlignment="Top" Width="381" Height="16" FontSize="10.667" Margin="10,25,0,0" TextAlignment="Center"/>
-                    <Button x:Name="cmdSCClear" Content="Clear" HorizontalAlignment="Left" Margin="396,46,0,0" VerticalAlignment="Top" Width="317" Click="cmdSCClear_Click" Height="32" FontSize="16"/>
+                    <Button x:Name="cmdSCClear" Content="Clear" HorizontalAlignment="Left" Margin="396,26,0,0" VerticalAlignment="Top" Width="317" Click="cmdSCClear_Click" Height="32" FontSize="16"/>
                     <TextBlock x:Name="txtSCScrollDown" HorizontalAlignment="Left" Margin="10,451,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#19FFFFFF" Foreground="White" Width="381" Height="26" TextAlignment="Center" FontSize="20" MouseEnter="txtSCScrollDown_MouseEnter" MouseLeave="txtSCScrollDown_MouseLeave" MouseUp="txtSCScrollDown_MouseUp"><Span><Run Text="↓"/></Span></TextBlock>
-                    <TextBlock x:Name="txtSCScrollUp" HorizontalAlignment="Left" Margin="10,46,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#19FFFFFF" Foreground="White" Width="381" Height="26" TextAlignment="Center" FontSize="18.667" MouseEnter="txtSCScrollUp_MouseEnter" MouseLeave="txtSCScrollUp_MouseLeave" MouseUp="txtSCScrollUp_MouseUp"><Span><Run Text="↑"/></Span></TextBlock>
-                    <Button x:Name="cmdSCDeleteSelected" Content="Delete Selected&#xD;&#xA;" HorizontalAlignment="Left" Margin="396,157,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdSCDeleteSelected_Click"/>
-                    <Button x:Name="cmdSelectAll" Content="Select All&#xA;" HorizontalAlignment="Left" Margin="396,83,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdSelectAll_Click"/>
-                    <Button x:Name="cmdDeselectAll" Content="Deselect All&#xA;" HorizontalAlignment="Left" Margin="396,120,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdDeselectAll_Click"/>
+                    <TextBlock x:Name="txtSCScrollUp" HorizontalAlignment="Left" Margin="10,26,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Background="#19FFFFFF" Foreground="White" Width="381" Height="26" TextAlignment="Center" FontSize="18.667" MouseEnter="txtSCScrollUp_MouseEnter" MouseLeave="txtSCScrollUp_MouseLeave" MouseUp="txtSCScrollUp_MouseUp"><Span><Run Text="↑"/></Span></TextBlock>
+                    <Button x:Name="cmdSCDeleteSelected" Content="Delete Selected&#xD;&#xA;" HorizontalAlignment="Left" Margin="396,137,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdSCDeleteSelected_Click"/>
+                    <Button x:Name="cmdSelectAll" Content="Select All&#xA;" HorizontalAlignment="Left" Margin="396,63,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdSelectAll_Click"/>
+                    <Button x:Name="cmdDeselectAll" Content="Deselect All&#xA;" HorizontalAlignment="Left" Margin="396,100,0,0" VerticalAlignment="Top" Width="317" Height="32" FontSize="16" Click="cmdDeselectAll_Click"/>
 
                 </Grid>
             </TabItem>
@@ -280,9 +279,10 @@
                         <ComboBoxItem Content="Light"/>
                     </ComboBox>
                     <Label x:Name="lblSTheme" Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="74" Background="{x:Null}" Foreground="#FFA6A7AA"/>
-                    <CheckBox x:Name="chbSAnimations" Content=" Disable side panel animations" HorizontalAlignment="Left" Margin="10,60,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFA6A7AA" Width="268" Click="chbSAnimations_Click"/>
-                    <TextBox x:Name="txtSSelectorColour" HorizontalAlignment="Left" Height="30" Margin="228,114,0,0" TextWrapping="Wrap" Text="2163E6" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtSSelectorColour_TextChanged" TabIndex="2147483643" MaxLength="7"/>
-                    <Label x:Name="lblSSidePanelSColour" Content="Side panel selected colour:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="223" Background="{x:Null}" Foreground="#FFA6A7AA" Margin="0,112,0,0"/>
+                    <CheckBox x:Name="chbSAnimations" Content=" Disable side panel animations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFA6A7AA" Width="268" Click="chbSAnimations_Click"/>
+                    <TextBox x:Name="txtSSelectorColour" HorizontalAlignment="Left" Height="30" Margin="228,84,0,0" TextWrapping="Wrap" Text="2163E6" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtSSelectorColour_TextChanged" TabIndex="2147483643" MaxLength="7"/>
+                    <Label x:Name="lblSSidePanelSColour" Content="Side panel selected colour:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="223" Background="{x:Null}" Foreground="#FFA6A7AA" Margin="0,78,0,0"/>
+                    <Button x:Name="cmdThemeEditor" Content="Theme Editor (coming soon)" HorizontalAlignment="Left" Margin="242,3,0,0" VerticalAlignment="Top" Width="212" Click="cmdSCClear_Click" Height="35" FontSize="16" IsEnabled="False"/>
                 </Grid>
 
             </TabItem>

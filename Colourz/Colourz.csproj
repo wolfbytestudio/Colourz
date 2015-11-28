@@ -58,6 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Controls\Custom Theme\components\HoverableComponent.cs" />
+    <Compile Include="Controls\Custom Theme\Theme.cs" />
+    <Compile Include="Controls\Custom Theme\ThemeSystem.cs" />
+    <Compile Include="Controls\Custom Theme\ThemeSystemLoader.cs" />
+    <Compile Include="Controls\Custom Theme\ThemeSystemSaver.cs" />
     <Compile Include="org\Animation.cs" />
     <Compile Include="Controls\ColourSlider.xaml.cs">
       <DependentUpon>ColourSlider.xaml</DependentUpon>
@@ -69,9 +74,9 @@
     <Compile Include="Controls\SavedColour.xaml.cs">
       <DependentUpon>SavedColour.xaml</DependentUpon>
     </Compile>
+    <Compile Include="org\Constants.cs" />
     <Compile Include="org\SavedThemesSaver.cs" />
     <Compile Include="org\Tab.cs" />
-    <Compile Include="org\Theme.cs" />
     <Compile Include="Controls\ColourPicker.xaml.cs">
       <DependentUpon>ColourPicker.xaml</DependentUpon>
     </Compile>

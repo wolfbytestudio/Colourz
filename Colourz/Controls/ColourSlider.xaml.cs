@@ -27,6 +27,8 @@ namespace Colourz.resource
         public int getClick;
         public Grid mouseGrid { get; set; }
         public Boolean isDragging;
+        public MainWindow owner;
+
 
         public ColourSlider(Color colour)
         {
@@ -43,16 +45,10 @@ namespace Colourz.resource
 
         public void updateColours()
         {
-            if(Theme.blackTheme)
-            {
-                recMain.Fill = new SolidColorBrush(Color.FromRgb(45,46,48));
-                recSliderKnob.Fill = new SolidColorBrush(Color.FromRgb(240, 242, 245));
-            }
-            else
-            {
-                recMain.Fill = new SolidColorBrush(Color.FromRgb(150, 151, 155));
-                recSliderKnob.Fill = new SolidColorBrush(Color.FromRgb(22, 24, 30));
-            }
+            
+            recMain.Fill = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.SliderRight));
+            recSliderKnob.Fill = new SolidColorBrush(owner.getColourForHex(owner.theme.currentTheme.SliderKnob));
+
         }
 
         public void promptSliderMovement(double newX)
