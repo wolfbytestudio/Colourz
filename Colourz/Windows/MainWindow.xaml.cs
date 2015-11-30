@@ -1736,6 +1736,36 @@ namespace Colourz
             themeEditor.Show();
         }
 
+        private void lblCW3RGB_MouseEnter(object sender, MouseEventArgs e)
+        {
+            lblCW3RGB.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
+        }
+
+        private void lblCW3RGB_MouseLeave(object sender, MouseEventArgs e)
+        {
+            lblCW3RGB.Background = new SolidColorBrush(Colors.Transparent);
+        }
+
+        private void lblCW3RGB_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Clipboard.SetText(getRGBForRectangle(recBackground3));
+        }
+
+        private void lblCW3HEX_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            Clipboard.SetText(getHexForRectangle(recBackground3));
+        }
+
+        private void lblCW3HEX_MouseEnter(object sender, MouseEventArgs e)
+        {
+            lblCW3HEX.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.ScrollersHover));
+        }
+
+        private void lblCW3HEX_MouseLeave(object sender, MouseEventArgs e)
+        {
+            lblCW3HEX.Background = new SolidColorBrush(Colors.Transparent);
+        }
+
         /// <summary>
         /// Calculates the new colour of the colour wheel rectangle
         /// this takes in account of the black background
