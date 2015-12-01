@@ -59,6 +59,8 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Org\language\Language.cs" />
+    <Compile Include="Org\language\LanguageHandler.cs" />
     <Compile Include="Org\theme\component\HoverableComponent.cs" />
     <Compile Include="Org\theme\Theme.cs" />
     <Compile Include="Org\theme\ThemeSystem.cs" />
@@ -193,6 +195,14 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resource\colourz-iconx256.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resource\french.png" />
+    <Resource Include="Resource\german.png" />
+    <Resource Include="Resource\italy.png" />
+    <Resource Include="Resource\russia.png" />
+    <Resource Include="Resource\spanish.png" />
+    <Resource Include="Resource\uk.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

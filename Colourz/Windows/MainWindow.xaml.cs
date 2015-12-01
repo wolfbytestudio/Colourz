@@ -1,5 +1,6 @@
 ﻿using Colourz.Controls;
 using Colourz.Controls.Custom_Theme;
+using Colourz.Org.language;
 using Colourz.resource;
 using Colourz.window;
 using Colourz.Windows;
@@ -139,6 +140,8 @@ namespace Colourz
         /// </summary>
         private Image lastSelected;
 
+        public LanguageHandler language;
+
         /// <summary>
         /// Updates the theme (Temporary)
         /// </summary>
@@ -247,6 +250,7 @@ namespace Colourz
             savedTheme.load();
             lastSelected = imgSelector1;
             populateThemeList();
+            language = new LanguageHandler(this);
         }
         #endregion
 
@@ -1802,6 +1806,78 @@ namespace Colourz
         private void lblCW3HEX_MouseLeave(object sender, MouseEventArgs e)
         {
             lblCW3HEX.Background = new SolidColorBrush(Colors.Transparent);
+        }
+
+        private void imgSpanishLan_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (language.language == Org.language.Language.SPANISH)
+            {
+                return;
+            }
+            imgSpanishLan.Opacity = .50;
+        }
+
+        private void imgSpanishLan_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgSpanishLan.Opacity = .25;
+            if(language.language == Org.language.Language.SPANISH)
+            {
+                imgSpanishLan.Opacity = 1;
+            }
+        }
+
+        private void resetLanguageImages()
+        {
+            imgFrenchLan.Opacity = .25;
+            imgUkLan.Opacity = .25;
+            imgItalyLan.Opacity = .25;
+            imgGermanLan.Opacity = .25;
+            imgRussiaLan.Opacity = .25;
+            imgSpanishLan.Opacity = .25;
+        }
+
+        private void imgSpanishLan_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            imgSpanishLan.Opacity = .75;
+        }
+
+        private void imgSpanishLan_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            resetLanguageImages();
+            imgSpanishLan.Opacity = 1;
+            language.language = Org.language.Language.SPANISH;
+            language.updateLanguage();
+        }
+
+        private void imgUkLan_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            imgUkLan.Opacity = .75;
+        }
+
+        private void imgUkLan_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if(language.language == Org.language.Language.ENGLISH)
+            {
+                return;
+            }
+            imgUkLan.Opacity = .5;
+        }
+
+        private void imgUkLan_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgUkLan.Opacity = .25;
+            if (language.language == Org.language.Language.ENGLISH)
+            {
+                imgUkLan.Opacity = 1;
+            }
+        }
+
+        private void imgUkLan_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            resetLanguageImages();
+            imgUkLan.Opacity = 1;
+            language.language = Org.language.Language.ENGLISH;
+            language.updateLanguage();
         }
 
         /// <summary>
