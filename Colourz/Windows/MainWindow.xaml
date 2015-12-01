@@ -272,8 +272,7 @@
             <TabItem Header="Settings" Margin="-2,-2,11,-1">
                 <Grid>
                     <ComboBox x:Name="cmbTheme" Margin="79,3,486,454" SelectedIndex="0" FontSize="18" SelectionChanged="cmbTheme_SelectionChanged">
-                        <ComboBoxItem Content="Dark"/>
-                        <ComboBoxItem Content="Light"/>
+
                     </ComboBox>
                     <Label x:Name="lblSTheme" Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="74" Background="{x:Null}" Foreground="#FFA6A7AA"/>
                     <CheckBox x:Name="chbSAnimations" Content=" Disable side panel animations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFA6A7AA" Width="268" Click="chbSAnimations_Click"/>

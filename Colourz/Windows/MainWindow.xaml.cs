@@ -189,6 +189,11 @@ namespace Colourz
 
                     scrollThemes.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
                     scrSavedColours.Background = new SolidColorBrush(getColourForHex(theme.currentTheme.Scrollables));
+                   
+                    txtSCScrollDown.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtSCScrollUp.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtCTScrollUp.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+                    txtCTScrollDown.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText)); 
                 })
             );
 
@@ -241,8 +246,21 @@ namespace Colourz
             savedTheme = new SavedThemesSaver(this, CTThemes);
             savedTheme.load();
             lastSelected = imgSelector1;
+            populateThemeList();
         }
         #endregion
+
+        public void populateThemeList()
+        {
+            cmbTheme.Items.Clear();
+            for (int i = 0; i < theme.themes.Count; i++ )
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = theme.themes[i].Name;
+                cmbTheme.Items.Add(item);
+            }
+        }
+
 
         #region Top Components Handler
         private void cmdMinimize_MouseEnter(object sender, MouseEventArgs e)
@@ -865,10 +883,17 @@ namespace Colourz
 
         private void cmbTheme_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            ComboBoxItem selected = (ComboBoxItem)cmbTheme.Items[cmbTheme.SelectedIndex];
-            
-            theme.currentTheme = theme.getThemeByName(selected.Content.ToString());
-            updateTheme();
+            try
+            {
+                ComboBoxItem selected = (ComboBoxItem)cmbTheme.Items[cmbTheme.SelectedIndex];
+                theme.currentTheme = theme.getThemeByName(selected.Content.ToString());
+                updateTheme();
+            }
+            catch
+            {
+                //cmbTheme.SelectedIndex = 0;
+            }
+
         }
 
         private void gridMain_MouseUp(object sender, MouseButtonEventArgs e)
@@ -1201,8 +1226,16 @@ namespace Colourz
 
         public Color getColourForHex(string hex)
         {
-            Color col = (Color) ColorConverter.ConvertFromString(hex);
-            return col;
+            try
+            {
+                Color col = (Color)ColorConverter.ConvertFromString(hex);
+                return col;
+            }
+            catch
+            {
+                return Colors.Black;
+            }
+
         }
 
         /// <summary>
@@ -1732,7 +1765,12 @@ namespace Colourz
 
         private void cmdThemeEditor_Click(object sender, RoutedEventArgs e)
         {
+            if(ThemeEditor.windowShowing)
+            {
+                return;
+            }
             ThemeEditor themeEditor = new ThemeEditor(this);
+            themeEditor.populate(theme.themes);
             themeEditor.Show();
         }
 

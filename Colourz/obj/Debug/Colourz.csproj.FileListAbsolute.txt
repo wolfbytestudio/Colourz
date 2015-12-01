@@ -89,28 +89,6 @@ C:\Users\Zack\Desktop\Colourz\Colourz\obj\Debug\Colourz.pdb
 C:\Users\Zack\Desktop\Colourz Backup\Colourz\bin\Debug\Colourz.exe.config
 C:\Users\Zack\Desktop\Colourz Backup\Colourz\obj\Debug\Colourz.exe
 C:\Users\Zack\Desktop\Colourz Backup\Colourz\obj\Debug\Colourz.pdb
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.exe.config
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.exe
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.pdb
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.exe
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.pdb
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourPicker.baml
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\MainWindow.g.cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourPicker.g.cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\App.g.cs
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\MainWindow.baml
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.g.resources
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourSlider.baml
-C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourSlider.g.cs
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourSlider.baml
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
@@ -135,3 +113,26 @@ C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ThemeEditor.g.c
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\MainWindow.baml
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ThemeEditor.baml
 C:\Users\Zack\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csprojResolveAssemblyReference.cache
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.exe.config
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.exe
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\bin\Debug\Colourz.pdb
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\SavedColour.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourSlider.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ColourPicker.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourTheme.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\SavedColour.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\MainWindow.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourSlider.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ColourPicker.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ThemeEditor.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\App.g.cs
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.cache
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz_MarkupCompile.lref
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Controls\ColourTheme.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\MainWindow.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Windows\ThemeEditor.baml
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.g.resources
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.Properties.Resources.resources
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.csproj.GenerateResource.Cache
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.exe
+C:\Users\30008095\Documents\GitHub\Colourz\Colourz\obj\Debug\Colourz.pdb

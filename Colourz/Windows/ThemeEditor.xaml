@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Colourz.Windows"
         mc:Ignorable="d"
-        Title="Colourz Theme Editor" Height="560" Width="930" Icon="/Colourz;component/Resource/colourz-iconx256.ico" ResizeMode="NoResize" WindowStyle="None">
+        Title="Colourz Theme Editor" Height="560" Width="930" Icon="/Colourz;component/Resource/colourz-iconx256.ico" ResizeMode="NoResize" WindowStyle="None" Closed="frmEditor_Closed">
     <Grid x:Name="grdEditor" Background="#FF0A0B0D" >
         <Rectangle x:Name="recTitleBar" Fill="#FF1E2024" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="930" MouseDown="recTitleBar_MouseDown"/>
         <TextBlock x:Name="lblTitle" HorizontalAlignment="Left" Margin="0,3,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="930" Foreground="#FFEEEFF2" Height="23" TextAlignment="Center" FontSize="14" MouseDown="lblTitle_MouseDown"><Run Text="Colourz"/><Run Text=" Theme Editor"/></TextBlock>
@@ -13,7 +13,7 @@
         <Image x:Name="cmdExit" HorizontalAlignment="Left" Height="16" Margin="908,6,0,0" VerticalAlignment="Top" Width="16" Source="/Colourz;component/Resource/exit_normal.png" MouseDown="cmdExit_MouseDown" MouseEnter="cmdExit_MouseEnter" MouseLeave="cmdExit_MouseLeave" MouseUp="cmdExit_MouseUp"/>
         <Image x:Name="imgWolfbyte" HorizontalAlignment="Left" Height="39" Margin="2,0,0,0" VerticalAlignment="Top" Width="28" Source="/Colourz;component/Resource/wolfbvyte icon.png" OpacityMask="#7F000000" MouseDown="imgWolfbyte_MouseDown" MouseEnter="wolfbyteEnter" MouseLeave="wolfbyteLeave"/>
         <TextBlock x:Name="txtWolfbyte" HorizontalAlignment="Left" Margin="31,10,0,0" TextWrapping="Wrap" Text="WOLFBYTE" VerticalAlignment="Top" FontFamily="Agency FB" FontSize="16" Foreground="#7F1594C3" MouseDown="txtWolfbyte_MouseDown" MouseEnter="wolfbyteEnter" MouseLeave="wolfbyteLeave"/>
-        <Rectangle x:Name="recWorkspace" Fill="#FF222834" HorizontalAlignment="Left" Height="520" Margin="350,40,0,0" VerticalAlignment="Top" Width="580"/>
+        <Rectangle x:Name="recWorkspace" Fill="#FF1C1C20" HorizontalAlignment="Left" Height="460" Margin="350,40,0,0" VerticalAlignment="Top" Width="580"/>
         <TextBlock x:Name="lblThemeName" Text="Theme Name:" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" Width="123" Foreground="#FFD6D6D6" FontSize="14.667" Height="30"/>
         <TextBox x:Name="txtName" HorizontalAlignment="Left" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" Height="30" Margin="138,50,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" Width="207" FontSize="16"/>
         <TextBlock x:Name="lblTitleColour" Text="Title Colour:" HorizontalAlignment="Left" Margin="10,85,0,0" VerticalAlignment="Top" Width="123" Foreground="#FFD6D6D6" FontSize="14.667" Height="30"/>
@@ -32,7 +32,7 @@
         <TextBox x:Name="txtTitleBar" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" HorizontalAlignment="Left" Height="30" Margin="138,225,0,0" TextWrapping="Wrap" Text="#1E2024" VerticalAlignment="Top" Width="98" FontSize="16" MaxLength="7" TextChanged="txtTitleBar_TextChanged" GotFocus="txtTitleBar_GotFocus"/>
         <Rectangle x:Name="recTitleBarColour" Fill="#FF1E2024" HorizontalAlignment="Left" Height="30" Margin="241,225,0,0" VerticalAlignment="Top" Width="104"/>
         <TextBlock x:Name="lblBackgroundColour" HorizontalAlignment="Left" Margin="10,260,0,0" VerticalAlignment="Top" Width="123" Foreground="#FFD6D6D6" FontSize="13.333" Height="30"><Run Text="Background Colour"/><Run Text=":"/></TextBlock>
-        <TextBox x:Name="txtBackgroundColour" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" HorizontalAlignment="Left" Height="30" Margin="138,260,0,0" TextWrapping="Wrap" Text="#A0B0D" VerticalAlignment="Top" Width="98" FontSize="16" MaxLength="7" TextChanged="txtBackgroundColour_TextChanged" GotFocus="txtBackgroundColour_GotFocus"/>
+        <TextBox x:Name="txtBackgroundColour" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" HorizontalAlignment="Left" Height="30" Margin="138,260,0,0" TextWrapping="Wrap" Text="#0A0B0D" VerticalAlignment="Top" Width="98" FontSize="16" MaxLength="7" TextChanged="txtBackgroundColour_TextChanged" GotFocus="txtBackgroundColour_GotFocus"/>
         <Rectangle x:Name="recBackgroundColour" Fill="#FF0A0B0D" HorizontalAlignment="Left" Height="30" Margin="241,260,0,0" VerticalAlignment="Top" Width="104"/>
         <TextBlock x:Name="lblSeperatorColour" HorizontalAlignment="Left" Margin="10,295,0,0" VerticalAlignment="Top" Width="123" Foreground="#FFD6D6D6" FontSize="14.667" Height="30" Text="Seperators Colour:"/>
         <TextBox x:Name="txtSeperatorColour" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" HorizontalAlignment="Left" Height="30" Margin="138,295,0,0" TextWrapping="Wrap" Text="#0F0F0F" VerticalAlignment="Top" Width="98" FontSize="16" MaxLength="7" TextChanged="txtSeperatorColour_TextChanged" GotFocus="txtSeperatorColour_GotFocus"/>
@@ -73,12 +73,15 @@
         <Rectangle x:Name="recTitleCol" Fill="#01FFFFFF" HorizontalAlignment="Left" Height="30" Margin="608,161,0,0" Stroke="#00000000" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="recScrollablesTwoCol" Fill="#00050506" HorizontalAlignment="Left" Height="14" Margin="629,346,0,0" VerticalAlignment="Top" Width="100"/>
         <Rectangle x:Name="recNormalTextCol" Fill="#00050506" HorizontalAlignment="Left" Height="23" Margin="442,228,0,0" VerticalAlignment="Top" Width="85"/>
-        <ComboBox x:Name="cmdList" HorizontalAlignment="Left" Margin="10,519,0,0" VerticalAlignment="Top" Width="123" Height="31" FontSize="14.667">
+        <ComboBox x:Name="cmdList" HorizontalAlignment="Left" Margin="10,514,0,0" VerticalAlignment="Top" Width="123" Height="32" FontSize="14.667">
             <ComboBoxItem Content="Hello?"/>
         </ComboBox>
-        <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Left" Margin="138,519,0,0" VerticalAlignment="Top" Width="55" Height="31" FontSize="14.667"/>
-        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="198,519,0,0" VerticalAlignment="Top" Width="56" Height="31" FontSize="14.667" Click="btnSave_Click"/>
-        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="259,519,0,0" VerticalAlignment="Top" Width="86" Height="31" FontSize="14.667"/>
+        <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Left" Margin="138,514,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="14.667" Click="btnLoad_Click"/>
+        <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="198,514,0,0" VerticalAlignment="Top" Width="56" Height="32" FontSize="14.667" Click="btnSave_Click"/>
+        <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="259,514,0,0" VerticalAlignment="Top" Width="86" Height="32" FontSize="14.667" Click="btnDelete_Click"/>
+        <Button x:Name="btnImportTheme" Content="Import Theme" HorizontalAlignment="Left" Margin="350,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667"/>
+        <Button x:Name="btnExportTheme" Content="Export Theme" HorizontalAlignment="Left" Margin="481,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667"/>
+        <TextBlock x:Name="lblAlert" HorizontalAlignment="Left" Margin="0,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="50" Height="111" Width="928" TextAlignment="Center" Background="#7F3543C9" Visibility="Hidden"><Run Language="en-gb" Text="Theme has been saved!"/></TextBlock>
 
 
 

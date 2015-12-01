@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Colourz.Controls.Custom_Theme;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Colourz.Windows
 {
@@ -21,11 +23,15 @@ namespace Colourz.Windows
     {
 
         MainWindow owner;
+        public static bool windowShowing = false;
 
         public ThemeEditor(MainWindow owner)
         {
             InitializeComponent();
             this.owner = owner;
+            windowShowing = true;
+            dispatcherTimer.Tick += dispatcherTimer_Tick;
+            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 3);
         }
 
         private void lblTitle_MouseDown(object sender, MouseButtonEventArgs e)
@@ -38,6 +44,35 @@ namespace Colourz.Windows
                 }
             }
             catch { }
+        }
+
+        public void populate(List<Theme> themes)
+        {
+            cmdList.Items.Clear();
+            for (int i = 0; i < themes.Count; i++ )
+            {
+                ComboBoxItem item = new ComboBoxItem();
+                item.Content = themes[i].Name;
+                cmdList.Items.Add(item);
+            }
+            cmdList.SelectedIndex = 0;
+        }
+
+        public void loadTheme(Theme t)
+        {
+            txtName.Text = t.Name;
+            txtTitleColour.Text = t.Title;
+            txtTextColourDefault.Text = t.SideText.DefaultText;
+            txtTextColourHover.Text = t.SideText.HoverText;
+            txtLeftPanel.Text = t.RectangleSide;
+            txtTitleBar.Text = t.RectangleTop;
+            txtBackgroundColour.Text = t.Background;
+            txtSeperatorColour.Text = t.Seperators;
+            txtTab.Text = t.TabSelector;
+            txtScrollables.Text = t.Scrollables;
+            txtScrollablesHover.Text = t.ScrollersHover;
+            txtSliderKnob.Text = t.SliderKnob;
+            txtSliderRight.Text = t.SliderRight;
         }
 
         private void recTitleBar_MouseDown(object sender, MouseButtonEventArgs e)
@@ -384,8 +419,31 @@ namespace Colourz.Windows
             recRightSide.Stroke = new SolidColorBrush(Colors.Magenta);
         }
 
+
+        /// <summary>
+        /// A new time dispatcher
+        /// </summary>
+        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+
+        /// <summary>
+        /// This handles the movement of the rectangle
+        /// </summary>
+        private void dispatcherTimer_Tick(object sender, EventArgs e)
+        {
+            lblAlert.Visibility = Visibility.Hidden;
+            dispatcherTimer.Stop();
+        }
+
+        private void sendAlert(string alert)
+        {
+            lblAlert.Visibility = Visibility.Visible;
+            lblAlert.Text = alert;
+            dispatcherTimer.Start();
+        }
+
         private void btnSave_Click(object sender, RoutedEventArgs e)
         {
+            sendAlert("Your theme has been saved!");
             owner.theme.addTheme(new Controls.Custom_Theme.Theme(
                 txtName.Text, txtTitleColour.Text, 
                 new Controls.Custom_Theme.components.HoverableComponent(
@@ -402,9 +460,44 @@ namespace Colourz.Windows
             {
 
                 owner.cmbTheme.Items.Add(c);
-                //cmdList.Items.Add(c);
             }));
 
+            populate(owner.theme.themes);
+
+        }
+
+        private void btnLoad_Click(object sender, RoutedEventArgs e)
+        {
+            string themeName = cmdList.Text;
+            loadTheme(owner.theme.getThemeByName(themeName));
+        }
+
+        private void frmEditor_Closed(object sender, EventArgs e)
+        {
+            windowShowing = false;
+        }
+
+        private void btnDelete_Click(object sender, RoutedEventArgs e)
+        {
+            if (cmdList.SelectedIndex == 0 || cmdList.SelectedIndex == 1)
+            {
+                sendAlert("You cannot delete default themes!");
+                return;
+            }
+            if (owner.cmbTheme.SelectedIndex == cmdList.SelectedIndex)
+            {
+                sendAlert("Theme Currently in use!");
+                return;
+            }
+            else
+            {
+                ComboBoxItem selected = (ComboBoxItem)cmdList.Items[cmdList.SelectedIndex];
+                Theme toDelete = owner.theme.getThemeByName(selected.Content.ToString());
+                sendAlert("\'" + toDelete.Name + "\' has been deleted!");
+                owner.theme.themes.Remove(toDelete);
+                this.populate(owner.theme.themes);
+                owner.populateThemeList();
+            }
         }
     }
 }
