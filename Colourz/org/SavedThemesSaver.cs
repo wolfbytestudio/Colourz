@@ -20,7 +20,9 @@ namespace Colourz.Controls
             this.page = page;
             this.owner = owner;
         }
-        
+
+
+        private static string pathFile = Constants.CACHE_PATH + "Saved Themes.txt";
 
         /// <summary>
         /// Saves the colourz
@@ -37,11 +39,13 @@ namespace Colourz.Controls
                 {
 
                 }
-                
             }
-
-            System.IO.File.WriteAllBytes(Constants.CACHE_PATH, new byte[0]);
-            System.IO.StreamWriter file = new System.IO.StreamWriter(Constants.CACHE_PATH, true);
+            if (!System.IO.File.Exists(pathFile))
+            {
+                System.IO.File.Create(pathFile);
+            }
+            System.IO.File.WriteAllBytes(pathFile, new byte[0]);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(pathFile, true);
 
             string saveText = "";
             for (int i = 0; i < owner.Children.Count; i++)
@@ -71,7 +75,6 @@ namespace Colourz.Controls
             return hex;
         }
 
-        private static string pathFile = Constants.CACHE_PATH + "Saved Colours.txt";
 
         /// <summary>
         /// Loads the colourz saved
@@ -88,7 +91,7 @@ namespace Colourz.Controls
             }
             try
             {
-                System.IO.StreamReader file = new System.IO.StreamReader(Constants.CACHE_PATH);
+                System.IO.StreamReader file = new System.IO.StreamReader(pathFile);
                 string text = file.ReadLine();
 
                 string[] segment = text.Split(';');
