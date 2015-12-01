@@ -34,9 +34,20 @@ namespace Colourz.Controls.Custom_Theme
             catch { }
 
             loadDefaultThemes();
-
             currentTheme = getThemeByName("dark");
-            
+            loadThemes();
+        }
+
+        public void loadThemes()
+        {
+            ThemeSystemLoader load = new ThemeSystemLoader(this);
+            load.load();
+        }
+
+        public void saveThemes()
+        {
+            ThemeSystemSaver save = new ThemeSystemSaver(this);
+            save.save();
         }
 
         public void loadDefaultThemes()

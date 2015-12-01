@@ -464,6 +464,8 @@ namespace Colourz.Windows
 
             populate(owner.theme.themes);
 
+            owner.theme.saveThemes();
+
         }
 
         private void btnLoad_Click(object sender, RoutedEventArgs e)
@@ -498,6 +500,7 @@ namespace Colourz.Windows
                 this.populate(owner.theme.themes);
                 owner.populateThemeList();
             }
+            owner.theme.saveThemes();
         }
     }
 }
