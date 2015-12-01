@@ -506,11 +506,18 @@ namespace Colourz.Windows
 
         private void btnImportTheme_Click(object sender, RoutedEventArgs e)
         {
+
             try
             {
                 string input = Microsoft.VisualBasic.Interaction.InputBox("Enter your code (should look something like: 'Dark Theme:#FFFFFF:#A6A.....')", "Import Theme", "Default", -1, -1);
-                string[] segments = input.Split(':');
 
+                string[] segments = input.Split(':');
+                if (segments.Length != 13)
+                {
+                    Console.WriteLine("length" + segments.Length);
+                    sendAlert("Error importing theme!");
+                    return;
+                }
                 txtName.Text = segments[0];
                 txtTitleColour.Text = segments[1];
                 txtTextColourDefault.Text = segments[2];
@@ -548,7 +555,7 @@ namespace Colourz.Windows
                 txtScrollables.Text + ":" +
                 txtScrollablesHover.Text + ":" +
                 txtSliderKnob.Text + ":" +
-                txtSliderRight.Text + ":";
+                txtSliderRight.Text;
 
             try
             {
