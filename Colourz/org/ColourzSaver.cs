@@ -21,7 +21,6 @@ namespace Colourz.Controls
             this.stack = stack;
         }
 
-        
         private static string pathFile = Constants.CACHE_PATH + "Saved Colours.txt";
 
         /// <summary>

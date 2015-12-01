@@ -79,8 +79,8 @@
         <Button x:Name="btnLoad" Content="Load" HorizontalAlignment="Left" Margin="138,514,0,0" VerticalAlignment="Top" Width="55" Height="32" FontSize="14.667" Click="btnLoad_Click"/>
         <Button x:Name="btnSave" Content="Save" HorizontalAlignment="Left" Margin="198,514,0,0" VerticalAlignment="Top" Width="56" Height="32" FontSize="14.667" Click="btnSave_Click"/>
         <Button x:Name="btnDelete" Content="Delete" HorizontalAlignment="Left" Margin="259,514,0,0" VerticalAlignment="Top" Width="86" Height="32" FontSize="14.667" Click="btnDelete_Click"/>
-        <Button x:Name="btnImportTheme" Content="Import Theme" HorizontalAlignment="Left" Margin="350,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667"/>
-        <Button x:Name="btnExportTheme" Content="Export Theme" HorizontalAlignment="Left" Margin="481,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667"/>
+        <Button x:Name="btnImportTheme" Content="Import Theme" HorizontalAlignment="Left" Margin="350,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667" Click="btnImportTheme_Click"/>
+        <Button x:Name="btnExportTheme" Content="Export Theme" HorizontalAlignment="Left" Margin="481,514,0,0" VerticalAlignment="Top" Width="126" Height="32" FontSize="14.667" Click="btnExportTheme_Click"/>
         <TextBlock x:Name="lblAlert" HorizontalAlignment="Left" Margin="0,204,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Foreground="White" FontSize="50" Height="111" Width="928" TextAlignment="Center" Background="#7F3543C9" Visibility="Hidden"><Run Language="en-gb" Text="Theme has been saved!"/></TextBlock>
 
 

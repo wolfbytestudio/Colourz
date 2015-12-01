@@ -499,8 +499,67 @@ namespace Colourz.Windows
                 owner.theme.themes.Remove(toDelete);
                 this.populate(owner.theme.themes);
                 owner.populateThemeList();
+                owner.cmbTheme.SelectedIndex = 0;
             }
             owner.theme.saveThemes();
+        }
+
+        private void btnImportTheme_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                string input = Microsoft.VisualBasic.Interaction.InputBox("Enter your code (should look something like: 'Dark Theme:#FFFFFF:#A6A.....')", "Import Theme", "Default", -1, -1);
+                string[] segments = input.Split(':');
+
+                txtName.Text = segments[0];
+                txtTitleColour.Text = segments[1];
+                txtTextColourDefault.Text = segments[2];
+                txtTextColourHover.Text = segments[3];
+                txtLeftPanel.Text = segments[4];
+                txtTitleBar.Text = segments[5];
+                txtBackgroundColour.Text = segments[6];
+                txtSeperatorColour.Text = segments[7];
+                txtTab.Text = segments[8];
+                txtScrollables.Text = segments[9];
+                txtScrollablesHover.Text = segments[10];
+                txtSliderKnob.Text = segments[11];
+                txtSliderRight.Text = segments[12];
+            }
+            catch
+            {
+                sendAlert("Error importing theme!");
+            }
+           
+        }
+
+        private void btnExportTheme_Click(object sender, RoutedEventArgs e)
+        {
+            string text;
+            text = 
+                txtName.Text + ":" +
+                txtTitleColour.Text + ":" +
+                txtTextColourDefault.Text + ":" +
+                txtTextColourHover.Text + ":" +
+                txtLeftPanel.Text + ":" +
+                txtTitleBar.Text + ":" +
+                txtBackgroundColour.Text + ":" +
+                txtSeperatorColour.Text + ":" +
+                txtTab.Text + ":" +
+                txtScrollables.Text + ":" +
+                txtScrollablesHover.Text + ":" +
+                txtSliderKnob.Text + ":" +
+                txtSliderRight.Text + ":";
+
+            try
+            {
+                Clipboard.SetText(text);
+                sendAlert("Theme has been copied to your clipboard");
+            }
+            catch
+            {
+                sendAlert("Error exporting theme");
+            }
+            
         }
     }
 }
