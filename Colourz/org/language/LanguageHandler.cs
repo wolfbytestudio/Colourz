@@ -37,6 +37,9 @@ namespace Colourz.Org.language
                 owner.cmdSCDeleteSelected.Content = "Delete Selected";
                 owner.cmdDeselectAll.Content = "Deselect All";
                 owner.cmdSCClear.Content = "Clear";
+                owner.lblLanguages.Text = "Languages";
+                owner.txtSSelectorColour.Margin = new System.Windows.Thickness(
+                232, 84, 0, 0);
             }
             else if (language == Language.SPANISH)
             {
@@ -54,6 +57,9 @@ namespace Colourz.Org.language
                 owner.cmdSCDeleteSelected.Content = "Eliminar Seleccionado";
                 owner.cmdDeselectAll.Content = "Deseleccionar Todos";
                 owner.cmdSCClear.Content = "Claro";
+                owner.lblLanguages.Text = "Idiomas";
+                owner.txtSSelectorColour.Margin = new System.Windows.Thickness(
+                    309, 84, 0, 0);
             }
         }
     }

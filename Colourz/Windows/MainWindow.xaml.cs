@@ -172,6 +172,8 @@ namespace Colourz
                     lblCW3HEX.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
                     lblCW3RGB.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
 
+                    lblLanguages.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+
                     lblCWSave1.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
                     lblCWSave2.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
                     lblCWSave3.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
