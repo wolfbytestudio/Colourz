@@ -50,14 +50,14 @@
                     <Slider x:Name="sldCWBrightness3" HorizontalAlignment="Left" Margin="57,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness3_ValueChanged"/>
                     <TextBlock x:Name="lblCW3RGB" Text="RGB: 255, 116, 248" HorizontalAlignment="Left" Margin="57,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center" MouseEnter="lblCW3RGB_MouseEnter" MouseLeave="lblCW3RGB_MouseLeave" MouseDown="lblCW3RGB_MouseDown"/>
                     <TextBlock x:Name="lblCW3HEX" Text="HEX: #FF74F8" HorizontalAlignment="Left" Margin="57,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center" MouseDown="lblCW3HEX_MouseDown" MouseEnter="lblCW3HEX_MouseEnter" MouseLeave="lblCW3HEX_MouseLeave"/>
-                    <TextBlock x:Name="lblCWSave3" Text="Press F4 To save this colour" HorizontalAlignment="Left" Margin="57,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave3" Text="Press F4 To save this colour" HorizontalAlignment="Left" Margin="18,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="258" Height="31" TextAlignment="Center"/>
 
                     <Rectangle x:Name="recBackground2" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Rectangle x:Name="recColour2" Fill="#FFD7FFD7" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Slider x:Name="sldCWBrightness2" HorizontalAlignment="Left" Margin="505,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness2_ValueChanged"/>
                     <TextBlock x:Name="lblCW2RGB" Text="RGB: 215, 255, 215" HorizontalAlignment="Left" Margin="505,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
                     <TextBlock x:Name="lblCW2HEX" Text="HEX: #D7FFD7" HorizontalAlignment="Left" Margin="505,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
-                    <TextBlock x:Name="lblCWSave2" Text="Press F6 To save this colour" HorizontalAlignment="Left" Margin="505,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave2" Text="Press F6 To save this colour" HorizontalAlignment="Left" Margin="505,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="218" Height="31" TextAlignment="Center"/>
 
 
                     <Slider x:Name="sldCWBrightness1" HorizontalAlignment="Left" Margin="281,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" ValueChanged="sldCWBrightness_ValueChanged" SmallChange="1" LargeChange="5"/>
@@ -65,7 +65,7 @@
                     <Rectangle x:Name="recColour1" Fill="White" HorizontalAlignment="Left" Height="200" Margin="281,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <TextBlock x:Name="lblCW1RGB" Text="RGB: 255, 255, 255" HorizontalAlignment="Left" Margin="281,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
                     <TextBlock x:Name="lblCW1HEX" Text="HEX: #FFFFFF" HorizontalAlignment="Left" Margin="281,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
-                    <TextBlock x:Name="lblCWSave1" Text="Press F5 To save this colour" HorizontalAlignment="Left" Margin="281,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="31" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCWSave1" Text="Press F5 To save this colour" HorizontalAlignment="Left" Margin="276,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="229" Height="31" TextAlignment="Center"/>
 
                     <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="319" Margin="221,0,0,0" VerticalAlignment="Top" Width="321" Source="/Colourz;component/Resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
                     <Image x:Name="imgSelector1" HorizontalAlignment="Left" Height="20" Margin="377,144,0,0" VerticalAlignment="Top" Width="20" Source="/Colourz;component/Resource/selector.png" MouseDown="imgSelector_MouseDown" MouseUp="imgSelector_MouseUp" MouseMove="imgSelector_MouseMove"/>
@@ -87,7 +87,7 @@
                                 <MenuItem x:Name="cgNormalHex" Header="Copy Hex To Clipboard" Click="cgNormalHex_Click"/>
                                 <MenuItem x:Name="cgNormalRGB" Header="Copy RGB To Clipboard" Click="cgNormalRGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgNormalQL">
                                     <MenuItem x:Name="qlNormalFirst" Header="First Theme Colour" Click="qlNormalFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlNormalSecond" Header="Second Theme Colour" Click="qlNormalSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlNormalThird" Header="Third Theme Colour" Click="qlNormalThird_Click"></MenuItem>
@@ -110,7 +110,7 @@
                                 <MenuItem x:Name="cgBrightHex" Header="Copy Hex To Clipboard" Click="cgBrightHex_Click"/>
                                 <MenuItem x:Name="cgBrightRGB" Header="Copy RGB To Clipboard" Click="cgBrightRGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgBrightQL">
                                     <MenuItem x:Name="qlBrightFirst" Header="First Theme Colour" Click="qlBrightFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrightSecond" Header="Second Theme Colour" Click="qlBrightSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrightThird" Header="Third Theme Colour" Click="qlBrightThird_Click"></MenuItem>
@@ -129,7 +129,7 @@
                                 <MenuItem x:Name="cgBrighterHex" Header="Copy Hex To Clipboard" Click="cgBrighterHex_Click"/>
                                 <MenuItem x:Name="cgBrighterRGB" Header="Copy RGB To Clipboard" Click="cgBrighterRGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgBrighterQL">
                                     <MenuItem x:Name="qlBrighterFirst" Header="First Theme Colour" Click="qlBrighterFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrighterSecond" Header="Second Theme Colour" Click="qlBrighterSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrighterThird" Header="Third Theme Colour" Click="qlBrighterThird_Click"></MenuItem>
@@ -148,7 +148,7 @@
                                 <MenuItem x:Name="cgDarkHex" Header="Copy Hex To Clipboard" Click="cgDarkHex_Click"/>
                                 <MenuItem x:Name="cgDarkRGB" Header="Copy RGB To Clipboard" Click="cgDarkRGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgDarkQL">
                                     <MenuItem x:Name="qlDarkFirst" Header="First Theme Colour" Click="qlDarkFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkSecond" Header="Second Theme Colour" Click="qlDarkSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkThird" Header="Third Theme Colour" Click="qlDarkThird_Click"></MenuItem>
@@ -167,7 +167,7 @@
                                 <MenuItem x:Name="cgDarkerHex" Header="Copy Hex To Clipboard" Click="cgDarkerHex_Click"/>
                                 <MenuItem x:Name="cgDarkerRGB" Header="Copy RGB To Clipboard" Click="cgDarkerGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgDarkerQL">
                                     <MenuItem x:Name="qlDarkerFirst" Header="First Theme Colour" Click="qlDarkerFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkerSecond" Header="Second Theme Colour" Click="qlDarkerSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkerThird" Header="Third Theme Colour" Click="qlDarkerThird_Click"></MenuItem>
@@ -186,7 +186,7 @@
                                 <MenuItem x:Name="cgDarkestHex" Header="Copy Hex To Clipboard" Click="cgDarkestHex_Click"/>
                                 <MenuItem x:Name="cgDarkestRGB" Header="Copy RGB To Clipboard" Click="cgDarkestRGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgDarkestQL">
                                     <MenuItem x:Name="qlDarkestFirst" Header="First Theme Colour" Click="qlDarkestFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkestSecond" Header="Second Theme Colour" Click="qlDarkestSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlDarkestThird" Header="Third Theme Colour" Click="qlDarkestThird_Click"></MenuItem>
@@ -205,7 +205,7 @@
                                 <MenuItem x:Name="cgBrightestHex" Header="Copy Hex To Clipboard" Click="cgBrightestHex_Click"/>
                                 <MenuItem x:Name="cgBrightestRGB" Header="Copy RGB To Clipboard" Click="cgBrightestGB_Click"/>
                                 <Separator></Separator>
-                                <MenuItem Header="Quick Load">
+                                <MenuItem Header="Quick Load" x:Name="cgBrightestQL">
                                     <MenuItem x:Name="qlBrightestFirst" Header="First Theme Colour" Click="qlBrightestFirst_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrightestSecond" Header="Second Theme Colour" Click="qlBrightestSecond_Click"></MenuItem>
                                     <MenuItem x:Name="qlBrightestThird" Header="Third Theme Colour" Click="qlBrightestThird_Click"></MenuItem>
