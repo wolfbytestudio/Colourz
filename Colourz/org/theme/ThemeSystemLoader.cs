@@ -30,7 +30,7 @@ namespace Colourz.Controls.Custom_Theme
                 Console.WriteLine(segment.Length);
                 for (int i = 0; i < segment.Length - 1; i++)
                 {
-                    string[] parts = text.Split(':');
+                    string[] parts = segment[i].Split(':');
 
                     owner.themes.Add(new Theme(parts[0], parts[1],
                         new components.HoverableComponent(parts[2], parts[3]),

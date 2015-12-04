@@ -1830,12 +1830,17 @@ namespace Colourz
 
         private void resetLanguageImages()
         {
-            imgFrenchLan.Opacity = .25;
+            //Working languages
             imgUkLan.Opacity = .25;
-            imgItalyLan.Opacity = .25;
-            imgGermanLan.Opacity = .25;
-            imgRussiaLan.Opacity = .25;
             imgSpanishLan.Opacity = .25;
+            imgRussiaLan.Opacity = .25;
+
+            //Not working
+            imgFrenchLan.Opacity = .05;
+            imgItalyLan.Opacity = .05;
+            imgGermanLan.Opacity = .05;
+
+
         }
 
         private void imgSpanishLan_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1880,6 +1885,38 @@ namespace Colourz
             imgUkLan.Opacity = 1;
             language.language = Org.language.Language.ENGLISH;
             language.updateLanguage();
+        }
+
+        private void imgRussiaLan_MouseUp(object sender, MouseButtonEventArgs e)
+        {
+            resetLanguageImages();
+            imgRussiaLan.Opacity = 1;
+            language.language = Org.language.Language.RUSSIAN;
+            language.updateLanguage();
+        }
+
+        private void imgRussiaLan_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            imgRussiaLan.Opacity = .75;
+        }
+
+        private void imgRussiaLan_MouseEnter(object sender, MouseEventArgs e)
+        {
+            if (language.language == Org.language.Language.RUSSIAN)
+            {
+                return;
+            }
+            imgRussiaLan.Opacity = .75;
+        }
+
+        private void imgRussiaLan_MouseLeave(object sender, MouseEventArgs e)
+        {
+
+            if (language.language == Org.language.Language.RUSSIAN)
+            {
+                return;
+            }
+            imgRussiaLan.Opacity = .25;
         }
 
         /// <summary>

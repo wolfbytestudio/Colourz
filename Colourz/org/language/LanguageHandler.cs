@@ -130,6 +130,115 @@ namespace Colourz.Org.language
                 owner.cmdCTReset.Content = "Reset";
 
             }
+            else if(language == Language.RUSSIAN)
+            {
+                owner.lblColourGenerator.Text = "Цвет Генератор";
+                owner.lblColourTheme.Text = "Цвет тема";
+                owner.lblColourPicker.Text = "Цвет Выбор";
+                owner.lblColourWheel.Text = "Цвет колеса";
+                owner.lblSavedColours.Text = "Сохраненные Цвета";
+                owner.lblSettings.Text = "настройки";
+                owner.lblSTheme.Content = "тема: ";
+                owner.cmdThemeEditor.Content = "тема редактор";
+                owner.chbSAnimations.Content = " Отключить анимацию боковой панели";
+                owner.lblSSidePanelSColour.Content = "Боковая панель выбран цвет:";
+
+                owner.cmdSelectAll.Content = "Выбрать все";
+                owner.cmdSCDeleteSelected.Content = "Удалить выбранное";
+                owner.cmdDeselectAll.Content = "Убрать выделение со всего";
+                owner.cmdSCClear.Content = "Очистить";
+                owner.lblLanguages.Text = "Языки";
+                owner.txtSSelectorColour.Margin = new System.Windows.Thickness(
+                258, 84, 0, 0);
+
+                owner.lblCWSave1.Text = "F5, чтобы сохранить этот цвет";
+                owner.lblCWSave1.FontSize = 14;
+                owner.lblCWSave2.Text = "F6, чтобы сохранить этот цвет";
+                owner.lblCWSave2.FontSize = 14;
+                owner.lblCWSave3.Text = "F4, чтобы сохранить этот цвет";
+                owner.lblCWSave3.FontSize = 14;
+                owner.cmdCGSaveColour.Content = "Сохранить Цвет (F5)";
+                owner.cmdCGReset.Content = "Сброс";
+
+                owner.cgNormal.Header = "Сохранить Цвет";
+                owner.cgDarkSave.Header = "Сохранить Цвет";
+                owner.cgDarkerSave.Header = "Сохранить Цвет";
+                owner.cgDarkestSave.Header = "Сохранить Цвет";
+                owner.cgLightMenu.Header = "Сохранить Цвет";
+                owner.cgBrighter.Header = "Сохранить Цвет";
+                owner.cgLightest.Header = "Сохранить Цвет";
+
+                owner.cgNormalHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgDarkHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgDarkerHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgDarkestHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgBrightHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgBrighterHex.Header = "Копировать в буфер обмена HEX";
+                owner.cgBrightestHex.Header = "Копировать в буфер обмена HEX";
+
+                owner.cgNormalRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgBrightRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgBrighterRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgBrightestRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgDarkRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgDarkerRGB.Header = "Скопируйте в буфер обмена RGB";
+                owner.cgDarkestRGB.Header = "Скопируйте в буфер обмена RGB";
+
+                owner.cgNormalQL.Header = "Быстрая загрузка";
+                owner.cgBrightQL.Header = "Быстрая загрузка";
+                owner.cgBrighterQL.Header = "Быстрая загрузка";
+                owner.cgBrightestQL.Header = "Быстрая загрузка";
+                owner.cgDarkQL.Header = "Быстрая загрузка";
+                owner.cgDarkerQL.Header = "Быстрая загрузка";
+                owner.cgDarkestQL.Header = "Быстрая загрузка";
+
+                owner.qlNormalFirst.Header = "Первая тематическая цвет";
+                owner.qlDarkFirst.Header = "Первая тематическая цвет";
+                owner.qlDarkerFirst.Header = "Первая тематическая цвет";
+                owner.qlDarkestFirst.Header = "Первая тематическая цвет";
+                owner.qlBrightFirst.Header = "Первая тематическая цвет";
+                owner.qlBrighterFirst.Header = "Первая тематическая цвет";
+                owner.qlBrightestFirst.Header = "Первая тематическая цвет";
+
+                owner.qlNormalSecond.Header = "Первая тематическая цвет";
+                owner.qlDarkSecond.Header = "Первая тематическая цвет";
+                owner.qlDarkerSecond.Header = "Первая тематическая цвет";
+                owner.qlDarkestSecond.Header = "Первая тематическая цвет";
+                owner.qlBrightSecond.Header = "Первая тематическая цвет";
+                owner.qlBrighterSecond.Header = "Первая тематическая цвет";
+                owner.qlBrightestSecond.Header = "Первая тематическая цвет";
+
+                owner.qlNormalThird.Header = "В-третьих цветная тема";
+                owner.qlDarkThird.Header = "В-третьих цветная тема";
+                owner.qlDarkerThird.Header = "В-третьих цветная тема";
+                owner.qlDarkestThird.Header = "В-третьих цветная тема";
+                owner.qlBrightThird.Header = "В-третьих цветная тема";
+                owner.qlBrighterThird.Header = "В-третьих цветная тема";
+                owner.qlBrightestThird.Header = "В-третьих цветная тема";
+
+                owner.qlNormalFourth.Header = "В-четвертых цвет темы";
+                owner.qlDarkFourth.Header = "В-четвертых цвет темы";
+                owner.qlDarkerFourth.Header = "В-четвертых цвет темы";
+                owner.qlDarkestFourth.Header = "В-четвертых цвет темы";
+                owner.qlBrightFourth.Header = "В-четвертых цвет темы";
+                owner.qlBrighterFourth.Header = "В-четвертых цвет темы";
+                owner.qlBrightestFourth.Header = "В-четвертых цвет темы";
+
+                owner.qlNormalFifth.Header = "Пятый цвет темы";
+                owner.qlDarkFifth.Header = "Пятый цвет темы";
+                owner.qlDarkerFifth.Header = "Пятый цвет темы";
+                owner.qlDarkestFifth.Header = "Пятый цвет темы";
+                owner.qlBrightFifth.Header = "Пятый цвет темы";
+                owner.qlBrighterFifth.Header = "Пятый цвет темы";
+                owner.qlBrightestFifth.Header = "Пятый цвет темы";
+
+                owner.cmdColourPickerStart.Content = "Начните выбора цвета";
+
+                owner.cmdCTClear.Content = "Очистить Темы";
+                owner.cmdSaveTheme.Content = "Сохранить тему";
+
+                owner.cmdCTReset.Content = "Сброс";
+            }
             else if (language == Language.SPANISH)
             {
 

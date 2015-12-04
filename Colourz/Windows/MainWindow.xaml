@@ -11,7 +11,7 @@
         <Image x:Name="cmdMinimize" HorizontalAlignment="Left" Height="16" Margin="887,6,0,0" VerticalAlignment="Top" Width="16" Source="/Colourz;component/Resource/minimize_normal.png" MouseEnter="cmdMinimize_MouseEnter" MouseLeave="cmdMinimize_MouseLeave" MouseDown="cmdMinimize_MouseDown" MouseUp="cmdMinimize_MouseUp"/>
         <Image x:Name="cmdExit" HorizontalAlignment="Left" Height="16" Margin="908,6,0,0" VerticalAlignment="Top" Width="16" Source="/Colourz;component/Resource/exit_normal.png" MouseDown="cmdExit_MouseDown" MouseEnter="cmdExit_MouseEnter" MouseLeave="cmdExit_MouseLeave" MouseUp="cmdExit_MouseUp"/>
         <Rectangle x:Name="recSideBar" Fill="#FF1E2024" HorizontalAlignment="Left" Height="520" Margin="0,40,0,0" VerticalAlignment="Top" Width="196"/>
-        <Rectangle x:Name="recSeperateTitle" Fill="#FF0F0F0F" HorizontalAlignment="Left" Height="1" Margin="0,39,0,0" VerticalAlignment="Top" Width="930"/>
+        <Rectangle x:Name="recSeperateTitle" Fill="#FF0F0F0F" HorizontalAlignment="Left" Height="2" Margin="0,38,0,0" VerticalAlignment="Top" Width="930"/>
 
         <Rectangle x:Name="recSelected" Fill="#FF282A2E" HorizontalAlignment="Left" Height="37" Margin="6,48,0,0" VerticalAlignment="Top" Width="190"/>
         <Rectangle x:Name="recSelectedColour" Fill="#FF2163E6" HorizontalAlignment="Left" Height="37" Margin="2,48,0,0" VerticalAlignment="Top" Width="4"/>
@@ -281,10 +281,10 @@
                     <Button x:Name="cmdThemeEditor" Content="Theme Editor" HorizontalAlignment="Left" Margin="242,3,0,0" VerticalAlignment="Top" Width="160" Click="cmdThemeEditor_Click" Height="35" FontSize="16"/>
                     <Image x:Name="imgUkLan" HorizontalAlignment="Left" Height="50" Margin="199,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/uk.png" MouseDown="imgUkLan_MouseDown" MouseEnter="imgUkLan_MouseEnter" MouseLeave="imgUkLan_MouseLeave" MouseUp="imgUkLan_MouseUp"/>
                     <Image x:Name="imgSpanishLan" HorizontalAlignment="Left" Height="50" Margin="254,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/spanish.png" Opacity="0.25" MouseEnter="imgSpanishLan_MouseEnter" MouseLeave="imgSpanishLan_MouseLeave" MouseDown="imgSpanishLan_MouseDown" MouseUp="imgSpanishLan_MouseUp"/>
-                    <Image x:Name="imgFrenchLan" HorizontalAlignment="Left" Height="50" Margin="309,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/french.png" Opacity="0.25"/>
-                    <Image x:Name="imgItalyLan" HorizontalAlignment="Left" Height="50" Margin="364,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/italy.png" Opacity="0.25"/>
-                    <Image x:Name="imgGermanLan" HorizontalAlignment="Left" Height="50" Margin="419,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/german.png" Opacity="0.25"/>
-                    <Image x:Name="imgRussiaLan" HorizontalAlignment="Left" Height="50" Margin="474,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/russia.png" Opacity="0.25"/>
+                    <Image x:Name="imgFrenchLan" HorizontalAlignment="Left" Height="50" Margin="474,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/french.png" Opacity="0.05"/>
+                    <Image x:Name="imgItalyLan" HorizontalAlignment="Left" Height="50" Margin="364,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/italy.png" Opacity="0.05"/>
+                    <Image x:Name="imgGermanLan" HorizontalAlignment="Left" Height="50" Margin="419,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/german.png" Opacity="0.05"/>
+                    <Image x:Name="imgRussiaLan" HorizontalAlignment="Left" Height="50" Margin="309,431,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/russia.png" Opacity="0.25" MouseUp="imgRussiaLan_MouseUp" MouseDown="imgRussiaLan_MouseDown" MouseEnter="imgRussiaLan_MouseEnter" MouseLeave="imgRussiaLan_MouseLeave"/>
                     <TextBlock x:Name="lblLanguages" HorizontalAlignment="Left" Margin="199,364,0,0" TextWrapping="Wrap" Text="Languages" VerticalAlignment="Top" Height="62" Width="325" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Segoe UI Light"/>
                 </Grid>
 
