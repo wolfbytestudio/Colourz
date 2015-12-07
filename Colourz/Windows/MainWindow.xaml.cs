@@ -1,5 +1,6 @@
 ﻿using Colourz.Controls;
 using Colourz.Controls.Custom_Theme;
+using Colourz.Org;
 using Colourz.Org.language;
 using Colourz.resource;
 using Colourz.window;
@@ -140,7 +141,12 @@ namespace Colourz
         /// </summary>
         private Image lastSelected;
 
-        public LanguageHandler language;
+        /// <summary>
+        /// Language handler object
+        /// </summary>
+        public LanguageHandler lngHandler;
+
+        public Settings settings;
 
         /// <summary>
         /// Updates the theme (Temporary)
@@ -213,8 +219,8 @@ namespace Colourz
 
 
             theme = new ThemeSystem();
-
             InitializeComponent();
+
             tab.selected = 0;
             tab.owner = this;
 
@@ -252,7 +258,11 @@ namespace Colourz
             savedTheme.load();
             lastSelected = imgSelector1;
             populateThemeList();
-            language = new LanguageHandler(this);
+            lngHandler = new LanguageHandler(this);
+
+
+            settings = new Settings(this);
+            settings.load();
         }
         #endregion
 
@@ -415,7 +425,7 @@ namespace Colourz
         private void recSettings_MouseLeave(object sender, MouseEventArgs e)
         {
             if (tab.selected == 5) { return; }
-            lblSettings.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.HoverText));
+            lblSettings.Foreground = new SolidColorBrush(getColourForHex(theme.currentTheme.SideText.DefaultText));
             shouldSelect = false;
         }
 
@@ -932,18 +942,6 @@ namespace Colourz
                 }
 
                 updateCGColour();
-            }
-        }
-
-        private void chbSAnimations_Click(object sender, RoutedEventArgs e)
-        {
-            if(chbSAnimations.IsChecked.Equals(true))
-            {
-                Animation.disableAnimation = true;
-            }
-            else
-            {
-                Animation.disableAnimation = false;
             }
         }
 
@@ -1812,7 +1810,7 @@ namespace Colourz
 
         private void imgSpanishLan_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (language.language == Org.language.Language.SPANISH)
+            if (lngHandler.language == Org.language.Language.SPANISH)
             {
                 return;
             }
@@ -1822,13 +1820,13 @@ namespace Colourz
         private void imgSpanishLan_MouseLeave(object sender, MouseEventArgs e)
         {
             imgSpanishLan.Opacity = .25;
-            if(language.language == Org.language.Language.SPANISH)
+            if(lngHandler.language == Org.language.Language.SPANISH)
             {
                 imgSpanishLan.Opacity = 1;
             }
         }
 
-        private void resetLanguageImages()
+        public void resetLanguageImages()
         {
             //Working languages
             imgUkLan.Opacity = .25;
@@ -1852,8 +1850,8 @@ namespace Colourz
         {
             resetLanguageImages();
             imgSpanishLan.Opacity = 1;
-            language.language = Org.language.Language.SPANISH;
-            language.updateLanguage();
+            lngHandler.language = Org.language.Language.SPANISH;
+            lngHandler.updateLanguage();
         }
 
         private void imgUkLan_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1863,7 +1861,7 @@ namespace Colourz
 
         private void imgUkLan_MouseEnter(object sender, MouseEventArgs e)
         {
-            if(language.language == Org.language.Language.ENGLISH)
+            if(lngHandler.language == Org.language.Language.ENGLISH)
             {
                 return;
             }
@@ -1873,7 +1871,7 @@ namespace Colourz
         private void imgUkLan_MouseLeave(object sender, MouseEventArgs e)
         {
             imgUkLan.Opacity = .25;
-            if (language.language == Org.language.Language.ENGLISH)
+            if (lngHandler.language == Org.language.Language.ENGLISH)
             {
                 imgUkLan.Opacity = 1;
             }
@@ -1883,16 +1881,16 @@ namespace Colourz
         {
             resetLanguageImages();
             imgUkLan.Opacity = 1;
-            language.language = Org.language.Language.ENGLISH;
-            language.updateLanguage();
+            lngHandler.language = Org.language.Language.ENGLISH;
+            lngHandler.updateLanguage();
         }
 
         private void imgRussiaLan_MouseUp(object sender, MouseButtonEventArgs e)
         {
             resetLanguageImages();
             imgRussiaLan.Opacity = 1;
-            language.language = Org.language.Language.RUSSIAN;
-            language.updateLanguage();
+            lngHandler.language = Org.language.Language.RUSSIAN;
+            lngHandler.updateLanguage();
         }
 
         private void imgRussiaLan_MouseDown(object sender, MouseButtonEventArgs e)
@@ -1902,7 +1900,7 @@ namespace Colourz
 
         private void imgRussiaLan_MouseEnter(object sender, MouseEventArgs e)
         {
-            if (language.language == Org.language.Language.RUSSIAN)
+            if (lngHandler.language == Org.language.Language.RUSSIAN)
             {
                 return;
             }
@@ -1912,7 +1910,7 @@ namespace Colourz
         private void imgRussiaLan_MouseLeave(object sender, MouseEventArgs e)
         {
 
-            if (language.language == Org.language.Language.RUSSIAN)
+            if (lngHandler.language == Org.language.Language.RUSSIAN)
             {
                 return;
             }
@@ -1937,5 +1935,21 @@ namespace Colourz
 
             return Color.FromRgb(finalRed,finalGreen,finalBlue);
         }
+
+        private void frmMain_Closed(object sender, EventArgs e)
+        {
+            settings.save();
+        }
+
+        private void chbSAnimations_Checked(object sender, RoutedEventArgs e)
+        {
+            Animation.disableAnimation = true;
+        }
+
+        private void chbSAnimations_Unchecked(object sender, RoutedEventArgs e)
+        {
+            Animation.disableAnimation = false;
+        }
+
     }
 }

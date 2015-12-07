@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:Controls="clr-namespace:Colourz"
         xmlns:resource="clr-namespace:Colourz.resource" x:Name="frmMain" x:Class="Colourz.MainWindow"
-        Title="Colourz" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None" KeyDown="frmMain_KeyDown" Icon="/Colourz;component/Resource/colourz-iconx256.ico">
+        Title="Colourz" Height="560" Width="930" ResizeMode="NoResize" WindowStyle="None" KeyDown="frmMain_KeyDown" Icon="/Colourz;component/Resource/colourz-iconx256.ico" Closed="frmMain_Closed">
     <Grid x:Name="gridMain" Background="#FF0A0B0D" MouseUp="gridMain_MouseUp" MouseMove="gridMain_MouseMove">
 
         <Rectangle x:Name="recTitleBar" Fill="#FF1E2024" HorizontalAlignment="Left" Height="40" VerticalAlignment="Top" Width="930" MouseDown="recTitleBar_MouseDown"/>
@@ -49,14 +49,14 @@
                     <Rectangle x:Name="recColour3" Fill="#FFFF74F8" HorizontalAlignment="Left" Height="200" Margin="57,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Slider x:Name="sldCWBrightness3" HorizontalAlignment="Left" Margin="57,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness3_ValueChanged"/>
                     <TextBlock x:Name="lblCW3RGB" Text="RGB: 255, 116, 248" HorizontalAlignment="Left" Margin="57,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center" MouseEnter="lblCW3RGB_MouseEnter" MouseLeave="lblCW3RGB_MouseLeave" MouseDown="lblCW3RGB_MouseDown"/>
-                    <TextBlock x:Name="lblCW3HEX" Text="HEX: #FF74F8" HorizontalAlignment="Left" Margin="57,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center" MouseDown="lblCW3HEX_MouseDown" MouseEnter="lblCW3HEX_MouseEnter" MouseLeave="lblCW3HEX_MouseLeave"/>
+                    <TextBlock x:Name="lblCW3HEX" HorizontalAlignment="Left" Margin="57,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center" MouseDown="lblCW3HEX_MouseDown" MouseEnter="lblCW3HEX_MouseEnter" MouseLeave="lblCW3HEX_MouseLeave"><Run Text="H"/><Run Language="en-gb" Text="ex"/><Run Text=": #FF74F8"/></TextBlock>
                     <TextBlock x:Name="lblCWSave3" Text="Press F4 To save this colour" HorizontalAlignment="Left" Margin="18,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="258" Height="31" TextAlignment="Center"/>
 
                     <Rectangle x:Name="recBackground2" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Rectangle x:Name="recColour2" Fill="#FFD7FFD7" HorizontalAlignment="Left" Height="200" Margin="505,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Slider x:Name="sldCWBrightness2" HorizontalAlignment="Left" Margin="505,367,0,0" VerticalAlignment="Top" Width="204" Maximum="100" Value="100" SmallChange="5" ValueChanged="sldCWBrightness2_ValueChanged"/>
                     <TextBlock x:Name="lblCW2RGB" Text="RGB: 215, 255, 215" HorizontalAlignment="Left" Margin="505,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
-                    <TextBlock x:Name="lblCW2HEX" Text="HEX: #D7FFD7" HorizontalAlignment="Left" Margin="505,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCW2HEX" HorizontalAlignment="Left" Margin="505,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"><Run Text="H"/><Run Language="en-gb" Text="ex"/><Run Text=": #D7FFD7"/></TextBlock>
                     <TextBlock x:Name="lblCWSave2" Text="Press F6 To save this colour" HorizontalAlignment="Left" Margin="505,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="218" Height="31" TextAlignment="Center"/>
 
 
@@ -64,7 +64,7 @@
                     <Rectangle x:Name="recBackground1" Fill="Black" HorizontalAlignment="Left" Height="200" Margin="281,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <Rectangle x:Name="recColour1" Fill="White" HorizontalAlignment="Left" Height="200" Margin="281,162,0,0" VerticalAlignment="Top" Width="204"/>
                     <TextBlock x:Name="lblCW1RGB" Text="RGB: 255, 255, 255" HorizontalAlignment="Left" Margin="281,390,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="26" TextAlignment="Center"/>
-                    <TextBlock x:Name="lblCW1HEX" Text="HEX: #FFFFFF" HorizontalAlignment="Left" Margin="281,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"/>
+                    <TextBlock x:Name="lblCW1HEX" HorizontalAlignment="Left" Margin="281,421,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="204" Height="25" TextAlignment="Center"><Run Text="H"/><Run Language="en-gb" Text="ex"/><Run Text=": #FFFFFF"/></TextBlock>
                     <TextBlock x:Name="lblCWSave1" Text="Press F5 To save this colour" HorizontalAlignment="Left" Margin="276,451,0,0" VerticalAlignment="Top" Foreground="#FFEEEFF2" FontSize="16" Width="229" Height="31" TextAlignment="Center"/>
 
                     <Image x:Name="imgWheel" HorizontalAlignment="Left" Height="319" Margin="221,0,0,0" VerticalAlignment="Top" Width="321" Source="/Colourz;component/Resource/colour_wheel.png" MouseMove="imgWheel_MouseMove" MouseUp="imgWheel_MouseUp" MouseDown="imgWheel_MouseDown"/>
@@ -275,17 +275,17 @@
 
                     </ComboBox>
                     <Label x:Name="lblSTheme" Content="Theme:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="74" Background="{x:Null}" Foreground="#FFA6A7AA"/>
-                    <CheckBox x:Name="chbSAnimations" Content=" Disable side panel animations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFA6A7AA" Width="424" Click="chbSAnimations_Click"/>
+                    <CheckBox x:Name="chbSAnimations" Content=" Disable side panel animations" HorizontalAlignment="Left" Margin="10,50,0,0" VerticalAlignment="Top" FontSize="18" Foreground="#FFA6A7AA" Width="424" Checked="chbSAnimations_Checked" Unchecked="chbSAnimations_Unchecked"/>
                     <TextBox x:Name="txtSSelectorColour" HorizontalAlignment="Left" Height="30" Margin="234,82,0,0" TextWrapping="Wrap" Text="2163E6" VerticalAlignment="Top" Width="125" FontSize="16" Background="#FF2E2E2E" BorderBrush="#FFA8A9AE" Foreground="#FFEEEFF2" SpellCheck.IsEnabled="True" TextAlignment="Center" TextChanged="txtSSelectorColour_TextChanged" TabIndex="2147483643" MaxLength="7"/>
                     <Label x:Name="lblSSidePanelSColour" Content="Side panel selected colour:" HorizontalAlignment="Left" VerticalAlignment="Top" FontSize="18" Width="304" Background="{x:Null}" Foreground="#FFA6A7AA" Margin="0,78,0,0"/>
                     <Button x:Name="cmdThemeEditor" Content="Theme Editor" HorizontalAlignment="Left" Margin="242,3,0,0" VerticalAlignment="Top" Width="160" Click="cmdThemeEditor_Click" Height="35" FontSize="16"/>
                     <Image x:Name="imgUkLan" HorizontalAlignment="Left" Height="50" Margin="199,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/uk.png" MouseDown="imgUkLan_MouseDown" MouseEnter="imgUkLan_MouseEnter" MouseLeave="imgUkLan_MouseLeave" MouseUp="imgUkLan_MouseUp"/>
                     <Image x:Name="imgSpanishLan" HorizontalAlignment="Left" Height="50" Margin="254,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/spanish.png" Opacity="0.25" MouseEnter="imgSpanishLan_MouseEnter" MouseLeave="imgSpanishLan_MouseLeave" MouseDown="imgSpanishLan_MouseDown" MouseUp="imgSpanishLan_MouseUp"/>
-                    <Image x:Name="imgFrenchLan" HorizontalAlignment="Left" Height="50" Margin="474,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/french.png" Opacity="0.05"/>
-                    <Image x:Name="imgItalyLan" HorizontalAlignment="Left" Height="50" Margin="364,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/italy.png" Opacity="0.05"/>
-                    <Image x:Name="imgGermanLan" HorizontalAlignment="Left" Height="50" Margin="419,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/german.png" Opacity="0.05"/>
+                    <Image x:Name="imgFrenchLan" HorizontalAlignment="Left" Height="50" Margin="474,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/french.png" Opacity="0.12"/>
+                    <Image x:Name="imgItalyLan" HorizontalAlignment="Left" Height="50" Margin="364,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/italy.png" Opacity="0.12"/>
+                    <Image x:Name="imgGermanLan" HorizontalAlignment="Left" Height="50" Margin="419,432,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/german.png" Opacity="0.12"/>
                     <Image x:Name="imgRussiaLan" HorizontalAlignment="Left" Height="50" Margin="309,431,0,0" VerticalAlignment="Top" Width="50" Source="/Colourz;component/Resource/russia.png" Opacity="0.25" MouseUp="imgRussiaLan_MouseUp" MouseDown="imgRussiaLan_MouseDown" MouseEnter="imgRussiaLan_MouseEnter" MouseLeave="imgRussiaLan_MouseLeave"/>
-                    <TextBlock x:Name="lblLanguages" HorizontalAlignment="Left" Margin="199,364,0,0" TextWrapping="Wrap" Text="Languages" VerticalAlignment="Top" Height="62" Width="325" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Segoe UI Light"/>
+                    <TextBlock x:Name="lblLanguages" HorizontalAlignment="Left" Margin="-11,364,0,0" TextWrapping="Wrap" Text="Languages" VerticalAlignment="Top" Height="62" Width="730" Foreground="White" TextAlignment="Center" FontSize="40" FontFamily="Segoe UI Light"/>
                 </Grid>
 
             </TabItem>

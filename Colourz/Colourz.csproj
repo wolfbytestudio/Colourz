@@ -61,6 +61,7 @@
     </ApplicationDefinition>
     <Compile Include="Org\language\Language.cs" />
     <Compile Include="Org\language\LanguageHandler.cs" />
+    <Compile Include="Org\Settings.cs" />
     <Compile Include="Org\theme\component\HoverableComponent.cs" />
     <Compile Include="Org\theme\Theme.cs" />
     <Compile Include="Org\theme\ThemeSystem.cs" />

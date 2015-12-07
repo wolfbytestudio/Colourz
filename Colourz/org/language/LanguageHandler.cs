@@ -20,8 +20,11 @@ namespace Colourz.Org.language
 
         public void updateLanguage()
         {
+            owner.resetLanguageImages();
             if (language == Language.ENGLISH)
             {
+                owner.imgUkLan.Opacity = 1;
+
                 owner.lblColourGenerator.Text = "Colour Generator";
                 owner.lblColourTheme.Text = "Colour Theme";
                 owner.lblColourPicker.Text = "Colour Picker";
@@ -132,6 +135,8 @@ namespace Colourz.Org.language
             }
             else if(language == Language.RUSSIAN)
             {
+                owner.imgRussiaLan.Opacity = 1;
+
                 owner.lblColourGenerator.Text = "Цвет Генератор";
                 owner.lblColourTheme.Text = "Цвет тема";
                 owner.lblColourPicker.Text = "Цвет Выбор";
@@ -241,6 +246,9 @@ namespace Colourz.Org.language
             }
             else if (language == Language.SPANISH)
             {
+
+                owner.imgSpanishLan.Opacity = 1;
+
 
                 owner.cmdCTReset.Content = "Reiniciar";
 
