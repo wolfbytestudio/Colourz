@@ -27,84 +27,91 @@ namespace Colourz.Org
         {
             check();
 
-            System.IO.StreamReader file = new System.IO.StreamReader(pathFile, true);
-
-            string line;
-
-            while ((line = file.ReadLine()) != null)
+            try
             {
-               if(line.StartsWith("lan: "))
-               {
-                   string lan = line.Split(' ')[1];
-                   try
-                   {
-                       owner.lngHandler.language = (Language)Enum.Parse(typeof(Language), lan, true);
-                       owner.lngHandler.updateLanguage();
-                   }
-                   catch
-                   {
-                       owner.lngHandler.language = Language.ENGLISH;
-                       owner.lngHandler.updateLanguage();
-                   }
+                System.IO.StreamReader file = new System.IO.StreamReader(pathFile, true);
 
-               }
+                string line;
 
-               if (line.StartsWith("themeindex: "))
-               {
-                   string seg = line.Split(' ')[1];
+                while ((line = file.ReadLine()) != null)
+                {
+                    if (line.StartsWith("lan: "))
+                    {
+                        string lan = line.Split(' ')[1];
+                        try
+                        {
+                            owner.lngHandler.language = (Language)Enum.Parse(typeof(Language), lan, true);
+                            owner.lngHandler.updateLanguage();
+                        }
+                        catch
+                        {
+                            owner.lngHandler.language = Language.ENGLISH;
+                            owner.lngHandler.updateLanguage();
+                        }
 
-                   try
-                   {
-                       owner.cmbTheme.SelectedIndex = int.Parse(seg);
-                   }
-                   catch
-                   {
-                       owner.cmbTheme.SelectedIndex = 0;
-                   }
-               }
+                    }
 
-               if (line.StartsWith("disablesideanimation: "))
-               {
-                   string seg = line.Split(' ')[1];
+                    if (line.StartsWith("themeindex: "))
+                    {
+                        string seg = line.Split(' ')[1];
 
-                   try
-                   {
-                       owner.chbSAnimations.IsChecked = bool.Parse(seg);
-                   }
-                   catch
-                   {
-                       owner.chbSAnimations.IsChecked = false;
-                   }
-               }
+                        try
+                        {
+                            owner.cmbTheme.SelectedIndex = int.Parse(seg);
+                        }
+                        catch
+                        {
+                            owner.cmbTheme.SelectedIndex = 0;
+                        }
+                    }
 
-               if (line.StartsWith("sidepanelcolour: "))
-               {
-                   string seg = line.Split(' ')[1];
+                    if (line.StartsWith("disablesideanimation: "))
+                    {
+                        string seg = line.Split(' ')[1];
 
-                   try
-                   {
-                       owner.txtSSelectorColour.Text = seg;
-                   }
-                   catch
-                   {
-                       owner.txtSSelectorColour.Text = "2163E6";
-                   }
-               }
+                        try
+                        {
+                            owner.chbSAnimations.IsChecked = bool.Parse(seg);
+                        }
+                        catch
+                        {
+                            owner.chbSAnimations.IsChecked = false;
+                        }
+                    }
 
-               if (line.StartsWith("colourgen: "))
-               {
-                   string seg = line.Split(' ')[1];
+                    if (line.StartsWith("sidepanelcolour: "))
+                    {
+                        string seg = line.Split(' ')[1];
 
-                   try
-                   {
-                       owner.txtCGHex.Text = seg;
-                       owner.updateColourTextBoxes();
-                   }
-                   catch
-                   {
-                       owner.txtCGHex.Text = "#000000";
-                   }
-               }
+                        try
+                        {
+                            owner.txtSSelectorColour.Text = seg;
+                        }
+                        catch
+                        {
+                            owner.txtSSelectorColour.Text = "2163E6";
+                        }
+                    }
+
+                    if (line.StartsWith("colourgen: "))
+                    {
+                        string seg = line.Split(' ')[1];
+
+                        try
+                        {
+                            owner.txtCGHex.Text = seg;
+                            owner.updateColourTextBoxes();
+                        }
+                        catch
+                        {
+                            owner.txtCGHex.Text = "#000000";
+                        }
+                    }
+                }
+            }
+            catch
+            {
+
             }
 
         }
