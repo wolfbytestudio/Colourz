@@ -1,5 +1,6 @@
 ﻿using Colourz.Controls;
 using Colourz.Controls.Custom_Theme;
+using Colourz.org;
 using Colourz.Org;
 using Colourz.Org.language;
 using Colourz.resource;
@@ -8,6 +9,7 @@ using Colourz.Windows;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
@@ -218,7 +220,30 @@ namespace Colourz
         {
 
 
+            lngHandler = new LanguageHandler(this);
+
+            if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
+            {
+                Console.WriteLine("BSDHJBOSENH");
+                CultureInfo ci = CultureInfo.InstalledUICulture;
+                if (ci.TwoLetterISOLanguageName == "en")
+                {
+                    lngHandler.language = Org.language.Language.ENGLISH;
+                    
+                }
+                else if (ci.TwoLetterISOLanguageName == "es")
+                {
+                    lngHandler.language = Org.language.Language.SPANISH;
+
+                }
+                else if (ci.TwoLetterISOLanguageName == "ru")
+                {
+                    lngHandler.language = Org.language.Language.RUSSIAN;
+                }
+            }
+
             theme = new ThemeSystem();
+            
             InitializeComponent();
 
             tab.selected = 0;
@@ -251,18 +276,19 @@ namespace Colourz
             timerCT.Tick += timerCTEvent;
             timerCT.Interval = new TimeSpan(0, 0, 0, 0, 30);
 
+            lastSelected = imgSelector1;
+            populateThemeList();
+            
+
             colourzSave = new SavedColourzSaver(this, stkSavedColours);
             colourzSave.load();
 
             savedTheme = new SavedThemesSaver(this, CTThemes);
             savedTheme.load();
-            lastSelected = imgSelector1;
-            populateThemeList();
-            lngHandler = new LanguageHandler(this);
-
-
             settings = new Settings(this);
             settings.load();
+
+            lngHandler.updateLanguage();
         }
         #endregion
 
