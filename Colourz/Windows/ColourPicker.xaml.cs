@@ -12,8 +12,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
-using System.Windows.Threading;
-using System.Windows.Forms;
+using System.Threading;
+using System.Threading.Tasks;
 using Colourz.Controls;
 
 namespace Colourz.window
@@ -52,17 +52,36 @@ namespace Colourz.window
             return color;
         }
 
-        private DispatcherTimer dispatcherTimer = new DispatcherTimer();
+        private Timer timer;
 
         public ColourPicker()
         {
             InitializeComponent();
-            startColourPicking();
+            timer = new Timer(tick, null, 0, 100);
         }
 
-        private void recBackboard_MouseDown(object sender, MouseButtonEventArgs e)
+        private void tick(object state)
         {
+            this.Dispatcher.Invoke(() =>
+            {
+                System.Drawing.Color colour = getPixelColor(
+                System.Windows.Forms.Control.MousePosition.X,
+                System.Windows.Forms.Control.MousePosition.Y);
+                red = colour.R;
+                green = colour.G;
+                blue = colour.B;
+                recColour.Fill = new SolidColorBrush(Color.FromRgb(colour.R, colour.G, colour.B));
+                //owner.recCGColour.Fill = new SolidColorBrush(Color.FromRgb(red, green, blue));
 
+                owner.redSlider.setValue(red);
+                owner.txtCGRed.Text = red.ToString();
+
+                owner.greenSlider.setValue(green);
+                owner.txtCGGreen.Text = green.ToString();
+
+                owner.blueSlider.setValue(blue);
+                owner.txtCGBlue.Text = blue.ToString();
+            });
         }
 
         private void recColour_MouseDown(object sender, MouseButtonEventArgs e)
@@ -89,36 +108,7 @@ namespace Colourz.window
             
         }
 
-        private void startColourPicking()
-        {
-            dispatcherTimer.Tick += dispatcherTimer_Tick;
-            dispatcherTimer.Interval = new TimeSpan(0, 0, 0, 0, 30);
-            dispatcherTimer.Start();
-        }
-
         private System.Windows.Input.KeyEventArgs keyEvent;
-
-        private void dispatcherTimer_Tick(object sender, EventArgs e)
-        {
-
-            System.Drawing.Color colour = getPixelColor(
-                System.Windows.Forms.Control.MousePosition.X,
-                System.Windows.Forms.Control.MousePosition.Y);
-            red = colour.R;
-            green = colour.G;
-            blue = colour.B;
-            recColour.Fill = new SolidColorBrush(Color.FromRgb(colour.R, colour.G, colour.B));
-            //owner.recCGColour.Fill = new SolidColorBrush(Color.FromRgb(red, green, blue));
-
-            owner.redSlider.setValue(red);
-            owner.txtCGRed.Text = red.ToString();
-
-            owner.greenSlider.setValue(green);
-            owner.txtCGGreen.Text = green.ToString();
-
-            owner.blueSlider.setValue(blue);
-            owner.txtCGBlue.Text = blue.ToString();
-        }
 
         private byte red, green, blue;
 
@@ -131,7 +121,7 @@ namespace Colourz.window
         {
             if (e.Key == Key.F7)
             {
-                dispatcherTimer.Start();
+                timer = null;
                 this.Close();
             }
             if (e.Key == Key.F5)
@@ -154,24 +144,28 @@ namespace Colourz.window
         private void Window_Closed(object sender, EventArgs e)
         {
             ColourPicker.pickerShown = false;
-            dispatcherTimer.Stop();
-        }//90000
+            timer = null;
+        }
 
         private void lblBlock_MouseUp(object sender, MouseButtonEventArgs e)
         {
-            dispatcherTimer.Start();
+            timer = new Timer(tick, null, 0, 100);
         }
 
         private void Window_GotFocus(object sender, RoutedEventArgs e)
         {
-            dispatcherTimer.Start();
+            timer = new Timer(tick, null, 0, 100);
         }
 
         private void Window_LostFocus(object sender, RoutedEventArgs e)
         {
-            dispatcherTimer.Stop();
+            timer = null;
         }
 
+        private void recBackboard_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            this.DragMove();
+        }
 
     }
 }

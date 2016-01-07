@@ -44,24 +44,32 @@ namespace Colourz.Controls
             {
                 System.IO.File.Create(pathFile);
             }
-            System.IO.File.WriteAllBytes(pathFile, new byte[0]);
-            System.IO.StreamWriter file = new System.IO.StreamWriter(pathFile, true);
-
-            string saveText = "";
-            for (int i = 0; i < owner.Children.Count; i++)
+            try
             {
-                ColourTheme s = (ColourTheme)owner.Children[i];
+                System.IO.File.WriteAllBytes(pathFile, new byte[0]);
+                System.IO.StreamWriter file = new System.IO.StreamWriter(pathFile, true);
 
-                saveText += s.name + ":"
-                    + getHex(s.colours[0])
-                    + ":" + getHex(s.colours[1])
-                    + ":" + getHex(s.colours[2])
-                    + ":" + getHex(s.colours[3])
-                    + ":" + getHex(s.colours[4]) + ";";
+                string saveText = "";
+                for (int i = 0; i < owner.Children.Count; i++)
+                {
+                    ColourTheme s = (ColourTheme)owner.Children[i];
+
+                    saveText += s.name + ":"
+                        + getHex(s.colours[0])
+                        + ":" + getHex(s.colours[1])
+                        + ":" + getHex(s.colours[2])
+                        + ":" + getHex(s.colours[3])
+                        + ":" + getHex(s.colours[4]) + ";";
+                }
+                file.WriteLine(saveText);
+                file.Flush();
+                file.Close();
             }
-            file.WriteLine(saveText);
-            file.Flush();
-            file.Close();
+            catch
+            {
+
+            }
+            
         }
 
         public string getHex(Color c)

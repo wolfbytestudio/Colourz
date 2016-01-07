@@ -224,7 +224,6 @@ namespace Colourz
 
             if (!System.IO.Directory.Exists(Constants.CACHE_PATH))
             {
-                Console.WriteLine("BSDHJBOSENH");
                 CultureInfo ci = CultureInfo.InstalledUICulture;
                 if (ci.TwoLetterISOLanguageName == "en")
                 {
