@@ -1,0 +1,4 @@
+//Steel Theme
+//Preview: http://imgur.com/PrSczXO
+
+Steel:#384C66:#384C66:#EEEFF2:#B0C4DE:#B0C4DE:#889CB6:#60748E:#889CB6:#1F3D48:#002939:#384C66:#FFFFFF
